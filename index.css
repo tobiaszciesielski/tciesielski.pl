@@ -14,7 +14,7 @@ body {
   position: relative;
 }
 
-.logo {
+img {
   width: 150px;
 }
 
@@ -25,6 +25,3 @@ p {
   font-family: 'Courier New', Courier, monospace;
   color: #505050;
 }
-
-
-
