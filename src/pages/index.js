@@ -10,8 +10,7 @@ const Title = styled.h1`
   }
 `
 
-const IndexPage = () => {
-  return <Layout>
+const IndexPage = () => <Layout>
     <Title>Tobiasz Ciesielski</Title>
   </Layout>
 }
