@@ -1,4 +1,5 @@
 import React from 'react';
+import { propTypes } from 'prop-types';
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
@@ -8,12 +9,17 @@ const GlobalStyle = createGlobalStyle`
     min-height: 100%;
     background-color: #222;
   }
-`
+`;
 
-const Layout = ({ children }) => <React.Fragment>
-      <GlobalStyle/>
-      {children}
-  </React.Fragment>
-}
+const Layout = ({ children }) => (
+  <>
+    <GlobalStyle />
+    {children}
+  </>
+);
+
+Layout.propTypes = {
+  children: propTypes.oneOfType([propTypes.node, propTypes.shape(propTypes.node)]).isRequired,
+};
 
 export default Layout;
