@@ -1,8 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: "folder",
+    title: 'tciesielski.pl',
   },
-  plugins: [
-    `gatsby-plugin-styled-components`
-  ],
+  plugins: ['gatsby-plugin-styled-components'],
 };

@@ -5,7 +5,8 @@ import Layout from '../components/Layout';
 const Title = styled.h1`
   color: #fff;
   text-align: center;
-  &::first-letter {
+
+  ::first-letter {
     color: #00ffa3;
   }
 `;

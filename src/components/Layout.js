@@ -1,6 +1,7 @@
 import React from 'react';
-import { propTypes } from 'prop-types';
+import PropTypes from 'prop-types';
 import { createGlobalStyle } from 'styled-components';
+import Navbar from './Navbar';
 
 const GlobalStyle = createGlobalStyle`
   body, html {
@@ -14,12 +15,16 @@ const GlobalStyle = createGlobalStyle`
 const Layout = ({ children }) => (
   <>
     <GlobalStyle />
+    <Navbar />
     {children}
   </>
 );
 
 Layout.propTypes = {
-  children: propTypes.oneOfType([propTypes.node, propTypes.shape(propTypes.node)]).isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
 };
 
 export default Layout;
