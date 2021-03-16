@@ -8,13 +8,16 @@ const Hamburger = styled.span`
   background-color: white;
   z-index: 10;
 
+
   &::before {
     content: '';
     position: absolute;
     width: 32px;
     height: 3px;
     background-color: white;
-    transform: translateY(-10px);
+    transition: transform 0.3s ease;
+    transform: ${({ expanded }) =>
+      expanded ? 'translateY(10px)' : 'translateY(0px)'};
   }
 
   &::after {
@@ -23,7 +26,9 @@ const Hamburger = styled.span`
     width: 32px;
     height: 3px;
     background-color: white;
-    transform: translateY(10px);
+    transition: transform 0.3s ease;
+    transform: ${({ expanded }) =>
+      expanded ? 'translateY(-10px)' : 'translateY(0)'};
   }
 `;
 
@@ -37,7 +42,7 @@ const HamburgerBox = styled.span`
 
 const HamburgerMenu = ({ setExpanded, expanded }) => (
   <HamburgerBox onClick={() => setExpanded(!expanded)}>
-    <Hamburger />
+    <Hamburger expanded={expanded} />
   </HamburgerBox>
 );
 

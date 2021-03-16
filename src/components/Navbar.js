@@ -20,7 +20,7 @@ const Nav = styled.nav`
 
 const Navbar = () => {
   const [expanded, setExpanded] = useState('false')
-  console.log(expanded)
+
   return (
     <Nav>
       <Menu expanded={expanded}/>
