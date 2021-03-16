@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const StyledMenu = styled.ul`
   position: absolute;
@@ -13,8 +14,9 @@ const StyledMenu = styled.ul`
   align-items: center;
   flex-direction: column;
   background-color: ${({ theme }) => theme.colors.darker};
+  transform: ${({ expanded }) => expanded ? 'translateY(-100%)' : 'translateY(0)'};
 
-  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
 
   li {
     font-size: 1.2em;
@@ -28,8 +30,8 @@ const StyledMenu = styled.ul`
   }
 `;
 
-const Menu = () => (
-  <StyledMenu>
+const Menu = ({expanded}) => (
+  <StyledMenu expanded={expanded}>
     <Link to="/">
       <li>O MNIE</li>
     </Link>
@@ -44,5 +46,9 @@ const Menu = () => (
     </Link>
   </StyledMenu>
 );
+
+Menu.propTypes = {
+  expanded: PropTypes.bool.isRequired
+}
 
 export default Menu;

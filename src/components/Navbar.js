@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import LogoSVG from './LogoSVG';
 import HamburgerMenu from './Hamburger';
@@ -15,16 +15,17 @@ const Nav = styled.nav`
   flex-direction: row;
   justify-content: space-between;
   background-color: ${({ theme }) => theme.colors.darker};
+  z-index: 9000;
 `;
 
 const Navbar = () => {
-  const clickHandler = () => console.log('Clicked');
-
+  const [expanded, setExpanded] = useState('false')
+  console.log(expanded)
   return (
     <Nav>
-      <Menu />
+      <Menu expanded={expanded}/>
       <LogoSVG />
-      <HamburgerMenu onClick={clickHandler} />
+      <HamburgerMenu setExpanded={setExpanded} expanded={expanded}/>
     </Nav>
   );
 };

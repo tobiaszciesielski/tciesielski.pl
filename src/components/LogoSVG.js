@@ -14,7 +14,7 @@ const LogoSVG = ({ width }) => {
       viewBox="0 0 575 550"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      style={{ zIndex: 20 }}
+      style={{ zIndex: 9000 }}
     >
       <rect x="230" y="0.000245094" width="115" height="550" fill={primary} />
       <path

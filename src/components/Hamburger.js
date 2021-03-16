@@ -35,14 +35,15 @@ const HamburgerBox = styled.span`
   height: 25px;
 `;
 
-const HamburgerMenu = ({ onClick }) => (
-  <HamburgerBox onClick={onClick}>
+const HamburgerMenu = ({ setExpanded, expanded }) => (
+  <HamburgerBox onClick={() => setExpanded(!expanded)}>
     <Hamburger />
   </HamburgerBox>
 );
 
 HamburgerMenu.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  setExpanded: PropTypes.func.isRequired,
+  expanded: PropTypes.bool.isRequired,
 };
 
 export default HamburgerMenu;
