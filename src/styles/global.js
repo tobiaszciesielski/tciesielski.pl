@@ -4,8 +4,13 @@ const GlobalStyle = createGlobalStyle`
   body, html {
     margin: 0;  
     padding: 0;
-    min-height: 100vh;
-    background-color: #222;
+    background-color: ${({ theme }) => theme.colors.darker};
+  }
+
+  *, *:before, *:after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
   }
 `;
 

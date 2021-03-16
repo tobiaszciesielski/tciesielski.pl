@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import theme from '../styles/theme';
 
+// it is possible to use context if needed in future
+// https://styled-components.com/docs/advanced#via-usecontext-react-hook
+
 const LogoSVG = ({ width }) => {
   const { touch, primary } = theme.colors;
 
@@ -11,6 +14,7 @@ const LogoSVG = ({ width }) => {
       viewBox="0 0 575 550"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      style={{ zIndex: 20 }}
     >
       <rect x="230" y="0.000245094" width="115" height="550" fill={primary} />
       <path

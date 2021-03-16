@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const Hamburger = styled.span`
   width: 32px;
   height: 3px;
   background-color: white;
-  position: relative;
+  z-index: 10;
 
   &::before {
     content: '';
@@ -34,14 +35,14 @@ const HamburgerBox = styled.span`
   height: 25px;
 `;
 
-const HamburgerMenu = () => {
-  const clickHandler = () => console.log('Clicked');
+const HamburgerMenu = ({ onClick }) => (
+  <HamburgerBox onClick={onClick}>
+    <Hamburger />
+  </HamburgerBox>
+);
 
-  return (
-    <HamburgerBox onClick={clickHandler}>
-      <Hamburger />
-    </HamburgerBox>
-  );
+HamburgerMenu.propTypes = {
+  onClick: PropTypes.func.isRequired,
 };
 
 export default HamburgerMenu;
