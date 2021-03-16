@@ -43,7 +43,7 @@ const Header = () => (
   <StyledHeader>
     <TitleWrapper>
       <Title>
-        Tobiasz <br/> 
+        Tobiasz <br />
         <LowerTitle>Ciesielski</LowerTitle>
       </Title>
     </TitleWrapper>
