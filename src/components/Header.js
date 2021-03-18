@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import Typing from './Typing';
 
 const Title = styled.h1`
   color: ${({ theme }) => theme.colors.primary};
   font-size: 2.8em;
-  font-family: 'Arial Narrow', Arial, sans-serif;
   position: relative;
   z-index: 10;
 
@@ -47,6 +47,7 @@ const Header = () => (
         <LowerTitle>Ciesielski</LowerTitle>
       </Title>
     </TitleWrapper>
+    <Typing />
   </StyledHeader>
 );
 export default Header;

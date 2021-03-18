@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import typo from './typography';
 
 const GlobalStyle = createGlobalStyle`
   body, html {
@@ -7,6 +8,16 @@ const GlobalStyle = createGlobalStyle`
     background-color: ${({ theme }) => theme.colors.darker};
     position: relative;
     overflow: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: ${typo.ralewayBold}, 'Arial Narrow';
+    color: ${({ theme }) => theme.colors.primary}
+  }
+  
+  p {
+    font-family: ${typo.robotoRegular}, 'Arial Narrow';
+    color: ${({ theme }) => theme.colors.secondary}
   }
 
   *, *:before, *:after {

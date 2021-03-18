@@ -19,7 +19,7 @@ const StyledMenu = styled.ul`
   transition: transform 0.3s ease-in-out;
 
   li {
-    font-size: 1.2em;
+    font-size: 20px;
     list-style: none;
     padding: 50px;
   }
