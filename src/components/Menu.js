@@ -15,36 +15,37 @@ const StyledMenu = styled.ul`
   flex-direction: column;
   background-color: ${({ theme }) => theme.colors.darker};
   transform: ${({ expanded }) =>
-    expanded ? 'translateY(-100%)' : 'translateY(0)'};
+    expanded ? 'translateY(0%)' : 'translateY(-100%)'};
 
   transition: transform 0.3s ease-in-out;
 
   li {
     font-size: 20px;
     list-style: none;
-    padding: 50px;
+    margin-bottom: 100px;
   }
 
   a {
     color: ${({ theme }) => theme.colors.primary};
     text-decoration: none;
+    letter-spacing: 2px;
   }
 `;
 
 const Menu = ({ expanded }) => (
   <StyledMenu expanded={expanded}>
-    <Link to="/">
-      <li>O MNIE</li>
-    </Link>
-    <Link to="/">
-      <li>BLOG</li>
-    </Link>
-    <Link to="/">
-      <li>PORTFOLIO</li>
-    </Link>
-    <Link to="/">
-      <li>KONTAKT</li>
-    </Link>
+    <li>
+      <Link to="/">O MNIE</Link>
+    </li>
+    <li>
+      <Link to="/">BLOG</Link>
+    </li>
+    <li>
+      <Link to="/">PORTFOLIO</Link>
+    </li>
+    <li>
+      <Link to="/">KONTAKT</Link>
+    </li>
   </StyledMenu>
 );
 

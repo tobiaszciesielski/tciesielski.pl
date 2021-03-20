@@ -6,11 +6,16 @@ const StyledSubTitle = styled.div`
   text-align: left;
   font-size: 18px;
   margin-top: 15px;
-  margin-left: 60px;
+  margin-left: 30px;
+  width: 100%;
 
   .Typewriter__cursor {
     color: ${({ theme }) => theme.colors.touch};
     font-size: 22px;
+  }
+
+  @media ${({ theme: { media } }) => media.mobile} {
+    margin-left: 60px;
   }
 `;
 

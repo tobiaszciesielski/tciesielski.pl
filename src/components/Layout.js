@@ -7,8 +7,8 @@ import Navbar from './Navbar';
 
 const Layout = ({ children }) => (
   <ThemeProvider theme={theme}>
-    <GlobalStyle />
     <>
+      <GlobalStyle />
       <Navbar />
       {children}
     </>

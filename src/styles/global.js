@@ -10,14 +10,15 @@ const GlobalStyle = createGlobalStyle`
     overflow: hidden;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1, h2, h3, h4, h5, h6,
+  a {
     font-family: ${typo.ralewayBold}, 'Arial Narrow';
-    color: ${({ theme }) => theme.colors.primary}
+    color: ${({ theme: { colors } }) => colors.primary}
   }
   
-  p, .Typewriter__wrapper {
+  p, .Typewriter {
     font-family: ${typo.robotoRegular}, 'Arial Narrow';
-    color: ${({ theme }) => theme.colors.secondary}
+    color: ${({ theme: { colors } }) => colors.secondary}
   }
 
   *, *:before, *:after {

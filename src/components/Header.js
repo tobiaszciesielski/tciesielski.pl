@@ -5,7 +5,6 @@ import SubTitle from './SubTitle';
 
 const StyledHeader = styled.header`
   height: 100vh;
-  position: relative;
   background: linear-gradient(
     180deg,
     ${({ theme }) => theme.colors.darker} 0%,
@@ -15,10 +14,14 @@ const StyledHeader = styled.header`
 
 const TextBox = styled.div`
   position: absolute;
-  top: 30%;
+  top: 25%;
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
+
+  @media ${({ theme: { media } }) => media.mobile} {
+    top: 30%;
+  }
 `;
 
 const Header = () => (

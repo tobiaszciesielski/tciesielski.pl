@@ -17,7 +17,7 @@ const Hamburger = styled.span`
     background-color: white;
     transition: transform 0.3s ease;
     transform: ${({ expanded }) =>
-      expanded ? 'translateY(10px)' : 'translateY(0px)'};
+      expanded ? 'translateY(0)' : 'translateY(-10px)'};
   }
 
   &::after {
@@ -28,7 +28,7 @@ const Hamburger = styled.span`
     background-color: white;
     transition: transform 0.3s ease;
     transform: ${({ expanded }) =>
-      expanded ? 'translateY(-10px)' : 'translateY(0)'};
+      expanded ? 'translateY(0)' : 'translateY(10px)'};
   }
 `;
 

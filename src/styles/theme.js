@@ -10,6 +10,12 @@ const theme = {
     codeSigns: '#56B6C2',
     comments: '#888',
   },
+  media: {
+    mobile: `(min-width: 375px)`,
+    tablet: `(min-width: 768px)`,
+    laptop: `(min-width: 1024px)`,
+    desktop: `(min-width: 1440px)`,
+  },
 };
 
 export default theme;
