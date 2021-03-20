@@ -3,11 +3,16 @@ import typo from './typography';
 
 const GlobalStyle = createGlobalStyle`
   body, html {
-    margin: 0;  
-    padding: 0;
     background-color: ${({ theme }) => theme.colors.darker};
     position: relative;
-    overflow: hidden;
+  }
+
+  html {
+    overflow-x: hidden;
+  }
+
+  body { 
+    overflow-y: hidden;
   }
 
   h1, h2, h3, h4, h5, h6,

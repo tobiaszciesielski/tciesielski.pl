@@ -15,19 +15,17 @@ const Nav = styled.nav`
   flex-direction: row;
   justify-content: space-between;
   z-index: 9000;
-  background-color: ${({ theme, transparent }) =>
-    transparent ? 'transparent' : theme.colors.darker};
+  background-color: ${({ theme }) => theme.colors.darker};
 
   transform: ${({ visible }) =>
-    visible ? 'translateY(-100%)' : 'translateY(0%)'};
+    visible ? 'translateY(0%)' : 'translateY(-100%)'};
 
   transition: transform 0.3s ease-in-out;
 `;
 
 const Navbar = () => {
   const [expanded, setExpanded] = useState(false);
-  const [visible, setVisible] = useState(false);
-  const [transparent, setTransparent] = useState(true);
+  const [visible, setVisible] = useState(true);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
 
   const handleScroll = () => {
@@ -36,13 +34,7 @@ const Navbar = () => {
     const scrollingDown = currScrollPosition > prevScrollPos;
     const lowerThan = currScrollPosition > 40;
 
-    if (!lowerThan) {
-      setTransparent(true);
-    } else {
-      setTransparent(false);
-    }
-
-    if (scrollingDown && lowerThan && expanded) {
+    if (scrollingDown && lowerThan && !expanded) {
       setVisible(false);
     } else {
       setVisible(true);
@@ -59,7 +51,7 @@ const Navbar = () => {
   }, [handleScroll, visible, prevScrollPos]);
 
   return (
-    <Nav visible={visible} transparent={transparent}>
+    <Nav visible={visible}>
       <Menu expanded={expanded} />
       <LogoSVG />
       <HamburgerMenu setExpanded={setExpanded} expanded={expanded} />
