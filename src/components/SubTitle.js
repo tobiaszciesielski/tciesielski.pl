@@ -2,19 +2,20 @@ import React from 'react';
 import styled from 'styled-components';
 import Typewriter from 'typewriter-effect';
 
-const StyledParagraph = styled.p`
+const StyledSubTitle = styled.div`
   text-align: left;
   font-size: 18px;
   margin-top: 15px;
   margin-left: 60px;
+
   .Typewriter__cursor {
     color: ${({ theme }) => theme.colors.touch};
     font-size: 22px;
   }
 `;
 
-const Typing = () => (
-  <StyledParagraph>
+const SubTitle = () => (
+  <StyledSubTitle>
     <Typewriter
       options={{
         strings: ['front-end developer', 'blogger', 'designer'],
@@ -22,7 +23,7 @@ const Typing = () => (
         loop: true,
       }}
     />
-  </StyledParagraph>
+  </StyledSubTitle>
 );
 
-export default Typing;
+export default SubTitle;

@@ -1,25 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
-import Typing from './Typing';
+import Title from './Title';
+import SubTitle from './SubTitle';
 
-const Title = styled.h1`
-  color: ${({ theme }) => theme.colors.primary};
-  font-size: 48px;
-  z-index: 10;
+const StyledHeader = styled.header`
+  height: 100vh;
   position: relative;
-
-  ::before {
-    position: absolute;
-    top: -50%;
-    left: 0;
-    content: '';
-    width: 0;
-    height: 0;
-    border-top: 60px solid transparent;
-    border-left: 90px solid ${({ theme }) => theme.colors.dark};
-    border-bottom: 60px solid transparent;
-    z-index: -1;
-  }
+  background: linear-gradient(
+    180deg,
+    ${({ theme }) => theme.colors.darker} 0%,
+    ${({ theme }) => theme.colors.dark} 100%
+  );
 `;
 
 const TextBox = styled.div`
@@ -27,26 +18,13 @@ const TextBox = styled.div`
   top: 30%;
   left: 50%;
   transform: translateX(-50%);
-`
-
-const LowerTitle = styled.div`
-  padding-left: 40px;
-`;
-
-const StyledHeader = styled.header`
-  height: 100vh;
-  position: relative;
-  background: linear-gradient(180deg, #202020 0%, #303030 100%);
 `;
 
 const Header = () => (
   <StyledHeader>
     <TextBox>
-      <Title>
-        Tobiasz <br />
-        <LowerTitle>Ciesielski</LowerTitle>
-      </Title>
-      <Typing />
+      <Title />
+      <SubTitle />
     </TextBox>
   </StyledHeader>
 );

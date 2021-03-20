@@ -15,7 +15,7 @@ const GlobalStyle = createGlobalStyle`
     color: ${({ theme }) => theme.colors.primary}
   }
   
-  p {
+  p, .Typewriter__wrapper {
     font-family: ${typo.robotoRegular}, 'Arial Narrow';
     color: ${({ theme }) => theme.colors.secondary}
   }
