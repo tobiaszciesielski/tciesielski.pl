@@ -4,9 +4,9 @@ import Typing from './Typing';
 
 const Title = styled.h1`
   color: ${({ theme }) => theme.colors.primary};
-  font-size: 2.8em;
-  position: relative;
+  font-size: 48px;
   z-index: 10;
+  position: relative;
 
   ::before {
     position: absolute;
@@ -22,12 +22,12 @@ const Title = styled.h1`
   }
 `;
 
-const TitleWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-sizing: content-box;
-`;
+const TextBox = styled.div`
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+`
 
 const LowerTitle = styled.div`
   padding-left: 40px;
@@ -35,19 +35,19 @@ const LowerTitle = styled.div`
 
 const StyledHeader = styled.header`
   height: 100vh;
-  padding-top: 200px;
+  position: relative;
   background: linear-gradient(180deg, #202020 0%, #303030 100%);
 `;
 
 const Header = () => (
   <StyledHeader>
-    <TitleWrapper>
+    <TextBox>
       <Title>
         Tobiasz <br />
         <LowerTitle>Ciesielski</LowerTitle>
       </Title>
-    </TitleWrapper>
-    <Typing />
+      <Typing />
+    </TextBox>
   </StyledHeader>
 );
 export default Header;
