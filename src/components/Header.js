@@ -18,6 +18,7 @@ const TextBox = styled.div`
   top: 30%;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 2;
 `;
 
 const Header = () => (

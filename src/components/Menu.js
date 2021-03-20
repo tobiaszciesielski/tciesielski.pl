@@ -14,7 +14,8 @@ const StyledMenu = styled.ul`
   align-items: center;
   flex-direction: column;
   background-color: ${({ theme }) => theme.colors.darker};
-  transform: ${({ expanded }) => expanded ? 'translateY(-100%)' : 'translateY(0)'};
+  transform: ${({ expanded }) =>
+    expanded ? 'translateY(-100%)' : 'translateY(0)'};
 
   transition: transform 0.3s ease-in-out;
 
@@ -30,7 +31,7 @@ const StyledMenu = styled.ul`
   }
 `;
 
-const Menu = ({expanded}) => (
+const Menu = ({ expanded }) => (
   <StyledMenu expanded={expanded}>
     <Link to="/">
       <li>O MNIE</li>
@@ -48,7 +49,7 @@ const Menu = ({expanded}) => (
 );
 
 Menu.propTypes = {
-  expanded: PropTypes.bool.isRequired
-}
+  expanded: PropTypes.bool.isRequired,
+};
 
 export default Menu;

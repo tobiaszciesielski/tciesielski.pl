@@ -7,7 +7,7 @@ const Stripe = styled.span`
   height: 3px;
   background-color: ${({ theme }) => theme.colors.touch};
   top: 250px;
-  z-index: 1000;
+  z-index: 1;
   transform-origin: 0% 0%;
   transform: rotate(60deg);
   left: ${({ shift }) => shift};
