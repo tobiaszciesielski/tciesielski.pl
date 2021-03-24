@@ -23,12 +23,15 @@ const StyledMenu = styled.ul`
     font-size: 20px;
     list-style: none;
     margin-bottom: 100px;
+    :last-child {
+      margin-bottom: 0;
+    }
   }
 
   a {
     color: ${({ theme }) => theme.colors.primary};
     text-decoration: none;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
   }
 `;
 

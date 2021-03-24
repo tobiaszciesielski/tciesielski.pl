@@ -7,13 +7,12 @@ const StyledSubTitle = styled.div`
   text-align: left;
   font-size: 18px;
   margin-top: 15px;
+  margin-left: 50px;
 
   .Typewriter__cursor {
     color: ${({ theme }) => theme.colors.touch};
     font-size: 22px;
   }
-
-  margin-left: 40px;
 `;
 
 const SubTitle = () => {

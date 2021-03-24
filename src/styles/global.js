@@ -15,10 +15,21 @@ const GlobalStyle = createGlobalStyle`
     overflow-y: hidden;
   }
 
-  h1, h2, h3, h4, h5, h6,
-  a {
+  h1, h2, h3, h4, h5, h6, a {
     font-family: ${typo.ralewayBold}, 'Arial Narrow';
     color: ${({ theme: { colors } }) => colors.primary}
+  }
+
+  h1 {
+    font-size: 48px;
+  }
+
+  h2 {
+    font-size: 36px;
+  }
+
+  p {
+    font-size: 18px;
   }
   
   p, .Typewriter {

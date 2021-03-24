@@ -5,6 +5,7 @@ import SubTitle from './SubTitle';
 
 const StyledHeader = styled.header`
   height: 100vh;
+  position: relative;
   background: linear-gradient(
     180deg,
     ${({ theme }) => theme.colors.darker} 0%,
