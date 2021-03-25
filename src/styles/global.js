@@ -5,15 +5,14 @@ const GlobalStyle = createGlobalStyle`
   body, html {
     background-color: ${({ theme }) => theme.colors.darker};
     position: relative;
+    overflow-x: hidden;
   }
 
   html {
-    overflow-x: hidden;
   }
 
   body { 
     font-size: 18px;
-    overflow-y: hidden;
   }
 
   h1, h2, h3, h4, h5, h6, a {

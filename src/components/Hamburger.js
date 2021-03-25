@@ -37,11 +37,12 @@ const HamburgerBox = styled.span`
   justify-content: center;
   align-items: center;
   width: 32px;
-  height: 25px;
+  min-height: 25px;
+  z-index: 20;
 `;
 
 const HamburgerMenu = ({ setExpanded, expanded }) => (
-  <HamburgerBox onClick={() => setExpanded(!expanded)}>
+  <HamburgerBox onClick={() => {console.log("dupa");setExpanded(!expanded)}}>
     <Hamburger expanded={expanded} />
   </HamburgerBox>
 );

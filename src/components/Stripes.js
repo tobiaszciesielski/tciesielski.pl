@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Stripe = styled.span`
+const Stripe = styled.div`
   position: absolute;
   width: 1000px;
   height: 3px;
   background-color: ${({ theme }) => theme.colors.touch};
-  top: 15%;
+  top: 25%;
   z-index: 1;
   transform-origin: 0% 0%;
   transform: rotate(60deg);
@@ -14,10 +14,6 @@ const Stripe = styled.span`
 
   @media ${({ theme: { media } }) => media.mobile} {
     top: 20%;
-  }
-
-  @media ${({ theme: { mediaHeight } }) => mediaHeight.small} {
-    top: 25%;
   }
 `;
 
