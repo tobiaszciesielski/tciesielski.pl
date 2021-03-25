@@ -14,6 +14,7 @@ const Stripe = styled.div`
 
   @media ${({ theme: { media } }) => media.mobile} {
     top: 20%;
+    width: 2000px;
   }
 `;
 
