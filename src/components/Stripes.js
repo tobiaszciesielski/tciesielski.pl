@@ -6,14 +6,18 @@ const Stripe = styled.span`
   width: 1000px;
   height: 3px;
   background-color: ${({ theme }) => theme.colors.touch};
-  top: 25%;
+  top: 15%;
   z-index: 1;
   transform-origin: 0% 0%;
   transform: rotate(60deg);
   left: ${({ shift }) => shift};
 
-  @media ${({theme: {media}}) => media.mobile} {
+  @media ${({ theme: { media } }) => media.mobile} {
     top: 20%;
+  }
+
+  @media ${({ theme: { mediaHeight } }) => mediaHeight.small} {
+    top: 25%;
   }
 `;
 

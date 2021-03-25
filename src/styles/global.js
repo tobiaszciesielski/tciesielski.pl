@@ -12,6 +12,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body { 
+    font-size: 18px;
     overflow-y: hidden;
   }
 
@@ -21,15 +22,15 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h1 {
-    font-size: 48px;
+    font-size: 2.7em;
   }
 
   h2 {
-    font-size: 36px;
+    font-size: 2em;
   }
 
   p {
-    font-size: 18px;
+    font-size: 1em;
   }
   
   p, .Typewriter {
