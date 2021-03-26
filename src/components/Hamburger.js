@@ -42,7 +42,7 @@ const HamburgerBox = styled.span`
 `;
 
 const HamburgerMenu = ({ setExpanded, expanded }) => (
-  <HamburgerBox onClick={() => {console.log("dupa");setExpanded(!expanded)}}>
+  <HamburgerBox onClick={() => setExpanded(!expanded)}>
     <Hamburger expanded={expanded} />
   </HamburgerBox>
 );

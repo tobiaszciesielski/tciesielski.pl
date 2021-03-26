@@ -16,7 +16,7 @@ const StyledSubTitle = styled.div`
 `;
 
 const SubTitle = () => {
-  const data = useStaticQuery(graphql`
+  const { site } = useStaticQuery(graphql`
     {
       site {
         siteMetadata {
@@ -30,7 +30,7 @@ const SubTitle = () => {
     <StyledSubTitle>
       <Typewriter
         options={{
-          strings: data.site.siteMetadata.subTitle,
+          strings: site.siteMetadata.subTitle,
           autoStart: true,
           loop: true,
         }}
