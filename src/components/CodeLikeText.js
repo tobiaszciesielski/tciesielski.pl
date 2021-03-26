@@ -18,12 +18,14 @@ const Code = styled.p`
 `;
 
 const Hello = styled(Code)`
-  color: ${({ theme }) => theme.colors.touch};
+  ${({ theme: { colors } }) => css`
+    color: ${colors.touch};
 
-  ::before {
-    content: '# ';
-    color: #a9a9a9;
-  }
+    ::before {
+      content: '# ';
+      color: ${colors.codeComment};
+    }
+  `}
 `;
 
 const Comment = styled(Code)`
