@@ -14,6 +14,7 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "@react-icons/all-files": "^4.1.0",
     "babel-plugin-styled-components": "^1.12.0",
     "eslint-config-airbnb": "^18.2.1",
     "gatsby": "^3.0.1",

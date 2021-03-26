@@ -1,39 +1,26 @@
 import React from 'react';
 import styled from 'styled-components';
+import TechCard from './TechCard';
 
-const TechCard = styled.div``;
+const PositionedTechCard = styled(TechCard)`
+  margin-bottom: 50px;
+`;
 
-const techStack = [
-  'html',
-  'css',
-  'javascript',
-  'sass',
-  'react',
-  'gatsby',
-  'next',
-  'styled-components',
-  'bootstrap',
-  'redux',
-];
+const Cards = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  :nth-child(1) {
+    padding: 100px;
+  }
+`;
 
 const Technologies = () => (
-  <>
-    <TechCard>
-      <h3>FRONT-END</h3>
-      {techStack.map((item) => <p key={item}>{item}</p>)}
-    </TechCard>
-
-    <TechCard>
-      <h3>BACK-END</h3>
-      {techStack.map((item) => <p key={item}>{item}</p>)}
-    </TechCard>
-
-    <TechCard>
-      <h3>INNE</h3>
-      {techStack.map((item) => <p key={item}>{item}</p>)}
-    </TechCard>
-
-  </>
+  <Cards>
+    <PositionedTechCard />
+    <PositionedTechCard />
+    <PositionedTechCard />
+  </Cards>
 );
 
 export default Technologies;

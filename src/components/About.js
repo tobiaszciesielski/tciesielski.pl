@@ -15,7 +15,7 @@ const AboutHeading = styled(SectionHeader)`
 
 const TechHeading = styled(SectionHeader)`
   text-align: right;
-  margin: 100px 0 0 15px;
+  margin: 100px 0 70px 15px;
 `;
 
 const About = () => (
