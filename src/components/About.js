@@ -1,6 +1,6 @@
 import React from 'react';
-import SectionHeader from './SectionHeader';
 import Section from './Section';
+import SectionHeader from './SectionHeader';
 import CodeWindow from './CodeWindow';
 
 const About = () => (
