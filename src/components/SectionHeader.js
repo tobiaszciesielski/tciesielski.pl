@@ -6,9 +6,7 @@ const SectionHeading = styled.h2`
   color: ${({ theme }) => theme.colors.primary};
   z-index: 20;
   position: relative;
-  text-align: left;
   width: fit-content;
-  margin: 125px 0px 70px 15px;
 
   ::after {
     position: absolute;
@@ -26,16 +24,19 @@ const SectionHeading = styled.h2`
     content: '#';
     color: ${({ theme }) => theme.colors.touch};
   }
-
-  @media ${({ theme }) => theme.mediaHeight.small} {
-    margin: 80px 0px 70px 30px;
-  }
 `;
 
-const SectionHeader = ({ text }) => <SectionHeading>{text}</SectionHeading>;
+const SectionHeader = ({ className, text }) => (
+  <SectionHeading className={className}>{text}</SectionHeading>
+);
 
 SectionHeader.propTypes = {
   text: propTypes.string.isRequired,
+  className: propTypes.string,
+};
+
+SectionHeader.defaultProps = {
+  className: '',
 };
 
 export default SectionHeader;

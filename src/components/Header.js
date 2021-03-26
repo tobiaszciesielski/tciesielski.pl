@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Title from './Title';
 import SubTitle from './SubTitle';
+import Stripes from './Stripes';
 
 const StyledHeader = styled.header`
   height: 100vh;
@@ -27,6 +28,7 @@ const TextBox = styled.div`
 
 const Header = () => (
   <StyledHeader>
+    <Stripes />
     <TextBox>
       <Title />
       <SubTitle />

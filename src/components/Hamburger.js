@@ -37,7 +37,7 @@ const HamburgerBox = styled.span`
   justify-content: center;
   align-items: center;
   width: 32px;
-  min-height: 25px;
+  height: 25px;
   z-index: 20;
 `;
 
