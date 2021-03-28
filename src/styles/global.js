@@ -22,6 +22,15 @@ const GlobalStyle = createGlobalStyle`
     color: ${({ theme: { colors } }) => colors.primary}
   }
 
+  p, .Typewriter {
+    font-family: ${typo.robotoRegular}, 'Arial Narrow';
+    color: ${({ theme: { colors } }) => colors.secondary}
+  }
+
+  button {
+    font-family: ${typo.robotoBold}, 'Arial Narrow';
+  }
+
   h1 {
     font-size: 2.7em;
   }
@@ -34,14 +43,14 @@ const GlobalStyle = createGlobalStyle`
     font-size: 1.35em;
   }
 
-  p {
+  h4, p {
     font-size: 1em;
   }
-  
-  p, .Typewriter {
-    font-family: ${typo.robotoRegular}, 'Arial Narrow';
-    color: ${({ theme: { colors } }) => colors.secondary}
+
+  button {
+    font-size: 0.83em;
   }
+  
 
   *, *:before, *:after {
     box-sizing: border-box;

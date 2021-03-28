@@ -14,15 +14,14 @@ const AboutHeading = styled(SectionHeader)`
 `;
 
 const TechHeading = styled(SectionHeader)`
-  text-align: right;
   margin: 100px 0 70px 15px;
 `;
 
 const About = () => (
   <Section odd>
-    <AboutHeading text="O MNIE" light/>
+    <AboutHeading text="O MNIE" light />
     <CodeWindow />
-    <TechHeading text="TECHNOLOGIE" light/>
+    <TechHeading text="TECHNOLOGIE" light />
     <Technologies />
   </Section>
 );

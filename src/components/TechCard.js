@@ -66,7 +66,7 @@ const TechCard = ({ className, icon, title, techStack }) => (
 );
 
 TechCard.propTypes = {
-  icon: propTypes.elementType.isRequired,
+  icon: propTypes.element.isRequired,
   title: propTypes.string.isRequired,
   techStack: propTypes.arrayOf(propTypes.string).isRequired,
   className: propTypes.string,
