@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
   body { 
     overflow-y: hidden;
     overflow-x: hidden;
-    font-size: 18px;
+    font-size: 16px;
   }
 
   h1, h2, h3, h4, h5, h6, a {
@@ -47,6 +47,12 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+  }
+
+  @media ${({ theme: { media } }) => media.mobile} {
+    body {
+      font-size: 18px;
+    }
   }
 `;
 

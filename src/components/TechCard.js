@@ -3,32 +3,21 @@ import React from 'react';
 import styled from 'styled-components';
 import propTypes from 'prop-types';
 
-import { FaPencilRuler } from '@react-icons/all-files/fa/FaPencilRuler';
-
-const techStack = [
-  'html',
-  'css',
-  'javascript',
-  'sass',
-  'react',
-  'gatsby',
-  'next',
-  'styled-components',
-  'bootstrap',
-  'redux',
-];
-
 const StyledCard = styled.div`
-  width: 250px;
+  width: 220px;
   height: 350px;
   padding: 15px;
   background-color: ${({ theme }) => theme.colors.dark};
   border-radius: 20px;
-  filter: drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.25));
   display: flex;
   align-items: center;
   flex-direction: column;
   position: relative;
+  filter: drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.25));
+
+  @media ${({ theme: { media } }) => media.mobile} {
+    width: 250px;
+  }
 `;
 
 const Title = styled.h3`
@@ -64,12 +53,10 @@ const Decoration = styled.div`
   font-size: 28px;
 `;
 
-const TechCard = ({ className }) => (
+const TechCard = ({ className, icon, title, techStack }) => (
   <StyledCard className={className}>
-    <Title>FRONT-END</Title>
-    <Decoration>
-      <FaPencilRuler />
-    </Decoration>
+    <Title>{title}</Title>
+    <Decoration>{icon}</Decoration>
     <Stack>
       {techStack.map((item) => (
         <p key={item}>{item}</p>
@@ -79,6 +66,9 @@ const TechCard = ({ className }) => (
 );
 
 TechCard.propTypes = {
+  icon: propTypes.elementType.isRequired,
+  title: propTypes.string.isRequired,
+  techStack: propTypes.arrayOf(propTypes.string).isRequired,
   className: propTypes.string,
 };
 
