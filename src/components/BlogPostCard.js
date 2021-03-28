@@ -2,14 +2,16 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
+import Button from './Button';
 
 const StyledCard = styled.div`
   width: 280px;
   height: 460px;
   border-radius: 20px;
   background-color: ${({ theme }) => theme.colors.dark};
-  filter: drop-shadow(0px 4px 18px rgba(0, 0, 0, 0.15));
+  filter: drop-shadow(0px 4px 18px rgba(0, 0, 0, 0.25));
   position: relative;
+  margin-bottom: 50px;
 `;
 
 const imageStyles = {
@@ -43,20 +45,7 @@ const PostAbstract = styled.p`
   letter-spacing: 0.05em;
 `;
 
-const Button = styled.button`
-  width: 120px;
-  height: 30px;
-  background: ${({ theme }) => theme.colors.touch};
-  color: ${({ theme }) => theme.colors.darkest};
-  box-sizing: border-box;
-  border-radius: 25px;
-  letter-spacing: 0.255em;
-
-  cursor: pointer;
-  border: none;
-`;
-
-const PositionedButton = styled(Button)`
+const CardButton = styled(Button)`
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -88,7 +77,7 @@ const BlogPostCard = () => {
           cupiditate similique quam deserunt quod amet corporis recusandae.
         </PostAbstract>
       </Description>
-      <PositionedButton>CZYTAJ</PositionedButton>
+      <CardButton text="CZYTAJ" />
     </StyledCard>
   );
 };

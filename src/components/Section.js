@@ -13,11 +13,14 @@ const StyledSection = styled.section`
   padding: 18px;
 `;
 
-const Section = ({ children, odd }) => (
-  <StyledSection odd={odd}>{children}</StyledSection>
+const Section = ({ className, children, odd }) => (
+  <StyledSection className={className} odd={odd}>
+    {children}
+  </StyledSection>
 );
 
 Section.propTypes = {
+  className: propTypes.string,
   children: propTypes.oneOfType([
     propTypes.arrayOf(propTypes.node),
     propTypes.node,
@@ -26,6 +29,7 @@ Section.propTypes = {
 };
 
 Section.defaultProps = {
+  className: '',
   odd: false,
 };
 
