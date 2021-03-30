@@ -1,5 +1,4 @@
 import React from 'react';
-
 import styled from 'styled-components';
 import propTypes from 'prop-types';
 
@@ -23,6 +22,7 @@ const StyledCard = styled.div`
 const Title = styled.h3`
   letter-spacing: 0.1em;
   margin-bottom: 10px;
+  z-index: 1;
 `;
 
 const Stack = styled.div`

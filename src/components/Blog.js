@@ -31,8 +31,6 @@ const StyledSection = styled(Section)`
 `;
 
 const StyledHeader = styled(SectionHeader)`
-  margin-top: 100px;
-  margin-bottom: 80px;
   ::after {
     border-right: 60px solid ${({ theme }) => theme.colors.dark};
   }

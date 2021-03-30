@@ -7,6 +7,8 @@ const SectionHeading = styled.h2`
   z-index: 20;
   position: relative;
   width: fit-content;
+  margin-top: 100px;
+  margin-bottom: 70px;
 
   ::after {
     position: absolute;
@@ -16,7 +18,8 @@ const SectionHeading = styled.h2`
     width: 0;
     height: 0;
     border-top: 1.15em solid transparent;
-    border-right: 1.65em solid ${({ theme }) => theme.colors.darker};
+    border-right: 1.65em solid
+      ${({ theme: { colors }, light }) => (light ? colors.dark : colors.darker)};
     border-bottom: 1.1em solid transparent;
     z-index: -1;
   }
@@ -26,16 +29,20 @@ const SectionHeading = styled.h2`
   }
 `;
 
-const SectionHeader = ({ className, text }) => (
-  <SectionHeading className={className}>{text}</SectionHeading>
+const SectionHeader = ({ className, text, light }) => (
+  <SectionHeading className={className} light={light}>
+    {text}
+  </SectionHeading>
 );
 
 SectionHeader.propTypes = {
-  text: propTypes.string.isRequired,
   className: propTypes.string,
+  text: propTypes.string.isRequired,
+  light: propTypes.bool,
 };
 
 SectionHeader.defaultProps = {
+  light: false,
   className: '',
 };
 

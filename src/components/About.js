@@ -15,22 +15,13 @@ const StyledSection = styled(Section)`
 const AboutHeading = styled(SectionHeader)`
   align-self: start;
   margin: 125px 0px 70px 15px;
-
-  @media ${({ theme }) => theme.mediaHeight.small} {
-    margin: 80px 0px 70px 30px;
-  }
-`;
-
-const TechHeading = styled(SectionHeader)`
-  margin-top: 100px;
-  margin-bottom: 70px;
 `;
 
 const About = () => (
   <StyledSection odd>
-    <AboutHeading text="O MNIE" light />
+    <AboutHeading text="O MNIE" />
     <CodeWindow />
-    <TechHeading text="TECHNOLOGIE" light />
+    <SectionHeader text="TECHNOLOGIE" light />
     <Technologies />
   </StyledSection>
 );
