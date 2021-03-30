@@ -28,6 +28,9 @@ const Cards = styled.div`
     z-index: -1;
     transform: translateX(30%);
   }
+  div:last-child {
+    margin-bottom: 0;
+  }
 `;
 
 const techStack = [

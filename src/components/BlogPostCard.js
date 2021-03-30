@@ -11,7 +11,11 @@ const StyledCard = styled.div`
   background-color: ${({ theme }) => theme.colors.dark};
   filter: drop-shadow(0px 4px 18px rgba(0, 0, 0, 0.25));
   position: relative;
-  margin-bottom: 50px;
+
+  @media ${({ theme }) => theme.media.mobile} {
+    width: 300px;
+    height: 480px;
+  } ;
 `;
 
 const imageStyles = {
@@ -69,7 +73,11 @@ const BlogPostCard = () => {
 
   return (
     <StyledCard>
-      <GatsbyImage image={getImage(postImage)} style={imageStyles} />
+      <GatsbyImage
+        image={getImage(postImage)}
+        style={imageStyles}
+        alt="Blog Post Image"
+      />
       <Description>
         <Title>Blog w Gatsby.js</Title>
         <PostAbstract>
