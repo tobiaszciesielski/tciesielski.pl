@@ -15,7 +15,7 @@ const StyledCard = styled.div`
   @media ${({ theme }) => theme.media.mobile} {
     width: 300px;
     height: 480px;
-  } ;
+  }
 `;
 
 const imageStyles = {

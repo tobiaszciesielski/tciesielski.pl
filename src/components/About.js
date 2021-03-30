@@ -5,7 +5,15 @@ import SectionHeader from './SectionHeader';
 import CodeWindow from './CodeWindow';
 import Technologies from './Technologies';
 
+const StyledSection = styled(Section)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
+
 const AboutHeading = styled(SectionHeader)`
+  align-self: start;
   margin: 125px 0px 70px 15px;
 
   @media ${({ theme }) => theme.mediaHeight.small} {
@@ -14,16 +22,17 @@ const AboutHeading = styled(SectionHeader)`
 `;
 
 const TechHeading = styled(SectionHeader)`
-  margin: 100px 0 70px 15px;
+  margin-top: 100px;
+  margin-bottom: 70px;
 `;
 
 const About = () => (
-  <Section odd>
+  <StyledSection odd>
     <AboutHeading text="O MNIE" light />
     <CodeWindow />
     <TechHeading text="TECHNOLOGIE" light />
     <Technologies />
-  </Section>
+  </StyledSection>
 );
 
 export default About;

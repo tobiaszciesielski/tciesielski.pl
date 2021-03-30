@@ -13,9 +13,9 @@ const StyledTitle = styled.h1`
     content: '';
     width: 0;
     height: 0;
-    border-top: 60px solid transparent;
-    border-left: 90px solid ${({ theme }) => theme.colors.dark};
-    border-bottom: 60px solid transparent;
+    border-top: 1.25em solid transparent;
+    border-left: 1.85em solid ${({ theme }) => theme.colors.dark};
+    border-bottom: 1.25em solid transparent;
     z-index: -1;
   }
 `;

@@ -10,14 +10,14 @@ const SectionHeading = styled.h2`
 
   ::after {
     position: absolute;
-    top: 0;
+    top: -5px;
     right: 0;
     content: '';
     width: 0;
     height: 0;
-    border-top: 40px solid transparent;
-    border-right: 60px solid ${({ theme }) => theme.colors.darker};
-    border-bottom: 40px solid transparent;
+    border-top: 1.15em solid transparent;
+    border-right: 1.65em solid ${({ theme }) => theme.colors.darker};
+    border-bottom: 1.1em solid transparent;
     z-index: -1;
   }
   ::before {
