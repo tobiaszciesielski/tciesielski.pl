@@ -3,41 +3,29 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 import ProjectSpecButton from './ProjectSpecButton';
-
-const StyledCard = styled.div`
-  width: 280px;
-  height: 460px;
-  border-radius: 20px;
-  background-color: ${({ theme }) => theme.colors.dark};
-  filter: drop-shadow(0px 4px 18px rgba(0, 0, 0, 0.25));
-  position: relative;
-
-  @media ${({ theme }) => theme.media.mobile} {
-    width: 300px;
-    height: 480px;
-  }
-`;
+import Card from './Card';
 
 const imageStyles = {
   height: '50%',
   borderTopLeftRadius: '20px',
   borderTopRightRadius: '20px',
-  marginBottom: '10px',
+  marginBottom: '15px',
 };
 
 const Description = styled.div`
-  text-align: center;
   padding: 15px;
 `;
 
 const Title = styled.h4`
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  text-align: center;
 `;
 
 const ProjectAbstract = styled.p`
   font-size: 0.78em;
   line-height: 140%;
   letter-spacing: 0.05em;
+  padding: 0 5px;
 `;
 
 const CardButton = styled(ProjectSpecButton)`
@@ -45,6 +33,7 @@ const CardButton = styled(ProjectSpecButton)`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 `;
 
 const ProjectCard = () => {
@@ -63,7 +52,7 @@ const ProjectCard = () => {
   `);
 
   return (
-    <StyledCard>
+    <Card>
       <GatsbyImage
         image={getImage(postImage)}
         style={imageStyles}
@@ -77,7 +66,7 @@ const ProjectCard = () => {
           cupiditate similique quam deserunt quod amet corporis recusandae.
         </ProjectAbstract>
       </Description>
-    </StyledCard>
+    </Card>
   );
 };
 
