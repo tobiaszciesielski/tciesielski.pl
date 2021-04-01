@@ -9,7 +9,7 @@ const imageStyles = {
   height: '50%',
   borderTopLeftRadius: '20px',
   borderTopRightRadius: '20px',
-  marginBottom: '15px',
+  marginBottom: '20px',
 };
 
 const Description = styled.div`
@@ -33,7 +33,6 @@ const CardButton = styled(ProjectSpecButton)`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 `;
 
 const ProjectCard = () => {
