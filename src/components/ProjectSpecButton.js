@@ -1,17 +1,14 @@
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import { FaCog } from '@react-icons/all-files/fa/FaCog';
-import { FaCss3 } from '@react-icons/all-files/fa/FaCss3';
-import { FaHtml5 } from '@react-icons/all-files/fa/FaHtml5';
-import { FaBootstrap } from '@react-icons/all-files/fa/FaBootstrap';
 import propTypes from 'prop-types';
+import icons from './IconsProvider';
 
 const Wrapper = styled.div`
   width: 60px;
   height: 60px;
   position: relative;
   border-radius: 50%;
-  z-index: 1;
 `;
 
 const Node = styled.span`
@@ -39,41 +36,31 @@ const Child = styled(Node)`
   position: absolute;
   top: 0;
   left: 0;
-  background-color: ${({ theme }) => theme.colors.secondary};
+  background-color: ${({ theme }) => theme.colors.primary};
   z-index: -1;
-  width: calc(100% - 10px);
-  height: calc(100% - 10px);
-  font-size: 30px;
+  width: 100%;
+  height: 100%;
 
   ${({ expanded, translation: { x, y }, distance }) =>
     expanded
       ? css`
-          transform: translate(5px, 5px)
-            translate(${x * distance}px, ${y * distance}px);
+          transform: translate(${x * distance}px, ${y * distance}px);
           opacity: 1;
         `
       : css`
-          transform: translate(5px, 5px);
           opacity: 0;
         `};
 
   transition: transform 200ms ease, opacity 300ms ease;
+
+  & > svg {
+    width: 45px;
+    height: 45px;
+  }
 `;
 
-const childNodes = [
-  {
-    icon: <FaCss3 />,
-  },
-  {
-    icon: <FaHtml5 />,
-  },
-  {
-    icon: <FaBootstrap />,
-  },
-];
-
-const ProjectSpecButton = ({ className }) => {
-  const itemsCount = childNodes.length;
+const ProjectSpecButton = ({ className, techStack }) => {
+  const itemsCount = techStack.length;
   const [expanded, setExpanded] = useState(false);
 
   return (
@@ -81,19 +68,20 @@ const ProjectSpecButton = ({ className }) => {
       <Root onClick={() => setExpanded(!expanded)}>
         <FaCog />
       </Root>
-      {childNodes.map(({ icon }, i) => {
+      {techStack.map((name, i) => {
         const rotation =
           (2 * Math.PI * i - (itemsCount + 1) * Math.PI) / itemsCount;
         const x = Math.sin(rotation);
         const y = Math.cos(rotation);
+        const Icon = icons.get(name);
         return (
           <Child
-            key={`child-node-${i}`}
+            key={`${name}`}
             translation={{ x, y }}
             distance={70}
             expanded={expanded}
           >
-            {icon}
+            <Icon />
           </Child>
         );
       })}
@@ -103,6 +91,7 @@ const ProjectSpecButton = ({ className }) => {
 
 ProjectSpecButton.propTypes = {
   className: propTypes.string,
+  techStack: propTypes.arrayOf(propTypes.string).isRequired,
 };
 
 ProjectSpecButton.defaultProps = {
