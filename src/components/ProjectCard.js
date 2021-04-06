@@ -1,7 +1,7 @@
 import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { FaGithub } from '@react-icons/all-files/fa/FaGithub';
+import propTypes from 'prop-types';
 import styled from 'styled-components';
 import IconWWW from '../assets/icons/www.svg';
 import ProjectSpecButton from './ProjectSpecButton';
@@ -50,37 +50,21 @@ const Links = styled.div`
   }
 `;
 
-const childNodes = ['next', 'gatsby', 'flutter', 'react', 'express', 'mssql'];
+const ProjectCard = ({ data }) => {
 
-const ProjectCard = () => {
-  const { postImage } = useStaticQuery(graphql`
-    {
-      postImage: file(relativePath: { eq: "project-1.jpg" }) {
-        childImageSharp {
-          gatsbyImageData(
-            placeholder: TRACED_SVG
-            tracedSVGOptions: { color: "#fff", background: "#00ffa3" }
-            layout: CONSTRAINED
-          )
-        }
-      }
-    }
-  `);
-
+  console.log("Project Card ", data)
+  const { title, image, description, techStack } = data;
   return (
     <Card>
       <GatsbyImage
-        image={getImage(postImage)}
+        image={getImage(image)}
         style={imageStyles}
         alt="Gatsby Project"
       />
-      <CardButton techStack={childNodes} />
+      <CardButton techStack={techStack} />
       <Description>
-        <Title>Blog w Gatsby.js</Title>
-        <ProjectAbstract>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum odio
-          cupiditate similique quam deserunt quod amet corporis recusandae.
-        </ProjectAbstract>
+        <Title>{title}</Title>
+        <ProjectAbstract>{description}</ProjectAbstract>
       </Description>
       <Links>
         <a target="_blank" rel="noreferrer" href="http://www.github.com">
@@ -92,6 +76,10 @@ const ProjectCard = () => {
       </Links>
     </Card>
   );
+};
+
+ProjectCard.propTypes = {
+  data: propTypes.arrayOf(propTypes.string).isRequired,
 };
 
 export default ProjectCard;

@@ -1,6 +1,6 @@
 import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import propTypes from 'prop-types';
 import styled from 'styled-components';
 import Button from './Button';
 import Card from './Card';
@@ -43,38 +43,26 @@ const CardButton = styled(Button)`
   transform: translate(-50%, -25px);
 `;
 
-const BlogPostCard = () => {
-  const { postImage } = useStaticQuery(graphql`
-    {
-      postImage: file(relativePath: { eq: "blog-post-1.jpg" }) {
-        childImageSharp {
-          gatsbyImageData(
-            placeholder: TRACED_SVG
-            tracedSVGOptions: { color: "#fff", background: "#00ffa3" }
-            layout: CONSTRAINED
-          )
-        }
-      }
-    }
-  `);
-
+const BlogPostCard = ({ data }) => {
+  const { title, description, image } = data;
   return (
     <Card>
       <GatsbyImage
-        image={getImage(postImage)}
+        image={getImage(image)}
         style={imageStyles}
         alt="Blog Post Image"
       />
       <Description>
-        <Title>Blog w Gatsby.js</Title>
-        <PostAbstract>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum odio
-          cupiditate similique quam deserunt quod amet corporis recusandae.
-        </PostAbstract>
+        <Title>{title}</Title>
+        <PostAbstract>{description}</PostAbstract>
       </Description>
       <CardButton text="CZYTAJ" />
     </Card>
   );
+};
+
+BlogPostCard.propTypes = {
+  data: propTypes.arrayOf(propTypes.string).isRequired,
 };
 
 export default BlogPostCard;

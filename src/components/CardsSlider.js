@@ -1,8 +1,8 @@
 import React from 'react';
+import propTypes from 'prop-types';
 import styled from 'styled-components';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Pagination } from 'swiper';
-import BlogPostCard from './BlogPostCard';
 import 'swiper/swiper-bundle.css';
 
 SwiperCore.use([Pagination]);
@@ -24,28 +24,32 @@ const SwiperWrapper = styled(Swiper)`
   }
 `;
 
-const centeredSlide = {
+const slideStyles = {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
 };
 
-const CardsSlider = () => {
-  const slides = [];
-
-  for (let i = 0; i < 3; i += 1) {
-    slides.push(
-      <SwiperSlide key={`slide-${i}`} style={centeredSlide}>
-        <BlogPostCard />
-      </SwiperSlide>
-    );
-  }
-
-  return (
+const CardsSlider = ({ children }) => {
+  console.log(children);
+  return children ? (
     <SwiperWrapper pagination={{ clickable: true }} spaceBetween={0}>
-      {slides}
+      {children.map((child, i) => (
+        <SwiperSlide style={slideStyles} key={i}>
+          {child}
+        </SwiperSlide>
+      ))}
     </SwiperWrapper>
+  ) : (
+    'DUPA'
   );
+};
+
+CardsSlider.propTypes = {
+  children: propTypes.oneOfType([
+    propTypes.node,
+    propTypes.arrayOf(propTypes.node),
+  ]).isRequired,
 };
 
 export default CardsSlider;
