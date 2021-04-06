@@ -17,10 +17,6 @@ const StyledHeader = styled(SectionHeader)`
   margin-bottom: 80px;
 `;
 
-// const ProjectCardsSlider = styled.div`
-//   margin-bottom: 100px;
-// `;
-
 const Portfolio = () => {
   const { postImage } = useStaticQuery(graphql`
     {
@@ -62,7 +58,7 @@ const Portfolio = () => {
   return (
     <StyledSection odd>
       <StyledHeader text="PORTFOLIO" />
-      <CardsSlider>
+      <CardsSlider navigation loop>
         {staticQueryTemplate.map((data) => (
           <ProjectCard key={data.title} data={data} />
         ))}

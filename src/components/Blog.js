@@ -6,6 +6,7 @@ import CardsSlider from './CardsSlider';
 import Section from './Section';
 import SectionHeader from './SectionHeader';
 import BlogPostCard from './BlogPostCard';
+
 const StyledSection = styled(Section)`
   display: flex;
   flex-wrap: wrap;
@@ -77,7 +78,7 @@ const Blog = () => {
     <StyledSection>
       <StyledHeader text="BLOG" />
 
-      <CardsSlider>
+      <CardsSlider pagination>
         {staticQueryTemplate.map((data) => (
           <BlogPostCard key={data.title} data={data} />
         ))}
