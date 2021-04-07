@@ -51,8 +51,6 @@ const Links = styled.div`
 `;
 
 const ProjectCard = ({ data }) => {
-
-  console.log("Project Card ", data)
   const { title, image, description, techStack } = data;
   return (
     <Card>
@@ -67,10 +65,10 @@ const ProjectCard = ({ data }) => {
         <ProjectAbstract>{description}</ProjectAbstract>
       </Description>
       <Links>
-        <a target="_blank" rel="noreferrer" href="http://www.github.com">
+        <a target="_blank" rel="noreferrer noopener" href="http://www.github.com">
           <FaGithub />
         </a>
-        <a target="_blank" rel="noreferrer" href="http://www.github.com">
+        <a target="_blank" rel="noreferrer noopener" href="http://www.github.com">
           <IconWWW />
         </a>
       </Links>

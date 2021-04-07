@@ -5,6 +5,7 @@ import Section from './Section';
 import ProjectCard from './ProjectCard';
 import SectionHeader from './SectionHeader';
 import CardsSlider from './CardsSlider';
+import withSlider from './withSlider';
 
 const StyledSection = styled(Section)`
   display: flex;
@@ -55,12 +56,14 @@ const Portfolio = () => {
     },
   ];
 
+  const ProjectCardWithSlider = withSlider(ProjectCard);
+
   return (
     <StyledSection odd>
       <StyledHeader text="PORTFOLIO" />
       <CardsSlider navigation loop>
         {staticQueryTemplate.map((data) => (
-          <ProjectCard key={data.title} data={data} />
+          <ProjectCardWithSlider key={data.title} data={data} />
         ))}
       </CardsSlider>
     </StyledSection>

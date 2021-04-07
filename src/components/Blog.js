@@ -6,6 +6,7 @@ import CardsSlider from './CardsSlider';
 import Section from './Section';
 import SectionHeader from './SectionHeader';
 import BlogPostCard from './BlogPostCard';
+import withSlider from './withSlider';
 
 const StyledSection = styled(Section)`
   display: flex;
@@ -74,13 +75,15 @@ const Blog = () => {
     },
   ];
 
+  const BlogPostCardWithSlider = withSlider(BlogPostCard);
+
   return (
     <StyledSection>
       <StyledHeader text="BLOG" />
 
       <CardsSlider pagination>
         {staticQueryTemplate.map((data) => (
-          <BlogPostCard key={data.title} data={data} />
+          <BlogPostCardWithSlider key={data.title} data={data} />
         ))}
       </CardsSlider>
       <Button dark text="ZOBACZ WSZYSTKIE WPISY" />

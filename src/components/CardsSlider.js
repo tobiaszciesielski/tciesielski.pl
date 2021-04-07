@@ -36,12 +36,6 @@ const SwiperWrapper = styled(Swiper)`
   }
 `;
 
-const slideStyles = {
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-};
-
 const CardsSlider = ({ children, pagination, ...rest }) => {
   const params = {
     spaceBetween: 0,
@@ -49,17 +43,9 @@ const CardsSlider = ({ children, pagination, ...rest }) => {
     ...rest,
   };
 
-  return (
-    children && (
-      <SwiperWrapper {...params}>
-        {children.map((child, i) => (
-          <SwiperSlide style={slideStyles} key={i}>
-            {child}
-          </SwiperSlide>
-        ))}
-      </SwiperWrapper>
-    )
-  );
+  console.log(children);
+
+  return children && <SwiperWrapper {...params}>{children}</SwiperWrapper>;
 };
 
 CardsSlider.propTypes = {
