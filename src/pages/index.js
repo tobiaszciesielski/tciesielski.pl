@@ -4,6 +4,8 @@ import Header from '../components/Header';
 import About from '../components/About';
 import Blog from '../components/Blog';
 import Portfolio from '../components/Portfolio';
+import Contact from '../components/Contact';
+import Footer from '../components/Footer';
 
 const IndexPage = () => (
   <Layout>
@@ -11,6 +13,8 @@ const IndexPage = () => (
     <About />
     <Blog />
     <Portfolio />
+    <Contact />
+    <Footer />
   </Layout>
 );
 

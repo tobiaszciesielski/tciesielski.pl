@@ -31,6 +31,15 @@ const GlobalStyle = createGlobalStyle`
     font-family: ${typo.robotoBold}, 'Arial Narrow';
   }
 
+  form > p, input, textarea {
+    font-family: ${typo.ralewayRegular}, 'Arial Narrow';
+  }
+
+  footer > p {
+    font-family: ${typo.ralewayMedium}, 'Arial Narrow';
+    font-size: 0.78em;
+  }
+
   h1 {
     font-size: 2.7em;
   }
@@ -51,6 +60,9 @@ const GlobalStyle = createGlobalStyle`
     font-size: 0.83em;
   }
   
+  input, textarea {
+    font-size: 0.88em;
+  }
 
   *, *:before, *:after {
     box-sizing: border-box;

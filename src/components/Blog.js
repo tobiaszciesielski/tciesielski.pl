@@ -39,6 +39,11 @@ const StyledHeader = styled(SectionHeader)`
   }
 `;
 
+const StyledCardsSlider = styled(CardsSlider)`
+  margin-bottom: 50px;
+  padding-bottom: 50px;
+`;
+
 const Blog = () => {
   const { postImage } = useStaticQuery(graphql`
     {
@@ -80,11 +85,11 @@ const Blog = () => {
   return (
     <StyledSection>
       <StyledHeader text="BLOG" />
-      <CardsSlider pagination>
+      <StyledCardsSlider pagination>
         {CardsData.map((data) => (
           <BlogPostCardWithSlider key={data.title} data={data} />
         ))}
-      </CardsSlider>
+      </StyledCardsSlider>
       <Button dark text="ZOBACZ WSZYSTKIE WPISY" />
     </StyledSection>
   );

@@ -12,8 +12,7 @@
   "plugins": ["react"],
   "rules": {
     "react/jsx-filename-extension": 0,
-    "react/jsx-props-no-spreading": 0,
-    "no-console": 0
+    "react/jsx-props-no-spreading": 0
   },
   "parser": "babel-eslint"
 }

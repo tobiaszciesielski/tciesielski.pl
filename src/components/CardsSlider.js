@@ -10,8 +10,6 @@ Swiper.use([Navigation, Pagination]);
 const SwiperWrapper = styled.div`
   margin-left: -18px;
   margin-right: -18px;
-  margin-bottom: 50px;
-  padding-bottom: 50px;
 
   .swiper-pagination {
     bottom: 0;
@@ -36,7 +34,7 @@ const SwiperWrapper = styled.div`
   }
 `;
 
-const CardsSlider = ({ children, pagination, navigation }) => {
+const CardsSlider = ({ children, className, pagination, navigation }) => {
   const swiperRef = useRef(null);
 
   const params = {
@@ -59,7 +57,7 @@ const CardsSlider = ({ children, pagination, navigation }) => {
   }, []);
 
   return (
-    <SwiperWrapper ref={swiperRef} className="swiper-container">
+    <SwiperWrapper ref={swiperRef} className={`swiper-container ${className}`}>
       <div className="swiper-wrapper">{children}</div>
       <div className="swiper-pagination" />
       {navigation && (
@@ -77,11 +75,13 @@ CardsSlider.propTypes = {
     propTypes.node,
     propTypes.arrayOf(propTypes.node),
   ]).isRequired,
+  className: propTypes.string,
   pagination: propTypes.bool,
   navigation: propTypes.bool,
 };
 
 CardsSlider.defaultProps = {
+  className: '',
   pagination: false,
   navigation: false,
 };

@@ -46,7 +46,6 @@ const CardButton = styled(Button)`
 const BlogPostCard = ({ data }) => {
   const { title, description, image } = data;
 
-  console.log(image);
   return (
     <Card>
       <GatsbyImage
