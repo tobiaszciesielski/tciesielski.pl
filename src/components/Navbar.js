@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import LogoSVG from './LogoSVG';
 import HamburgerMenu from './Hamburger';
 import Menu from './Menu';
+import Logo from '../assets/icons/logo.svg';
+
+const StyledLogo = styled(Logo)`
+  width: 31px;
+  height: 31px;
+`;
 
 const Nav = styled.nav`
   position: fixed;
@@ -53,7 +58,7 @@ const Navbar = () => {
   return (
     <Nav visible={visible}>
       <Menu expanded={expanded} />
-      <LogoSVG />
+      <StyledLogo />
       <HamburgerMenu setExpanded={setExpanded} expanded={expanded} />
     </Nav>
   );
