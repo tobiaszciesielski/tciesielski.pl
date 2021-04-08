@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import propTypes from 'prop-types';
 import styled from 'styled-components';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Pagination, Navigation } from 'swiper';
+import Swiper, { Pagination, Navigation } from 'swiper';
+
 import 'swiper/swiper-bundle.css';
 
-SwiperCore.use([Pagination, Navigation]);
+Swiper.use([Navigation, Pagination]);
 
-const SwiperWrapper = styled(Swiper)`
+const SwiperWrapper = styled.div`
   margin-left: -18px;
   margin-right: -18px;
   margin-bottom: 50px;
@@ -36,16 +36,43 @@ const SwiperWrapper = styled(Swiper)`
   }
 `;
 
-const CardsSlider = ({ children, pagination, ...rest }) => {
+const CardsSlider = ({ children, pagination, navigation, ...rest }) => {
+  const swiperRef = useRef(null);
+
   const params = {
+    preloadImages: false,
+    lazy: true,
+    pagination: pagination && {
+      el: '.swiper-pagination',
+      type: 'bullets',
+      clickable: true,
+    },
+    slidesPerView: 1,
     spaceBetween: 0,
-    pagination: pagination && { clickable: true },
+    navigation: navigation && {
+      nextEl: '.swiper-button-next', // arrows on the side of the slides
+      prevEl: '.swiper-button-prev', // arrows on the side of the slides
+    },
     ...rest,
   };
 
-  console.log(children);
+  useEffect(() => {
+    const swiper = new Swiper(swiperRef.current, params);
+    return () => swiper.destroy();
+  }, []);
 
-  return children && <SwiperWrapper {...params}>{children}</SwiperWrapper>;
+  return (
+    <SwiperWrapper ref={swiperRef} className="swiper-container">
+      <div className="swiper-wrapper">{children}</div>
+      <div className="swiper-pagination" />
+      {navigation && (
+        <>
+          <div className="swiper-button-prev" />
+          <div className="swiper-button-next" />
+        </>
+      )}
+    </SwiperWrapper>
+  );
 };
 
 CardsSlider.propTypes = {

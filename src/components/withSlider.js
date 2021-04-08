@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { SwiperSlide } from 'swiper/react';
 
 const slideStyles = {
@@ -8,10 +7,13 @@ const slideStyles = {
   alignItems: 'center',
 };
 
-const withSlider = (WprappedComponent) => (props) => (
-  <SwiperSlide style={slideStyles}>
-    <WprappedComponent {...props} />
-  </SwiperSlide>
-);
+const withSlider = (WprappedComponent) => {
+  const ComponentWithSlider = (props) => (
+    <SwiperSlide style={slideStyles}>
+      <WprappedComponent {...props} />
+    </SwiperSlide>
+  );
+  return ComponentWithSlider;
+};
 
 export default withSlider;

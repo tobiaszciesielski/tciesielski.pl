@@ -62,7 +62,11 @@ const BlogPostCard = ({ data }) => {
 };
 
 BlogPostCard.propTypes = {
-  data: propTypes.arrayOf(propTypes.string).isRequired,
+  data: propTypes.shape({
+    title: propTypes.string,
+    description: propTypes.string,
+    image: propTypes.any,
+  }).isRequired,
 };
 
 export default BlogPostCard;

@@ -54,7 +54,7 @@ const Blog = () => {
     }
   `);
 
-  const staticQueryTemplate = [
+  const CardsData = [
     {
       title: 'Post1',
       description:
@@ -80,9 +80,8 @@ const Blog = () => {
   return (
     <StyledSection>
       <StyledHeader text="BLOG" />
-
       <CardsSlider pagination>
-        {staticQueryTemplate.map((data) => (
+        {CardsData.map((data) => (
           <BlogPostCardWithSlider key={data.title} data={data} />
         ))}
       </CardsSlider>

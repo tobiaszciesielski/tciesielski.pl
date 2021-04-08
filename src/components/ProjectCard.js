@@ -65,10 +65,18 @@ const ProjectCard = ({ data }) => {
         <ProjectAbstract>{description}</ProjectAbstract>
       </Description>
       <Links>
-        <a target="_blank" rel="noreferrer noopener" href="http://www.github.com">
+        <a
+          target="_blank"
+          rel="noreferrer noopener"
+          href="http://www.github.com"
+        >
           <FaGithub />
         </a>
-        <a target="_blank" rel="noreferrer noopener" href="http://www.github.com">
+        <a
+          target="_blank"
+          rel="noreferrer noopener"
+          href="http://www.github.com"
+        >
           <IconWWW />
         </a>
       </Links>
@@ -77,7 +85,12 @@ const ProjectCard = ({ data }) => {
 };
 
 ProjectCard.propTypes = {
-  data: propTypes.arrayOf(propTypes.string).isRequired,
+  data: propTypes.shape({
+    title: propTypes.string,
+    description: propTypes.string,
+    image: propTypes.any,
+    techStack: propTypes.arrayOf(propTypes.string),
+  }).isRequired,
 };
 
 export default ProjectCard;
