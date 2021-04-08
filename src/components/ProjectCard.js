@@ -88,7 +88,7 @@ ProjectCard.propTypes = {
   data: propTypes.shape({
     title: propTypes.string,
     description: propTypes.string,
-    image: propTypes.any,
+    image: propTypes.shape({ childImageSharp: propTypes.shape({}) }),
     techStack: propTypes.arrayOf(propTypes.string),
   }).isRequired,
 };

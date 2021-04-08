@@ -61,7 +61,7 @@ const Portfolio = () => {
   return (
     <StyledSection odd>
       <StyledHeader text="PORTFOLIO" />
-      <CardsSlider navigation loop>
+      <CardsSlider navigation>
         {staticQueryTemplate.map((data) => (
           <ProjectCardWithSlider key={data.title} data={data} />
         ))}

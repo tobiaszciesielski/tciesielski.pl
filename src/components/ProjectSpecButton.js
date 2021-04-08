@@ -26,9 +26,24 @@ const Root = styled(Node)`
   width: 100%;
   height: 100%;
   font-size: 34px;
+
+  ${({ expanded }) =>
+    expanded &&
+    css`
+      transform: rotate(30deg);
+    `}
+
   :hover {
-    transform: rotate(30deg);
+    ${({ expanded }) =>
+      expanded
+        ? css`
+            transform: scale(1.05) rotate(30deg);
+          `
+        : css`
+            transform: scale(1.05);
+          `}
   }
+
   transition: transform 200ms ease;
 `;
 
@@ -65,7 +80,7 @@ const ProjectSpecButton = ({ className, techStack }) => {
 
   return (
     <Wrapper className={className}>
-      <Root onClick={() => setExpanded(!expanded)}>
+      <Root expanded={expanded} onClick={() => setExpanded(!expanded)}>
         <FaCog />
       </Root>
       {techStack.map((name, i) => {

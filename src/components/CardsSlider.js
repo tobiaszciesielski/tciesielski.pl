@@ -36,12 +36,10 @@ const SwiperWrapper = styled.div`
   }
 `;
 
-const CardsSlider = ({ children, pagination, navigation, ...rest }) => {
+const CardsSlider = ({ children, pagination, navigation }) => {
   const swiperRef = useRef(null);
 
   const params = {
-    preloadImages: false,
-    lazy: true,
     pagination: pagination && {
       el: '.swiper-pagination',
       type: 'bullets',
@@ -50,10 +48,9 @@ const CardsSlider = ({ children, pagination, navigation, ...rest }) => {
     slidesPerView: 1,
     spaceBetween: 0,
     navigation: navigation && {
-      nextEl: '.swiper-button-next', // arrows on the side of the slides
-      prevEl: '.swiper-button-prev', // arrows on the side of the slides
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
     },
-    ...rest,
   };
 
   useEffect(() => {
@@ -82,15 +79,11 @@ CardsSlider.propTypes = {
   ]).isRequired,
   pagination: propTypes.bool,
   navigation: propTypes.bool,
-  freeMode: propTypes.bool,
-  loop: propTypes.bool,
 };
 
 CardsSlider.defaultProps = {
   pagination: false,
   navigation: false,
-  freeMode: false,
-  loop: false,
 };
 
 export default CardsSlider;

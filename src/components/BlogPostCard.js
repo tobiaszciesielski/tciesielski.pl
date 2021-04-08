@@ -45,6 +45,8 @@ const CardButton = styled(Button)`
 
 const BlogPostCard = ({ data }) => {
   const { title, description, image } = data;
+
+  console.log(image);
   return (
     <Card>
       <GatsbyImage
@@ -65,7 +67,7 @@ BlogPostCard.propTypes = {
   data: propTypes.shape({
     title: propTypes.string,
     description: propTypes.string,
-    image: propTypes.any,
+    image: propTypes.shape({ childImageSharp: propTypes.shape({}) }),
   }).isRequired,
 };
 
