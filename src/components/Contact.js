@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Section from './Section';
 import SectionHeader from './SectionHeader';
 import Button from './Button';
+import NewsletterForm from './NewsletterForm';
 
 const StyledSection = styled(Section)`
   display: flex;
@@ -38,13 +39,6 @@ const FormTitle = styled.h3`
   letter-spacing: 0.04em;
 `;
 
-const FormDescription = styled.p`
-  color: ${({ theme }) => theme.colors.primary};
-  margin-bottom: 24px;
-  text-align: center;
-  padding: 0 10px;
-`;
-
 const FormInput = styled.input`
   color: ${({ theme }) => theme.colors.secondary};
   border: none;
@@ -72,15 +66,8 @@ const FormTextArea = styled.textarea`
 const Contact = () => (
   <StyledSection>
     <StyledHeader text="KONTAKT" />
-    <StyledForm>
-      <FormTitle>NEWSLETTER</FormTitle>
-      <FormDescription>
-        Zapisz się, żeby dostawać powiadomienia o nowych wpisach na blogu!
-      </FormDescription>
-      <FormInput placeholder="imię" type="text" />
-      <FormInput placeholder="nazwisko" type="text" />
-      <Button text="ZAPISZ" />
-    </StyledForm>
+
+    <NewsletterForm />
 
     <StyledForm>
       <FormTitle>NAPISZ DO MNIE</FormTitle>

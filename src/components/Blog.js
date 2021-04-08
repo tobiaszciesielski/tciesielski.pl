@@ -6,7 +6,7 @@ import CardsSlider from './CardsSlider';
 import Section from './Section';
 import SectionHeader from './SectionHeader';
 import BlogPostCard from './BlogPostCard';
-import withSlider from './withSlider';
+import withSlider from './hoc/withSlider';
 
 const StyledSection = styled(Section)`
   display: flex;

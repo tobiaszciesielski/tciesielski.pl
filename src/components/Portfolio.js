@@ -5,7 +5,7 @@ import Section from './Section';
 import ProjectCard from './ProjectCard';
 import SectionHeader from './SectionHeader';
 import CardsSlider from './CardsSlider';
-import withSlider from './withSlider';
+import withSlider from './hoc/withSlider';
 
 const StyledSection = styled(Section)`
   display: flex;

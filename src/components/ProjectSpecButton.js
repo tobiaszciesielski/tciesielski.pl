@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import { FaCog } from '@react-icons/all-files/fa/FaCog';
 import propTypes from 'prop-types';
-import icons from './IconsProvider';
+import icons from '../utils/iconsProvider';
 
 const Wrapper = styled.div`
   width: 60px;
