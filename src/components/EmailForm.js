@@ -1,41 +1,15 @@
 import React from 'react';
 import propTypes from 'prop-types';
+import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
 import Button from './Button';
+import FormWrapper from './FormWrapper';
+import FormHeader from './FormHeader';
+import Input from './Input.styled';
+import ErrorMessage from './ErrorMessage.styled';
 
-const StyledForm = styled.form`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 20px;
-  border-radius: 20px;
-  background-color: ${({ theme }) => theme.colors.darker};
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
-  width: 100%;
-  max-width: 300px;
-`;
-
-const FormTitle = styled.h3`
-  text-align: center;
-  ::first-letter {
-    color: ${({ theme }) => theme.colors.touch};
-  }
+const StyledFormHeader = styled(FormHeader)`
   margin-bottom: 18px;
-  letter-spacing: 0.04em;
-`;
-
-const FormInput = styled.input`
-  color: ${({ theme }) => theme.colors.secondary};
-  border: none;
-  outline-style: none;
-  outline-color: ${({ theme }) => theme.colors.touch};
-  border-radius: 10px;
-  margin-bottom: 22px;
-  padding: 0 10px;
-  height: 40px;
-  width: 100%;
-  max-width: 230px;
 `;
 
 const FormTextArea = styled.textarea`
@@ -48,17 +22,47 @@ const FormTextArea = styled.textarea`
   width: 100%;
   max-width: 230px;
   outline-style: none;
+  resize: none;
 `;
 
-const EmailForm = ({ className }) => (
-  <StyledForm className={className}>
-    <FormTitle>NAPISZ DO MNIE</FormTitle>
-    <FormInput placeholder="mail" type="text" />
-    <FormTextArea placeholder={'Cześć,\n\nMam pytanie...'} type="text" />
-    <Button text="WYŚLIJ" />
-  </StyledForm>
-);
+const StyledButton = styled(Button)`
+  margin-top: 20px;
+  margin-left: -15px;
+  margin-right: -15px;
+`;
 
+const emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+const EmailForm = ({ className }) => {
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm();
+
+  const onSubmit = (data) => console.log(data);
+
+  return (
+    <FormWrapper onSubmit={handleSubmit(onSubmit)} className={className}>
+      <StyledFormHeader text="NAPISZ DO MNIE" />
+      <Input
+        {...register('email', { required: true, pattern: emailPattern })}
+        placeholder="mail"
+      />
+      <FormTextArea
+        {...register('message', { required: true, minLength: 3 })}
+        placeholder={'Cześć,\n\nMam pytanie...'}
+        type="text"
+      />
+      <ErrorMessage>
+        {errors.email && 'Podaj poprawny email! '}
+        {errors.message && 'Napisz wiadomość! '}
+      </ErrorMessage>
+
+      <StyledButton text="WYŚLIJ" />
+    </FormWrapper>
+  );
+};
 EmailForm.propTypes = {
   className: propTypes.string,
 };
