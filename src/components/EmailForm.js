@@ -56,7 +56,7 @@ const EmailForm = ({ className }) => {
       />
       <ErrorMessage>
         {errors.email && 'Podaj poprawny email! '}
-        {errors.message && 'Napisz wiadomość! '}
+        {errors.message && 'Za krótka wiadomość! '}
       </ErrorMessage>
 
       <StyledButton text="WYŚLIJ" />
