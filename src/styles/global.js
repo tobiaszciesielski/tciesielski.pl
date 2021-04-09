@@ -75,6 +75,12 @@ const GlobalStyle = createGlobalStyle`
       font-size: 18px;
     }
   }
+
+  @media ${({ theme: { media } }) => media.tablet} {
+    body {
+      font-size: 20px;
+    }
+  }
 `;
 
 export default GlobalStyle;

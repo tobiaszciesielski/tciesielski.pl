@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import propTypes from 'prop-types';
 
 const StyledCard = styled.div`
+  position: relative;
   width: 220px;
   height: 350px;
   padding: 15px;
@@ -11,11 +12,15 @@ const StyledCard = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  position: relative;
+
   filter: drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.25));
 
   @media ${({ theme: { media } }) => media.mobile} {
     width: 250px;
+  }
+
+  @media ${({ theme: { media } }) => media.tablet} {
+    width: 260px;
   }
 `;
 
@@ -37,7 +42,7 @@ const Stack = styled.div`
   }
 `;
 
-const Decoration = styled.div`
+const Decoration = styled.span`
   position: absolute;
   color: ${({ theme }) => theme.colors.touch};
   top: 0;

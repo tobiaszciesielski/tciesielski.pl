@@ -5,14 +5,12 @@ import { FaCode } from '@react-icons/all-files/fa/FaCode';
 import styled from 'styled-components';
 import TechCard from './TechCard';
 
-const StyledTechCard = styled(TechCard)`
-  margin-bottom: 50px;
-`;
-
 const Cards = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 10px;
+  width: 100%;
   position: relative;
   z-index: 1;
   ::after {
@@ -28,9 +26,43 @@ const Cards = styled.div`
     z-index: -1;
     transform: translateX(30%);
   }
-  div:last-child {
+
+  & div:last-child {
     margin-bottom: 0;
   }
+
+  & div:nth-child(1) {
+    @media ${({ theme: { media } }) => media.tablet} {
+      grid-column: 1/7;
+    }
+  }
+
+  & div:nth-child(2) {
+    @media ${({ theme: { media } }) => media.tablet} {
+      grid-column: 7/13;
+    }
+
+    @media ${({ theme: { media } }) => media.laptop} {
+      margin-top: 40px;
+    }
+  }
+
+  & div:nth-child(3) {
+    @media ${({ theme: { media } }) => media.tablet} {
+      grid-column: 1/13;
+    }
+  }
+
+  & div:nth-child(n) {
+    @media ${({ theme: { media } }) => media.laptop} {
+      grid-column: span 4;
+    }
+  }
+`;
+
+const StyledTechCard = styled(TechCard)`
+  margin-bottom: 50px;
+  grid-column: 1/13;
 `;
 
 const techStack = [
