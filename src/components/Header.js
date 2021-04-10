@@ -31,7 +31,7 @@ const StyledHeader = styled.header`
     }
 
     @media ${({ theme: { media } }) => media.desktop} {
-      width: 55%;
+      width: 52%;
       right: 0%;
     }
 
