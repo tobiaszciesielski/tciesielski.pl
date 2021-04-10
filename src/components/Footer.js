@@ -5,6 +5,10 @@ import styled, { css } from 'styled-components';
 import Logo from '../assets/icons/logo.svg';
 
 const StyledFooter = styled.footer`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   padding-top: 100px;
   margin-bottom: 25px;
   background: linear-gradient(
@@ -14,21 +18,30 @@ const StyledFooter = styled.footer`
       ${colors.darker} 35%
     `}
   );
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+
+  @media ${({ theme: { media } }) => media.laptop} {
+    flex-direction: row;
+  }
 `;
 
 const StyledLogo = styled(Logo)`
-  width: 31px;
-  height: 31px;
+  width: 30px;
   margin-bottom: 12px;
+
+  @media ${({ theme: { media } }) => media.laptop} {
+    order: 1;
+    margin: 0 50px;
+    width: 50px;
+  }
 `;
 
 const Copyright = styled.p`
   color: ${({ theme }) => theme.colors.primary};
   margin-bottom: 12px;
+  @media ${({ theme: { media } }) => media.laptop} {
+    order: 0;
+    margin-bottom: 0px;
+  }
 `;
 
 const Socials = styled.div`
@@ -37,9 +50,20 @@ const Socials = styled.div`
   align-items: center;
   a > svg {
     color: ${({ theme }) => theme.colors.primary};
-    width: 34px;
-    height: 34px;
+    width: 32px;
+    height: 32px;
     margin: 0 10px;
+
+    :hover {
+      color: ${({ theme }) => theme.colors.secondary};
+    }
+  }
+  @media ${({ theme: { media } }) => media.laptop} {
+    order: 2;
+    a > svg {
+      width: 28px;
+      height: 28px;
+    }
   }
 `;
 
