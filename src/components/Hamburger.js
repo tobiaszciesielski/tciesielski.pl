@@ -2,12 +2,24 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-const Hamburger = styled.span`
+const HamburgerBox = styled.span`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 32px;
+  height: 25px;
+  z-index: 20;
+
+  @media ${({ theme: { media } }) => media.laptop} {
+    display: none;
+  }
+`;
+
+const Hamburger = styled.span`
+  width: 100%;
   height: 3px;
   background-color: white;
   z-index: 10;
-
 
   &::before {
     content: '';
@@ -30,15 +42,10 @@ const Hamburger = styled.span`
     transform: ${({ expanded }) =>
       expanded ? 'translateY(0)' : 'translateY(10px)'};
   }
-`;
 
-const HamburgerBox = styled.span`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 32px;
-  height: 25px;
-  z-index: 20;
+  @media ${({ theme: { media } }) => media.laptop} {
+    display: none;
+  }
 `;
 
 const HamburgerMenu = ({ setExpanded, expanded }) => (

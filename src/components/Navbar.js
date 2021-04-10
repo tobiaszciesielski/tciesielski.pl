@@ -5,8 +5,15 @@ import Menu from './Menu';
 import Logo from '../assets/icons/logo.svg';
 
 const StyledLogo = styled(Logo)`
-  width: 31px;
-  height: 31px;
+  width: 30px;
+
+  @media ${({ theme: { media } }) => media.tablet} {
+    width: 35px;
+  }
+
+  @media ${({ theme: { media } }) => media.laptop} {
+    width: 50px;
+  }
 `;
 
 const Nav = styled.nav`
@@ -19,6 +26,7 @@ const Nav = styled.nav`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   z-index: 9000;
   background-color: ${({ theme }) => theme.colors.darker};
 
@@ -26,6 +34,22 @@ const Nav = styled.nav`
     visible ? 'translateY(0%)' : 'translateY(-100%)'};
 
   transition: transform 0.3s ease-in-out;
+
+  @media ${({ theme: { media } }) => media.tablet} {
+    padding: 15px 20px;
+  }
+
+  @media ${({ theme: { media } }) => media.laptop} {
+    transform: translateY(0%);
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+    align-items: flex-start;
+  }
+
+  @media ${({ theme: { media } }) => media.desktop} {
+    padding: 30px 40px;
+  }
 `;
 
 const Navbar = () => {
@@ -57,8 +81,8 @@ const Navbar = () => {
 
   return (
     <Nav visible={visible}>
-      <Menu expanded={expanded} />
       <StyledLogo />
+      <Menu expanded={expanded} />
       <HamburgerMenu setExpanded={setExpanded} expanded={expanded} />
     </Nav>
   );

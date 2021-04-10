@@ -21,6 +21,8 @@ const StyledMenu = styled.ul`
 
   li {
     font-size: 20px;
+    letter-spacing: 3px;
+    color: ${({ theme }) => theme.colors.primary};
     list-style: none;
     margin-bottom: 100px;
     :last-child {
@@ -29,9 +31,35 @@ const StyledMenu = styled.ul`
   }
 
   a {
-    color: ${({ theme }) => theme.colors.primary};
     text-decoration: none;
-    letter-spacing: 3px;
+  }
+
+  @media ${({ theme: { media } }) => media.laptop} {
+    position: static;
+    transform: translateY(0%);
+    background-color: rgba(0, 0, 0, 0);
+    width: auto;
+    height: auto;
+    flex-direction: row;
+    transition: none;
+
+    li {
+      margin-bottom: 0px;
+      margin-left: 40px;
+      letter-spacing: 1px;
+    }
+
+    a {
+      :hover {
+        opacity: 0.9;
+        border-bottom: 1px solid ${({ theme }) => theme.colors.primary};
+      }
+    }
+  }
+  @media ${({ theme: { media } }) => media.desktop} {
+    li {
+      margin-left: 50px;
+    }
   }
 `;
 

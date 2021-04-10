@@ -15,6 +15,7 @@ const theme = {
     tablet: `(min-width: 768px)`,
     laptop: `(min-width: 1024px)`,
     desktop: `(min-width: 1440px)`,
+    bigDesktop: `(min-width: 1800px)`,
   },
 };
 

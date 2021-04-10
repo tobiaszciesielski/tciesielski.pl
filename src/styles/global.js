@@ -81,6 +81,14 @@ const GlobalStyle = createGlobalStyle`
       font-size: 20px;
     }
   }
+
+  @media ${({ theme: { media } }) => media.laptop} {
+    nav > ul > li > a {
+      font-family: ${typo.ralewayRegular}, 'Arial Narrow';
+      font-size: 18px;
+    }
+  }
+
 `;
 
 export default GlobalStyle;
