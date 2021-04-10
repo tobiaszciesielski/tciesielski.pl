@@ -10,8 +10,9 @@ import withSlider from './hoc/withSlider';
 
 const StyledSection = styled(Section)`
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
   position: relative;
 
   z-index: 1;

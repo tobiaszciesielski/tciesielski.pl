@@ -16,9 +16,6 @@ const theme = {
     laptop: `(min-width: 1024px)`,
     desktop: `(min-width: 1440px)`,
   },
-  mediaHeight: {
-    small: `(min-height: 875px)`,
-  },
 };
 
 export default theme;

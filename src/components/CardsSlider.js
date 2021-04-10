@@ -8,6 +8,7 @@ import 'swiper/swiper-bundle.css';
 Swiper.use([Navigation, Pagination]);
 
 const SwiperWrapper = styled.div`
+  width: calc(100% + 36px);
   margin-left: -18px;
   margin-right: -18px;
 
@@ -19,6 +20,10 @@ const SwiperWrapper = styled.div`
     width: 15px;
     height: 15px;
     background-color: ${({ theme }) => theme.colors.touch};
+
+    @media ${({ theme: { media } }) => media.laptop} {
+      display: none;
+    }
   }
 
   .swiper-button-next,
@@ -27,10 +32,28 @@ const SwiperWrapper = styled.div`
     height: 0;
   }
 
+  .swiper-button-prev {
+    @media ${({ theme: { media } }) => media.laptop} {
+      left: 20px;
+    }
+    @media ${({ theme: { media } }) => media.desktop} {
+      left: 40px;
+    }
+  }
+  .swiper-button-next {
+    @media ${({ theme: { media } }) => media.laptop} {
+      right: 20px;
+    }
+    @media ${({ theme: { media } }) => media.desktop} {
+      right: 40px;
+    }
+  }
+
   .swiper-button-next::after,
   .swiper-button-prev::after {
-    font-size: 40px;
+    font-size: 2.5em;
     font-weight: 800;
+    filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.5));
   }
 `;
 
@@ -48,6 +71,29 @@ const CardsSlider = ({ children, className, pagination, navigation }) => {
     navigation: navigation && {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
+    },
+
+    centeredSlides: true,
+    allowTouchMove: true,
+    breakpoints: {
+      767: {
+        slidesPerView: 2,
+        spaceBetween: 50,
+        centeredSlides: true,
+        allowTouchMove: true,
+      },
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 50,
+        centeredSlides: false,
+        allowTouchMove: !pagination,
+      },
+      1439: {
+        slidesPerView: 3,
+        spaceBetween: pagination ? -400 : -150,
+        centeredSlides: false,
+        allowTouchMove: !pagination,
+      },
     },
   };
 

@@ -8,6 +8,12 @@ import FormHeader from './FormHeader';
 import Input from './Input.styled';
 import ErrorMessage from './ErrorMessage.styled';
 
+const StyledForm = styled(FormWrapper)`
+  @media ${({ theme: { media } }) => media.tablet} {
+    max-width: 750px;
+  }
+`;
+
 const StyledFormHeader = styled(FormHeader)`
   margin-bottom: 18px;
 `;
@@ -23,6 +29,10 @@ const FormTextArea = styled.textarea`
   max-width: 230px;
   outline-style: none;
   resize: none;
+
+  @media ${({ theme: { media } }) => media.tablet} {
+    max-width: 600px;
+  }
 `;
 
 const StyledButton = styled(Button)`
@@ -43,7 +53,7 @@ const EmailForm = ({ className }) => {
   const onSubmit = (data) => console.log(data);
 
   return (
-    <FormWrapper onSubmit={handleSubmit(onSubmit)} className={className}>
+    <StyledForm onSubmit={handleSubmit(onSubmit)} className={className}>
       <StyledFormHeader text="NAPISZ DO MNIE" />
       <Input
         {...register('email', { required: true, pattern: emailPattern })}
@@ -60,7 +70,7 @@ const EmailForm = ({ className }) => {
       </ErrorMessage>
 
       <StyledButton text="WYŚLIJ" />
-    </FormWrapper>
+    </StyledForm>
   );
 };
 EmailForm.propTypes = {

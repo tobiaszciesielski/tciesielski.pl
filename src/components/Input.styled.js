@@ -10,6 +10,10 @@ const Input = styled.input`
   height: 40px;
   width: 100%;
   max-width: 230px;
+
+  @media ${({ theme: { media } }) => media.tablet} {
+    max-width: 300px;
+  }
 `;
 
 export default Input;

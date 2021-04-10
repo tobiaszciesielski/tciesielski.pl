@@ -34,12 +34,14 @@ const Cards = styled.div`
   & div:nth-child(1) {
     @media ${({ theme: { media } }) => media.tablet} {
       grid-column: 1/7;
+      margin-bottom: 50px;
     }
   }
 
   & div:nth-child(2) {
     @media ${({ theme: { media } }) => media.tablet} {
       grid-column: 7/13;
+      margin-bottom: 50px;
     }
 
     @media ${({ theme: { media } }) => media.laptop} {
@@ -50,12 +52,14 @@ const Cards = styled.div`
   & div:nth-child(3) {
     @media ${({ theme: { media } }) => media.tablet} {
       grid-column: 1/13;
+      margin-bottom: 0px;
     }
   }
 
   & div:nth-child(n) {
     @media ${({ theme: { media } }) => media.laptop} {
       grid-column: span 4;
+      margin-bottom: 0px;
     }
   }
 `;

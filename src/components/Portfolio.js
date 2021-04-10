@@ -9,8 +9,9 @@ import withSlider from './hoc/withSlider';
 
 const StyledSection = styled(Section)`
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
 `;
 
 const StyledHeader = styled(SectionHeader)`
@@ -49,6 +50,13 @@ const Portfolio = () => {
     },
     {
       title: 'Project3',
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum veritatis in reiciendis sit facere enim modi, libero placeat consectetur eaque?',
+      image: postImage,
+      techStack: ['next', 'nodejs', 'react'],
+    },
+    {
+      title: 'Project4',
       description:
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum veritatis in reiciendis sit facere enim modi, libero placeat consectetur eaque?',
       image: postImage,

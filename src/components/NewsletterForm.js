@@ -10,6 +10,10 @@ import Input from './Input.styled';
 
 const StyledForm = styled(FormWrapper)`
   margin-bottom: 50px;
+
+  @media ${({ theme: { media } }) => media.tablet} {
+    max-width: 400px;
+  }
 `;
 
 const StyledFormHeader = styled(FormHeader)`
@@ -21,6 +25,10 @@ const FormDescription = styled.p`
   margin-bottom: 24px;
   text-align: center;
   padding: 0 10px;
+
+  @media ${({ theme: { media } }) => media.tablet} {
+    padding: 0px;
+  }
 `;
 
 const StyledButton = styled(Button)`
