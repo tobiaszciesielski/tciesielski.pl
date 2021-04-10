@@ -4,11 +4,20 @@ import WindowControls from './WindowControls';
 import CodeLikeText from './CodeLikeText';
 
 const StyledWindow = styled.div`
+  grid-column: 1/13;
+  justify-self: center;
   position: relative;
   padding: 10px;
   background-color: ${({ theme }) => theme.colors.dark};
   z-index: 30;
   box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.35);
+  max-width: 800px;
+
+  @media ${({ theme: { media } }) => media.desktop} {
+    grid-column: 2/9;
+    justify-self: center;
+    grid-row: 1;
+  }
 `;
 
 const CodeWindow = () => (

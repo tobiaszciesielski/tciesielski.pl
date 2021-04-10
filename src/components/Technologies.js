@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import TechCard from './TechCard';
 
 const Cards = styled.div`
+  grid-column: 1/13;
   display: grid;
   justify-items: center;
   grid-template-columns: repeat(12, 1fr);
