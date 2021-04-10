@@ -38,6 +38,7 @@ const StyledLogo = styled(Logo)`
 const Copyright = styled.p`
   color: ${({ theme }) => theme.colors.primary};
   margin-bottom: 12px;
+
   @media ${({ theme: { media } }) => media.laptop} {
     order: 0;
     margin-bottom: 0px;
@@ -58,6 +59,7 @@ const Socials = styled.div`
       color: ${({ theme }) => theme.colors.secondary};
     }
   }
+
   @media ${({ theme: { media } }) => media.laptop} {
     order: 2;
     a > svg {

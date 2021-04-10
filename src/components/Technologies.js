@@ -32,35 +32,41 @@ const Cards = styled.div`
     margin-bottom: 0;
   }
 
-  & div:nth-child(1) {
-    @media ${({ theme: { media } }) => media.tablet} {
+  @media ${({ theme: { media } }) => media.tablet} {
+    & div:nth-child(1) {
       grid-column: 1/7;
       margin-bottom: 50px;
     }
-  }
 
-  & div:nth-child(2) {
-    @media ${({ theme: { media } }) => media.tablet} {
+    & div:nth-child(2) {
       grid-column: 7/13;
       margin-bottom: 50px;
     }
 
-    @media ${({ theme: { media } }) => media.laptop} {
-      margin-top: 40px;
-    }
-  }
-
-  & div:nth-child(3) {
-    @media ${({ theme: { media } }) => media.tablet} {
+    & div:nth-child(3) {
       grid-column: 1/13;
       margin-bottom: 0px;
     }
   }
 
-  & div:nth-child(n) {
-    @media ${({ theme: { media } }) => media.laptop} {
+  @media ${({ theme: { media } }) => media.laptop} {
+    & div:nth-child(2) {
+      margin-top: 40px;
+    }
+    & div:nth-child(n) {
       grid-column: span 4;
       margin-bottom: 0px;
+    }
+    & div:nth-child(n) {
+      grid-column: span 4;
+      margin-bottom: 0px;
+    }
+  }
+
+  @media ${({ theme: { media } }) => media.desktop} {
+    grid-column: 5/13;
+    & div:nth-child(2) {
+      margin-top: 0px;
     }
   }
 `;

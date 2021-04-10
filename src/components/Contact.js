@@ -29,28 +29,27 @@ const Forms = styled.div`
   gap: 10px;
   align-items: center;
 
-  form:nth-child(1) {
+  form {
     grid-column: 1/13;
+  }
 
-    @media ${({ theme: { media } }) => media.tablet} {
+  @media ${({ theme: { media } }) => media.tablet} {
+    form:nth-child(1) {
       grid-column: 8/12;
       margin: 0;
     }
-
-    @media ${({ theme: { media } }) => media.laptop} {
-      grid-column: 9/12;
-      margin: 0;
-    }
-  }
-
-  form:nth-child(2) {
-    grid-column: 1/13;
-    @media ${({ theme: { media } }) => media.tablet} {
+    form:nth-child(2) {
       grid-column: 2/7;
       grid-row: 1;
     }
+  }
 
-    @media ${({ theme: { media } }) => media.laptop} {
+  @media ${({ theme: { media } }) => media.laptop} {
+    form:nth-child(1) {
+      grid-column: 9/12;
+      margin: 0;
+    }
+    form:nth-child(2) {
       grid-column: 2/8;
       margin: 0;
     }

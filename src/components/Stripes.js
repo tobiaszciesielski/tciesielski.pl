@@ -17,6 +17,10 @@ const Stripe = styled.span`
     width: 2000px;
   }
 
+  @media ${({ theme: { media } }) => media.laptop} {
+    top: 15%;
+    width: 2000px;
+  }
 `;
 
 const Stripes = () => (
