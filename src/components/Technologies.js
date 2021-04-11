@@ -99,7 +99,16 @@ const techStack = {
     'graphql',
     'flask',
   ],
-  other: ['webpack', 'git', 'testing', 'cms', 'flutter', 'figma', 'photoshop'],
+  other: [
+    'TypeSript',
+    'webpack',
+    'git',
+    'testing',
+    'cms',
+    'flutter',
+    'figma',
+    'photoshop',
+  ],
 };
 
 const Technologies = () => {
