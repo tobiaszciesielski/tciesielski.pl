@@ -91,7 +91,7 @@ const Header = () => {
     {
       headerImg: file(relativePath: { eq: "header.png" }) {
         childImageSharp {
-          gatsbyImageData(formats: WEBP)
+          gatsbyImageData(formats: WEBP, placeholder: NONE)
         }
       }
     }
@@ -104,7 +104,11 @@ const Header = () => {
         <Title />
         <SubTitle />
       </TextBox>
-      <GatsbyImage className="image-header" image={getImage(headerImg)} />
+      <GatsbyImage
+        backgroundColor="rgba(0, 0, 0, 0)"
+        className="image-header"
+        image={getImage(headerImg)}
+      />
       <Gradient />
     </StyledHeader>
   );
