@@ -15,7 +15,7 @@ const Beta = styled.div`
   width: 300px;
   height: 30px;
   position: fixed;
-  background-color: red;
+  background-color: #881818;
   color: white;
   z-index: 10000;
   font-family: 'Raleway Bold';
