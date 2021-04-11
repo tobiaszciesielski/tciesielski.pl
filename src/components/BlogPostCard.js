@@ -44,7 +44,7 @@ const CardButton = styled(Button)`
 `;
 
 const BlogPostCard = ({ data }) => {
-  const { title, description, image } = data;
+  const { title, description, image, link } = data;
 
   return (
     <Card>
@@ -57,7 +57,9 @@ const BlogPostCard = ({ data }) => {
         <Title>{title}</Title>
         <PostAbstract>{description}</PostAbstract>
       </Description>
-      <CardButton text="CZYTAJ" />
+      <a href={link} target="_blank" rel="noopener noreferrer">
+        <CardButton text="CZYTAJ" />
+      </a>
     </Card>
   );
 };
@@ -67,6 +69,7 @@ BlogPostCard.propTypes = {
     title: propTypes.string,
     description: propTypes.string,
     image: propTypes.shape({ childImageSharp: propTypes.shape({}) }),
+    link: propTypes.string,
   }).isRequired,
 };
 

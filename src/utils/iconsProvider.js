@@ -12,6 +12,8 @@ import IconReact from '../assets/icons/reactjs.svg';
 import IconSequelize from '../assets/icons/sequelize.svg';
 import IconSqlite from '../assets/icons/sqlite.svg';
 import IconStyledComponents from '../assets/icons/styled-components.svg';
+import IconDjango from '../assets/icons/django.svg';
+import IconJavascript from '../assets/icons/javascript.svg';
 
 const icons = new Map([
   ['bootstrap', IconBootstrap],
@@ -28,6 +30,8 @@ const icons = new Map([
   ['sequelize', IconSequelize],
   ['sqlite', IconSqlite],
   ['styled-components', IconStyledComponents],
+  ['django', IconDjango],
+  ['javascript', IconJavascript],
 ]);
 
 export default icons;

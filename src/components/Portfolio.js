@@ -20,9 +20,33 @@ const StyledHeader = styled(SectionHeader)`
 `;
 
 const Portfolio = () => {
-  const { postImage } = useStaticQuery(graphql`
+  const { personalWebsite, cmms, hackaton, drums } = useStaticQuery(graphql`
     {
-      postImage: file(relativePath: { eq: "project-1.jpg" }) {
+      personalWebsite: file(relativePath: { eq: "personalWebsite.png" }) {
+        childImageSharp {
+          gatsbyImageData(
+            placeholder: TRACED_SVG
+            tracedSVGOptions: { color: "#fff", background: "#00ffa3" }
+          )
+        }
+      }
+      cmms: file(relativePath: { eq: "cmms.png" }) {
+        childImageSharp {
+          gatsbyImageData(
+            placeholder: TRACED_SVG
+            tracedSVGOptions: { color: "#fff", background: "#00ffa3" }
+          )
+        }
+      }
+      hackaton: file(relativePath: { eq: "hackaton.png" }) {
+        childImageSharp {
+          gatsbyImageData(
+            placeholder: TRACED_SVG
+            tracedSVGOptions: { color: "#fff", background: "#00ffa3" }
+          )
+        }
+      }
+      drums: file(relativePath: { eq: "drums.png" }) {
         childImageSharp {
           gatsbyImageData(
             placeholder: TRACED_SVG
@@ -35,32 +59,46 @@ const Portfolio = () => {
 
   const staticQueryTemplate = [
     {
-      title: 'Project1',
-      description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum veritatis in reiciendis sit facere enim modi, libero placeat consectetur eaque?',
-      image: postImage,
-      techStack: ['bootstrap', 'nodejs', 'sequelize', 'react', 'mssql'],
+      title: 'tciesielski.pl',
+      description: 'Wizytówka, blog, portfolio. Moje miejsce w sieci.',
+      image: personalWebsite,
+      techStack: ['react', 'gatsby', 'styled-components'],
+      link: 'https://tciesielski.pl',
+      github: 'https://github.com/tobiaszciesielski/tciesielski.pl',
     },
     {
-      title: 'Project2',
+      title: 'CMMS System',
       description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum veritatis in reiciendis sit facere enim modi, libero placeat consectetur eaque?',
-      image: postImage,
-      techStack: ['gatsby', 'graphql', 'react'],
+        'System do zarządzania częściami w magazynie z trzema poziomami uprawnień. Aplikację można personalizować pod kątem przechowywanych częśći.',
+      image: cmms,
+      techStack: [
+        'bootstrap',
+        'nodejs',
+        'sequelize',
+        'react',
+        'mssql',
+        'express',
+      ],
+      link: 'https://youtu.be/810LfOG52M0',
+      github: 'https://github.com/tobiaszciesielski/CMMS-System',
     },
     {
-      title: 'Project3',
+      title: 'Water Save Quarter',
       description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum veritatis in reiciendis sit facere enim modi, libero placeat consectetur eaque?',
-      image: postImage,
-      techStack: ['next', 'nodejs', 'react'],
+        'Popraw swoje nawyki, dbaj o środowisko, oszczędzaj pieniądze. Aplikacja webowa, która doprowadziła nas do finału hackatonu HackYeah.',
+      image: hackaton,
+      techStack: ['next', 'nodejs', 'react', 'django'],
+      link: 'https://blog.akai.org.pl/posts/hackyeah2020/',
+      github: 'https://github.com/akai-org/hackyeah_2020_water_frontend',
     },
     {
-      title: 'Project4',
+      title: 'Drums',
       description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum veritatis in reiciendis sit facere enim modi, libero placeat consectetur eaque?',
-      image: postImage,
-      techStack: ['next', 'nodejs', 'react'],
+        'Strona internetowa umożliwiająca granie na wirtualnej perkusji.',
+      image: drums,
+      techStack: ['html', 'css', 'javascript'],
+      link: 'https://clever-mestorf-592398.netlify.app/',
+      github: 'https://github.com/tobiaszciesielski/drum-website',
     },
   ];
 

@@ -7,6 +7,14 @@ import IconWWW from '../assets/icons/www.svg';
 import ProjectSpecButton from './ProjectSpecButton';
 import Card from './Card';
 
+const StyledCard = styled(Card)`
+  height: 480px;
+
+  @media ${({ theme }) => theme.media.mobile} {
+    height: 500px;
+  }
+`;
+
 const imageStyles = {
   height: '50%',
   borderTopLeftRadius: '20px',
@@ -41,7 +49,7 @@ const Links = styled.div`
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 15px;
+  bottom: 10px;
   a > svg {
     color: ${({ theme }) => theme.colors.touch};
     width: 34px;
@@ -51,9 +59,9 @@ const Links = styled.div`
 `;
 
 const ProjectCard = ({ data }) => {
-  const { title, image, description, techStack } = data;
+  const { title, image, description, techStack, github, link } = data;
   return (
-    <Card>
+    <StyledCard>
       <GatsbyImage
         image={getImage(image)}
         style={imageStyles}
@@ -65,22 +73,14 @@ const ProjectCard = ({ data }) => {
         <ProjectAbstract>{description}</ProjectAbstract>
       </Description>
       <Links>
-        <a
-          target="_blank"
-          rel="noreferrer noopener"
-          href="http://www.github.com"
-        >
+        <a target="_blank" rel="noreferrer noopener" href={github}>
           <FaGithub />
         </a>
-        <a
-          target="_blank"
-          rel="noreferrer noopener"
-          href="http://www.github.com"
-        >
+        <a target="_blank" rel="noreferrer noopener" href={link}>
           <IconWWW />
         </a>
       </Links>
-    </Card>
+    </StyledCard>
   );
 };
 
@@ -90,6 +90,8 @@ ProjectCard.propTypes = {
     description: propTypes.string,
     image: propTypes.shape({ childImageSharp: propTypes.shape({}) }),
     techStack: propTypes.arrayOf(propTypes.string),
+    link: propTypes.string,
+    github: propTypes.string,
   }).isRequired,
 };
 

@@ -76,33 +76,49 @@ const StyledTechCard = styled(TechCard)`
   grid-column: 1/13;
 `;
 
-const techStack = [
-  'html',
-  'css',
-  'javascript',
-  'sass',
-  'react',
-  'gatsby',
-  'next',
-  'styled-components',
-  'bootstrap',
-  'redux',
-];
+const techStack = {
+  frontend: [
+    'html',
+    'css',
+    'sass',
+    'javascript',
+    'react',
+    'gatsby',
+    'next',
+    'styled-components',
+    'bootstrap',
+    'redux',
+  ],
+  backend: [
+    'nodejs',
+    'express',
+    'sequelize',
+    'sql',
+    'firebase',
+    'restapi',
+    'graphql',
+    'flask',
+  ],
+  other: ['webpack', 'git', 'testing', 'cms', 'flutter', 'figma', 'photoshop'],
+};
 
-const Technologies = () => (
-  <Cards>
-    <StyledTechCard
-      title="FRONT-END"
-      icon={<FaPencilRuler />}
-      techStack={techStack}
-    />
-    <StyledTechCard
-      title="BACK-END"
-      icon={<FaServer />}
-      techStack={techStack}
-    />
-    <StyledTechCard title="INNE" icon={<FaCode />} techStack={techStack} />
-  </Cards>
-);
+const Technologies = () => {
+  const { frontend, backend, other } = techStack;
 
+  return (
+    <Cards>
+      <StyledTechCard
+        title="FRONT-END"
+        icon={<FaPencilRuler />}
+        techStack={frontend}
+      />
+      <StyledTechCard
+        title="BACK-END"
+        icon={<FaServer />}
+        techStack={backend}
+      />
+      <StyledTechCard title="INNE" icon={<FaCode />} techStack={other} />
+    </Cards>
+  );
+};
 export default Technologies;
