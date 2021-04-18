@@ -1,6 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: 'tciesielski.pl',
+    title: 'Tobiasz Ciesielski · Web Developer · Blogger',
+    titleTemplate: '%s · Tobiasz Ciesielski',
+    description:
+      'Tobiasz Ciesielski - Front-End developer oraz twórca bloga poświęconemu Web Developmentowi i nie tylko.',
+    url: 'https://tciesielski.pl',
+    image: '/images/meta-image.png',
     subTitle: ['front-end developer', 'blogger', 'designer'],
     about: {
       introduction: [
@@ -30,10 +35,23 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `tciesielski.pl`,
+        short_name: `tciesielski.pl`,
+        start_url: `/`,
+        background_color: `#333`,
+        theme_color: `#00ffa3`,
+        display: `standalone`,
+        icon: 'src/assets/images/favicon.png',
+      },
+    },
     'gatsby-plugin-styled-components',
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-netlify`,
+    `gatsby-plugin-react-helmet`,
   ],
 };
