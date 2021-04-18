@@ -42,22 +42,17 @@ const StyledHeader = styled.header`
 `;
 
 const TextBox = styled.div`
+  position: relative;
   grid-column: 1/13;
   z-index: 2;
   align-self: center;
   justify-self: center;
-  top: 30%;
-
-  @media ${({ theme: { media } }) => media.mobile} {
-  }
 
   @media ${({ theme: { media } }) => media.laptop} {
-    top: 40%;
     grid-column: 2/9;
   }
 
   @media ${({ theme: { media } }) => media.desktop} {
-    top: 40%;
     grid-column: 1/8;
   }
 `;

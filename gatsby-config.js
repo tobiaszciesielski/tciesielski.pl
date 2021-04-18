@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'Tobiasz Ciesielski · Web Developer · Blogger',
-    titleTemplate: '%s · Tobiasz Ciesielski',
+    titleTemplate: '%s | tciesielski.pl',
     description:
       'Tobiasz Ciesielski - Front-End developer oraz twórca bloga poświęconemu Web Developmentowi i nie tylko.',
     url: 'https://tciesielski.pl',

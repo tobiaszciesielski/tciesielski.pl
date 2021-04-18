@@ -6,10 +6,12 @@ import { graphql, useStaticQuery } from 'gatsby';
 const StyledSubTitle = styled.div`
   text-align: left;
   font-size: 18px;
-  margin-top: 15px;
-  margin-left: 50px;
+  bottom: -30%;
+  left: 20%;
+  position: absolute;
 
   .Typewriter__cursor {
+    
     color: ${({ theme }) => theme.colors.touch};
     font-size: 22px;
   }

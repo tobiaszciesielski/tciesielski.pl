@@ -16,6 +16,11 @@ const StyledCard = styled(Card)`
 `;
 
 const imageStyles = {
+  borderTopLeftRadius: '20px',
+  borderTopRightRadius: '20px',
+};
+
+const imageWrapperStyles = {
   height: '50%',
   borderTopLeftRadius: '20px',
   borderTopRightRadius: '20px',
@@ -64,7 +69,8 @@ const ProjectCard = ({ data }) => {
     <StyledCard>
       <GatsbyImage
         image={getImage(image)}
-        style={imageStyles}
+        imgStyle={imageStyles}
+        style={imageWrapperStyles}
         alt="Gatsby Project"
       />
       <CardButton techStack={techStack} />

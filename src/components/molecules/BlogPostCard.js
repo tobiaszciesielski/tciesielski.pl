@@ -50,6 +50,7 @@ const BlogPostCard = ({ data }) => {
     <Card>
       <GatsbyImage
         image={getImage(image)}
+        imgStyle={imageStyles}
         style={imageStyles}
         alt="Blog Post Image"
       />
