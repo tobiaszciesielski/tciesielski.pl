@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import HamburgerMenu from './Hamburger';
-import Menu from './Menu';
-import Logo from '../assets/icons/logo.svg';
+import HamburgerMenu from '../atoms/Hamburger';
+import Menu from '../atoms/Menu';
+import Logo from '../../assets/icons/logo.svg';
 
 const StyledLogo = styled(Logo)`
   width: 30px;

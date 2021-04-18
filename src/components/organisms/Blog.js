@@ -1,12 +1,12 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
-import Button from './Button';
+import Button from '../atoms/Button';
+import SectionHeader from '../atoms/SectionHeader';
+import BlogPostCard from '../molecules/BlogPostCard';
 import CardsSlider from './CardsSlider';
 import Section from './Section';
-import SectionHeader from './SectionHeader';
-import BlogPostCard from './BlogPostCard';
-import withSlider from './hoc/withSlider';
+import withSlider from '../../hoc/withSlider';
 
 const StyledSection = styled(Section)`
   display: flex;
@@ -48,7 +48,7 @@ const StyledCardsSlider = styled(CardsSlider)`
 const Blog = () => {
   const { postImage } = useStaticQuery(graphql`
     {
-      postImage: file(relativePath: { eq: "blog-post-1.jpg" }) {
+      postImage: file(relativePath: { eq: "flutter.png" }) {
         childImageSharp {
           gatsbyImageData(
             placeholder: TRACED_SVG
@@ -62,22 +62,25 @@ const Blog = () => {
 
   const CardsData = [
     {
-      title: 'Post1',
+      title: 'SQLite i flutter - z czym to się je.',
       description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum veritatis in reiciendis sit facere enim modi, libero placeat consectetur eaque?',
+        'W tym poradniku przedstawiam, jak napisać prostą aplikację do dodawania i usuwania studentów za pomocą interfejsu użytkownika w bazie danych.',
       image: postImage,
+      link: 'https://blog.akai.org.pl/posts/sqlite-flutter/',
     },
     {
-      title: 'Post2',
+      title: 'SQLite i flutter - z czym to się je..',
       description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum veritatis in reiciendis sit facere enim modi, libero placeat consectetur eaque?',
+        'W tym poradniku przedstawiam, jak napisać prostą aplikację do dodawania i usuwania studentów za pomocą interfejsu użytkownika w bazie danych.',
       image: postImage,
+      link: 'https://blog.akai.org.pl/posts/sqlite-flutter/',
     },
     {
-      title: 'Post3',
+      title: 'SQLite i flutter - z czym to się je...',
       description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum veritatis in reiciendis sit facere enim modi, libero placeat consectetur eaque?',
+        'W tym poradniku przedstawiam, jak napisać prostą aplikację do dodawania i usuwania studentów za pomocą interfejsu użytkownika w bazie danych.',
       image: postImage,
+      link: 'https://blog.akai.org.pl/posts/sqlite-flutter/',
     },
   ];
 

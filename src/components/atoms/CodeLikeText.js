@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import styled, { css } from 'styled-components';
-import typo from '../styles/typography';
+import typo from '../../styles/typography';
 
 const Code = styled.p`
   margin-bottom: 28px;

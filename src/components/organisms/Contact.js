@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import Section from './Section';
-import SectionHeader from './SectionHeader';
-import NewsletterForm from './NewsletterForm';
-import EmailForm from './EmailForm';
+import SectionHeader from '../atoms/SectionHeader';
+import NewsletterForm from '../molecules/NewsletterForm';
+import EmailForm from '../molecules/EmailForm';
 
 const StyledSection = styled(Section)`
   display: flex;

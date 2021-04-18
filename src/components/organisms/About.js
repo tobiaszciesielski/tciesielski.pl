@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import Section from './Section';
-import SectionHeader from './SectionHeader';
-import CodeWindow from './CodeWindow';
-import Technologies from './Technologies';
+import SectionHeader from '../atoms/SectionHeader';
+import CodeWindow from '../molecules/CodeWindow';
+import Technologies from '../molecules/Technologies';
 
 const StyledSection = styled(Section)`
   display: grid;

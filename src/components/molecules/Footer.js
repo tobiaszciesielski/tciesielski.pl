@@ -2,7 +2,7 @@ import React from 'react';
 import { FaLinkedin } from '@react-icons/all-files/fa/FaLinkedin';
 import { FaGithub } from '@react-icons/all-files/fa/FaGithub';
 import styled, { css } from 'styled-components';
-import Logo from '../assets/icons/logo.svg';
+import Logo from '../../assets/icons/logo.svg';
 
 const StyledFooter = styled.footer`
   display: flex;

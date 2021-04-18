@@ -11,6 +11,10 @@ const StyledSection = styled.section`
     `}
   );
   padding: 18px;
+
+  @media ${({ theme: { media } }) => media.laptop} {
+    padding-top: 100px;
+  }
 `;
 
 const Section = ({ className, children, odd }) => (

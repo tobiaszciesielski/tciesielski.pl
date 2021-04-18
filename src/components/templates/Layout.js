@@ -1,9 +1,9 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
-import theme from '../styles/theme';
-import GlobalStyle from '../styles/global';
-import Navbar from './Navbar';
+import theme from '../../styles/theme';
+import GlobalStyle from '../../styles/global';
+import Navbar from '../molecules/Navbar';
 
 const Layout = ({ children }) => (
   <ThemeProvider theme={theme}>
