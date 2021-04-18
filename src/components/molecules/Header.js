@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 import Title from '../atoms/Title';
-import SubTitle from '../atoms/SubTitle';
+import Writer from '../atoms/Writer';
 import Stripes from '../atoms/Stripes';
 
 const StyledHeader = styled.header`
@@ -97,7 +97,7 @@ const Header = () => {
       <Stripes />
       <TextBox>
         <Title />
-        <SubTitle />
+        <Writer />
       </TextBox>
       <GatsbyImage
         backgroundColor="rgba(0, 0, 0, 0)"
