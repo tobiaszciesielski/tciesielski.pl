@@ -66,7 +66,6 @@ const Links = styled.div`
 
 const ProjectCard = ({ project }) => {
   const { name, image, description, technologies, githubRepo, link } = project;
-  console.log(project)
   return (
     <StyledCard>
       <GatsbyImage

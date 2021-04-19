@@ -62,35 +62,32 @@ const Tag = styled.span`
   `}
 `;
 const CodeLikeText = () => {
-  const { site } = useStaticQuery(graphql`
+  const {
+    data: { firstSentence, secondSentence, thirdSentence, fourthSentence },
+  } = useStaticQuery(graphql`
     {
-      site {
-        siteMetadata {
-          about {
-            introduction
-            expansion
-            conclusion
-          }
-        }
+      data: datoCmsHomePageContent {
+        firstSentence
+        secondSentence
+        thirdSentence
+        fourthSentence
       }
     }
   `);
-
-  const { introduction, expansion, conclusion } = site.siteMetadata.about;
 
   return (
     <div>
       <Hello>Cześć!</Hello>
       <Code>
         <Tag>p</Tag>
-        {introduction[0]}
+        {firstSentence}
         <Tag closing>br</Tag>
         <br />
-        {introduction[1]}
+        {secondSentence}
         <Tag closing>p</Tag>
       </Code>
-      <Comment>{expansion}</Comment>
-      <Conclusion>{conclusion}</Conclusion>
+      <Comment>{thirdSentence}</Comment>
+      <Conclusion>{fourthSentence}</Conclusion>
     </div>
   );
 };

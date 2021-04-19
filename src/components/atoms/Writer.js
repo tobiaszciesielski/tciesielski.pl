@@ -17,21 +17,25 @@ const StyledWriter = styled.div`
 `;
 
 const Writer = () => {
-  const { site } = useStaticQuery(graphql`
+  const {
+    data: { typingWords },
+  } = useStaticQuery(graphql`
     {
-      site {
-        siteMetadata {
-          subTitle
+      data: datoCmsHomePageContent {
+        typingWords {
+          word
         }
       }
     }
   `);
 
+  const words = typingWords.map(({ word }) => word);
+
   return (
     <StyledWriter>
       <Typewriter
         options={{
-          strings: site.siteMetadata.subTitle,
+          strings: words,
           autoStart: true,
           loop: true,
         }}
