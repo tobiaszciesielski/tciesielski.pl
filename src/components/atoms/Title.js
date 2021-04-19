@@ -26,7 +26,7 @@ const LowerTitle = styled.div`
 
 const Title = () => (
   <StyledTitle>
-    Tobiasz <br />
+    Tobiasz<br />
     <LowerTitle>Ciesielski</LowerTitle>
   </StyledTitle>
 );

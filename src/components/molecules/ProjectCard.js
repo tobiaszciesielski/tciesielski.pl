@@ -32,7 +32,7 @@ const Description = styled.div`
 `;
 
 const Title = styled.h4`
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   text-align: center;
 `;
 
@@ -41,6 +41,7 @@ const ProjectAbstract = styled.p`
   line-height: 140%;
   letter-spacing: 0.05em;
   padding: 0 8px;
+  text-align: center;
 `;
 
 const CardButton = styled(ProjectSpecButton)`
@@ -63,8 +64,9 @@ const Links = styled.div`
   }
 `;
 
-const ProjectCard = ({ data }) => {
-  const { title, image, description, techStack, github, link } = data;
+const ProjectCard = ({ project }) => {
+  const { name, image, description, technologies, githubRepo, link } = project;
+  console.log(project)
   return (
     <StyledCard>
       <GatsbyImage
@@ -73,13 +75,13 @@ const ProjectCard = ({ data }) => {
         style={imageWrapperStyles}
         alt="Gatsby Project"
       />
-      <CardButton techStack={techStack} />
+      <CardButton technologies={technologies} />
       <Description>
-        <Title>{title}</Title>
+        <Title>{name}</Title>
         <ProjectAbstract>{description}</ProjectAbstract>
       </Description>
       <Links>
-        <a target="_blank" rel="noreferrer noopener" href={github}>
+        <a target="_blank" rel="noreferrer noopener" href={githubRepo}>
           <FaGithub />
         </a>
         <a target="_blank" rel="noreferrer noopener" href={link}>
@@ -91,13 +93,15 @@ const ProjectCard = ({ data }) => {
 };
 
 ProjectCard.propTypes = {
-  data: propTypes.shape({
-    title: propTypes.string,
+  project: propTypes.shape({
+    name: propTypes.string,
     description: propTypes.string,
     image: propTypes.shape({ childImageSharp: propTypes.shape({}) }),
-    techStack: propTypes.arrayOf(propTypes.string),
+    technologies: propTypes.arrayOf(
+      propTypes.shape({ technology: propTypes.string })
+    ),
     link: propTypes.string,
-    github: propTypes.string,
+    githubRepo: propTypes.string,
   }).isRequired,
 };
 

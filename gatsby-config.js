@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 module.exports = {
   siteMetadata: {
     title: 'Tobiasz Ciesielski · Web Developer · Blogger',
@@ -5,7 +7,7 @@ module.exports = {
     description:
       'Tobiasz Ciesielski - Front-End developer oraz twórca bloga poświęconemu Web Developmentowi i nie tylko.',
     url: 'https://tciesielski.pl',
-    image: '/images/meta-image.png',
+    image: 'images/meta-image.png',
     subTitle: ['front-end developer', 'blogger', 'designer'],
     about: {
       introduction: [
@@ -45,6 +47,14 @@ module.exports = {
         theme_color: `#00ffa3`,
         display: `standalone`,
         icon: 'src/assets/images/favicon.png',
+      },
+    },
+    {
+      resolve: `gatsby-source-datocms`,
+      options: {
+        apiToken: process.env.DATO_CMS_TOKEN,
+        preview: false,
+        disableLiveReload: false,
       },
     },
     'gatsby-plugin-styled-components',
