@@ -5,7 +5,7 @@ import propTypes from 'prop-types';
 const StyledButton = styled.button`
   padding: 8px 22px;
   border-radius: 25px;
-  letter-spacing: 0.255em;
+  letter-spacing: 0.12em;
   cursor: pointer;
   color: #fff;
   outline:none;
