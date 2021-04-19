@@ -1,4 +1,5 @@
 import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 import { FaPencilRuler } from '@react-icons/all-files/fa/FaPencilRuler';
 import { FaServer } from '@react-icons/all-files/fa/FaServer';
 import { FaCode } from '@react-icons/all-files/fa/FaCode';
@@ -76,57 +77,42 @@ const StyledTechCard = styled(TechCard)`
   grid-column: 1/13;
 `;
 
-const techStack = {
-  frontend: [
-    'html',
-    'css',
-    'sass',
-    'javascript',
-    'react',
-    'gatsby',
-    'next',
-    'styled-components',
-    'bootstrap',
-    'redux',
-  ],
-  backend: [
-    'nodejs',
-    'express',
-    'sequelize',
-    'sql',
-    'firebase',
-    'restapi',
-    'graphql',
-    'flask',
-  ],
-  other: [
-    'typescript',
-    'webpack',
-    'git',
-    'testing',
-    'cms',
-    'flutter',
-    'figma',
-    'photoshop',
-  ],
-};
-
 const Technologies = () => {
-  const { frontend, backend, other } = techStack;
+  const {
+    data: { frontEnd, backEnd, other },
+  } = useStaticQuery(graphql`
+    {
+      data: datoCmsHomePageContent {
+        frontEnd {
+          word
+        }
+        backEnd {
+          word
+        }
+        other {
+          word
+        }
+      }
+    }
+  `);
 
   return (
     <Cards>
       <StyledTechCard
         title="FRONT-END"
         icon={<FaPencilRuler />}
-        techStack={frontend}
+        techStack={frontEnd.map(({ word }) => word)}
       />
       <StyledTechCard
         title="BACK-END"
         icon={<FaServer />}
-        techStack={backend}
+        techStack={backEnd.map(({ word }) => word)}
       />
-      <StyledTechCard title="INNE" icon={<FaCode />} techStack={other} />
+      <StyledTechCard
+        title="INNE"
+        icon={<FaCode />}
+        techStack={other.map(({ word }) => word)}
+      />
     </Cards>
   );
 };
