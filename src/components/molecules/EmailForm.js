@@ -7,6 +7,7 @@ import FormWrapper from './FormWrapper';
 import FormHeader from '../atoms/FormHeader';
 import Input from '../atoms/Input.styled';
 import ErrorMessage from '../atoms/ErrorMessage.styled';
+import {} from '@formspree/react';
 
 const StyledForm = styled(FormWrapper)`
   @media ${({ theme: { media } }) => media.tablet} {
@@ -73,6 +74,7 @@ const EmailForm = ({ className }) => {
     </StyledForm>
   );
 };
+
 EmailForm.propTypes = {
   className: propTypes.string,
 };

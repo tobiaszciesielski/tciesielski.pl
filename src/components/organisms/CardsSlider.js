@@ -90,7 +90,7 @@ const CardsSlider = ({ children, className, pagination, navigation }) => {
       },
       1439: {
         slidesPerView: 3,
-        spaceBetween: pagination ? -400 : -150,
+        spaceBetween: pagination ? -270 : -150,
         centeredSlides: false,
         allowTouchMove: !pagination,
       },
