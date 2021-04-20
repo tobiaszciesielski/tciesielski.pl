@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import WindowControls from './WindowControls';
-import CodeLikeText from './CodeLikeText';
+import WindowControls from '../atoms/WindowControls';
+import CodeLikeText from '../atoms/CodeLikeText';
 
 const StyledWindow = styled.div`
   grid-column: 1/13;

@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import Layout from '../components/Layout';
-import Header from '../components/Header';
-import About from '../components/About';
-import Blog from '../components/Blog';
-import Portfolio from '../components/Portfolio';
-import Contact from '../components/Contact';
-import Footer from '../components/Footer';
+import Layout from '../components/templates/Layout';
+import Header from '../components/molecules/Header';
+import About from '../components/organisms/About';
+import Blog from '../components/organisms/Blog';
+import Portfolio from '../components/organisms/Portfolio';
+import Contact from '../components/organisms/Contact';
+import Footer from '../components/molecules/Footer';
+import SEO from '../components/templates/SEO';
 
 const Beta = styled.div`
   position: fixed;
@@ -28,6 +29,7 @@ const Beta = styled.div`
 
 const IndexPage = () => (
   <>
+    <SEO />
     <Beta>BETA</Beta>
     <Layout>
       <Header />

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import { FaCog } from '@react-icons/all-files/fa/FaCog';
 import propTypes from 'prop-types';
-import icons from '../utils/iconsProvider';
+import icons from '../../utils/iconsProvider';
 
 const Wrapper = styled.div`
   width: 60px;
@@ -74,8 +74,8 @@ const Child = styled(Node)`
   }
 `;
 
-const ProjectSpecButton = ({ className, techStack }) => {
-  const itemsCount = techStack.length;
+const ProjectSpecButton = ({ className, technologies }) => {
+  const itemsCount = technologies.length;
   const [expanded, setExpanded] = useState(false);
 
   return (
@@ -83,15 +83,15 @@ const ProjectSpecButton = ({ className, techStack }) => {
       <Root expanded={expanded} onClick={() => setExpanded(!expanded)}>
         <FaCog />
       </Root>
-      {techStack.map((name, i) => {
+      {technologies.map(({ technology }, i) => {
         const rotation =
           (2 * Math.PI * i - (itemsCount + 1) * Math.PI) / itemsCount;
         const x = Math.sin(rotation);
         const y = Math.cos(rotation);
-        const Icon = icons.get(name);
+        const Icon = icons.get(technology);
         return (
           <Child
-            key={`${name}`}
+            key={`${technology}`}
             translation={{ x, y }}
             distance={70}
             expanded={expanded}
@@ -106,7 +106,9 @@ const ProjectSpecButton = ({ className, techStack }) => {
 
 ProjectSpecButton.propTypes = {
   className: propTypes.string,
-  techStack: propTypes.arrayOf(propTypes.string).isRequired,
+  technologies: propTypes.arrayOf(
+    propTypes.shape({ technology: propTypes.string })
+  ).isRequired,
 };
 
 ProjectSpecButton.defaultProps = {

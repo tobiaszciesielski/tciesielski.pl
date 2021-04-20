@@ -2,7 +2,7 @@ import React from 'react';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import propTypes from 'prop-types';
 import styled from 'styled-components';
-import Button from './Button';
+import Button from '../atoms/Button';
 import Card from './Card';
 
 const imageStyles = {
@@ -50,6 +50,7 @@ const BlogPostCard = ({ data }) => {
     <Card>
       <GatsbyImage
         image={getImage(image)}
+        imgStyle={imageStyles}
         style={imageStyles}
         alt="Blog Post Image"
       />

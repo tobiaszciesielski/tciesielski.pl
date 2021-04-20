@@ -2,11 +2,12 @@ import React from 'react';
 import propTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
-import Button from './Button';
+import Button from '../atoms/Button';
 import FormWrapper from './FormWrapper';
-import FormHeader from './FormHeader';
-import Input from './Input.styled';
-import ErrorMessage from './ErrorMessage.styled';
+import FormHeader from '../atoms/FormHeader';
+import Input from '../atoms/Input.styled';
+import ErrorMessage from '../atoms/ErrorMessage.styled';
+import {} from '@formspree/react';
 
 const StyledForm = styled(FormWrapper)`
   @media ${({ theme: { media } }) => media.tablet} {
@@ -61,7 +62,7 @@ const EmailForm = ({ className }) => {
       />
       <FormTextArea
         {...register('message', { required: true, minLength: 3 })}
-        placeholder={'Cześć,\n\nMam pytanie...'}
+        placeholder="Cześć, mam pytanie..."
         type="text"
       />
       <ErrorMessage>
@@ -73,6 +74,7 @@ const EmailForm = ({ className }) => {
     </StyledForm>
   );
 };
+
 EmailForm.propTypes = {
   className: propTypes.string,
 };

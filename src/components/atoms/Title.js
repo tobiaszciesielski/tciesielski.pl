@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { graphql, useStaticQuery } from 'gatsby';
 
 const StyledTitle = styled.h1`
   color: ${({ theme }) => theme.colors.primary};
@@ -24,10 +25,24 @@ const LowerTitle = styled.div`
   padding-left: 40px;
 `;
 
-const Title = () => (
-  <StyledTitle>
-    Tobiasz <br />
-    <LowerTitle>Ciesielski</LowerTitle>
-  </StyledTitle>
-);
+const Title = () => {
+  const {
+    data: { upperTitle, lowerTitle },
+  } = useStaticQuery(graphql`
+    {
+      data: datoCmsHomePageContent {
+        lowerTitle
+        upperTitle
+      }
+    }
+  `);
+  
+  return (
+    <StyledTitle>
+      {upperTitle}
+      <br />
+      <LowerTitle>{lowerTitle}</LowerTitle>
+    </StyledTitle>
+  );
+};
 export default Title;

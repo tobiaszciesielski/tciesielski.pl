@@ -2,9 +2,9 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
-import Title from './Title';
-import SubTitle from './SubTitle';
-import Stripes from './Stripes';
+import Title from '../atoms/Title';
+import Writer from '../atoms/Writer';
+import Stripes from '../atoms/Stripes';
 
 const StyledHeader = styled.header`
   display: grid;
@@ -42,22 +42,17 @@ const StyledHeader = styled.header`
 `;
 
 const TextBox = styled.div`
+  position: relative;
   grid-column: 1/13;
   z-index: 2;
   align-self: center;
   justify-self: center;
-  top: 30%;
-
-  @media ${({ theme: { media } }) => media.mobile} {
-  }
 
   @media ${({ theme: { media } }) => media.laptop} {
-    top: 40%;
     grid-column: 2/9;
   }
 
   @media ${({ theme: { media } }) => media.desktop} {
-    top: 40%;
     grid-column: 1/8;
   }
 `;
@@ -102,11 +97,12 @@ const Header = () => {
       <Stripes />
       <TextBox>
         <Title />
-        <SubTitle />
+        <Writer />
       </TextBox>
       <GatsbyImage
         backgroundColor="rgba(0, 0, 0, 0)"
         className="image-header"
+        alt="header-image"
         image={getImage(headerImg)}
       />
       <Gradient />

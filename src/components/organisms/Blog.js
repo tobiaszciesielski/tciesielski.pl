@@ -1,12 +1,12 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
-import Button from './Button';
+import Button from '../atoms/Button';
+import SectionHeader from '../atoms/SectionHeader';
+import BlogPostCard from '../molecules/BlogPostCard';
 import CardsSlider from './CardsSlider';
 import Section from './Section';
-import SectionHeader from './SectionHeader';
-import BlogPostCard from './BlogPostCard';
-import withSlider from './hoc/withSlider';
+import withSlider from '../../hoc/withSlider';
 
 const StyledSection = styled(Section)`
   display: flex;
@@ -69,14 +69,14 @@ const Blog = () => {
       link: 'https://blog.akai.org.pl/posts/sqlite-flutter/',
     },
     {
-      title: 'SQLite i flutter - z czym to się je.',
+      title: 'SQLite i flutter - z czym to się je..',
       description:
         'W tym poradniku przedstawiam, jak napisać prostą aplikację do dodawania i usuwania studentów za pomocą interfejsu użytkownika w bazie danych.',
       image: postImage,
       link: 'https://blog.akai.org.pl/posts/sqlite-flutter/',
     },
     {
-      title: 'SQLite i flutter - z czym to się je.',
+      title: 'SQLite i flutter - z czym to się je...',
       description:
         'W tym poradniku przedstawiam, jak napisać prostą aplikację do dodawania i usuwania studentów za pomocą interfejsu użytkownika w bazie danych.',
       image: postImage,

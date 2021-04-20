@@ -3,8 +3,8 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { FaGithub } from '@react-icons/all-files/fa/FaGithub';
 import propTypes from 'prop-types';
 import styled from 'styled-components';
-import IconWWW from '../assets/icons/www.svg';
-import ProjectSpecButton from './ProjectSpecButton';
+import IconWWW from '../../assets/icons/www.svg';
+import ProjectSpecButton from '../atoms/ProjectSpecButton';
 import Card from './Card';
 
 const StyledCard = styled(Card)`
@@ -16,6 +16,11 @@ const StyledCard = styled(Card)`
 `;
 
 const imageStyles = {
+  borderTopLeftRadius: '20px',
+  borderTopRightRadius: '20px',
+};
+
+const imageWrapperStyles = {
   height: '50%',
   borderTopLeftRadius: '20px',
   borderTopRightRadius: '20px',
@@ -27,7 +32,7 @@ const Description = styled.div`
 `;
 
 const Title = styled.h4`
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   text-align: center;
 `;
 
@@ -36,6 +41,7 @@ const ProjectAbstract = styled.p`
   line-height: 140%;
   letter-spacing: 0.05em;
   padding: 0 8px;
+  text-align: center;
 `;
 
 const CardButton = styled(ProjectSpecButton)`
@@ -58,22 +64,24 @@ const Links = styled.div`
   }
 `;
 
-const ProjectCard = ({ data }) => {
-  const { title, image, description, techStack, github, link } = data;
+const ProjectCard = ({ project }) => {
+  const { name, image, description, technologies, githubRepo, link } = project;
+
   return (
     <StyledCard>
       <GatsbyImage
         image={getImage(image)}
-        style={imageStyles}
+        imgStyle={imageStyles}
+        style={imageWrapperStyles}
         alt="Gatsby Project"
       />
-      <CardButton techStack={techStack} />
+      <CardButton technologies={technologies} />
       <Description>
-        <Title>{title}</Title>
+        <Title>{name}</Title>
         <ProjectAbstract>{description}</ProjectAbstract>
       </Description>
       <Links>
-        <a target="_blank" rel="noreferrer noopener" href={github}>
+        <a target="_blank" rel="noreferrer noopener" href={githubRepo}>
           <FaGithub />
         </a>
         <a target="_blank" rel="noreferrer noopener" href={link}>
@@ -85,13 +93,15 @@ const ProjectCard = ({ data }) => {
 };
 
 ProjectCard.propTypes = {
-  data: propTypes.shape({
-    title: propTypes.string,
+  project: propTypes.shape({
+    name: propTypes.string,
     description: propTypes.string,
     image: propTypes.shape({ childImageSharp: propTypes.shape({}) }),
-    techStack: propTypes.arrayOf(propTypes.string),
+    technologies: propTypes.arrayOf(
+      propTypes.shape({ technology: propTypes.string })
+    ),
     link: propTypes.string,
-    github: propTypes.string,
+    githubRepo: propTypes.string,
   }).isRequired,
 };
 

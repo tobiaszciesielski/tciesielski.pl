@@ -2,11 +2,11 @@ import React from 'react';
 import propTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
-import Button from './Button';
+import Button from '../atoms/Button';
 import FormWrapper from './FormWrapper';
-import FormHeader from './FormHeader';
-import ErrorMessage from './ErrorMessage.styled';
-import Input from './Input.styled';
+import FormHeader from '../atoms/FormHeader';
+import ErrorMessage from '../atoms/ErrorMessage.styled';
+import Input from '../atoms/Input.styled';
 
 const StyledForm = styled(FormWrapper)`
   margin-bottom: 50px;

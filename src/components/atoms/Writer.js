@@ -3,11 +3,12 @@ import styled from 'styled-components';
 import Typewriter from 'typewriter-effect';
 import { graphql, useStaticQuery } from 'gatsby';
 
-const StyledSubTitle = styled.div`
+const StyledWriter = styled.div`
   text-align: left;
   font-size: 18px;
-  margin-top: 15px;
-  margin-left: 50px;
+  bottom: -30%;
+  left: 20%;
+  position: absolute;
 
   .Typewriter__cursor {
     color: ${({ theme }) => theme.colors.touch};
@@ -15,28 +16,32 @@ const StyledSubTitle = styled.div`
   }
 `;
 
-const SubTitle = () => {
-  const { site } = useStaticQuery(graphql`
+const Writer = () => {
+  const {
+    data: { typingWords },
+  } = useStaticQuery(graphql`
     {
-      site {
-        siteMetadata {
-          subTitle
+      data: datoCmsHomePageContent {
+        typingWords {
+          word
         }
       }
     }
   `);
 
+  const words = typingWords.map(({ word }) => word);
+
   return (
-    <StyledSubTitle>
+    <StyledWriter>
       <Typewriter
         options={{
-          strings: site.siteMetadata.subTitle,
+          strings: words,
           autoStart: true,
           loop: true,
         }}
       />
-    </StyledSubTitle>
+    </StyledWriter>
   );
 };
 
-export default SubTitle;
+export default Writer;
