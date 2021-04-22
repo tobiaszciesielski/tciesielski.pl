@@ -12,6 +12,7 @@ export default  { // const fonts = {
   code: 'Fira Code',
 };
 
+
 // const typography = new Typography({
 //   baseFontSize: '18px',
 //   headerFontFamily: [fonts.ralewayBold, 'Arial Narrow'],

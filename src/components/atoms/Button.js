@@ -8,7 +8,7 @@ const StyledButton = styled.button`
   letter-spacing: 0.12em;
   cursor: pointer;
   color: #fff;
-  outline:none;
+  outline: none;
 
   ${({ theme: { colors }, dark }) =>
     dark
