@@ -93,7 +93,7 @@ const Header = () => {
   `);
 
   return (
-    <StyledHeader>
+    <StyledHeader id="header">
       <Stripes />
       <TextBox>
         <Title />

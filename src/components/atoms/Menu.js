@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import SmoothScrollAnchor from './SmoothScrollAnchor';
 
 const StyledMenu = styled.ul`
   position: absolute;
@@ -66,7 +67,7 @@ const StyledMenu = styled.ul`
 const Menu = ({ expanded }) => (
   <StyledMenu expanded={expanded}>
     <li>
-      <Link to="/">O MNIE</Link>
+      <SmoothScrollAnchor targetId="about">O MNIE</SmoothScrollAnchor>
     </li>
     <li>
       <Link to="/">BLOG</Link>
@@ -75,7 +76,7 @@ const Menu = ({ expanded }) => (
       <Link to="/">PORTFOLIO</Link>
     </li>
     <li>
-      <Link to="/">KONTAKT</Link>
+      <SmoothScrollAnchor targetId="contact">KONTAKT</SmoothScrollAnchor>
     </li>
   </StyledMenu>
 );

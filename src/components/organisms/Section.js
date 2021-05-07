@@ -17,8 +17,8 @@ const StyledSection = styled.section`
   }
 `;
 
-const Section = ({ className, children, odd }) => (
-  <StyledSection className={className} odd={odd}>
+const Section = ({ className, children, odd, id }) => (
+  <StyledSection className={className} odd={odd} id={id}>
     {children}
   </StyledSection>
 );
@@ -30,11 +30,13 @@ Section.propTypes = {
     propTypes.node,
   ]).isRequired,
   odd: propTypes.bool,
+  id: propTypes.string,
 };
 
 Section.defaultProps = {
   className: '',
   odd: false,
+  id: 'propTypes.string',
 };
 
 export default Section;

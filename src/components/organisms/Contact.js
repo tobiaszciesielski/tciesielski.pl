@@ -57,7 +57,7 @@ const Forms = styled.div`
 `;
 
 const Contact = () => (
-  <StyledSection>
+  <StyledSection id="contact">
     <StyledHeader text="KONTAKT" />
     <Forms>
       <StyledNewsletterForm />

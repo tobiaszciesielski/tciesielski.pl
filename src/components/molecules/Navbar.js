@@ -3,9 +3,11 @@ import styled from 'styled-components';
 import HamburgerMenu from '../atoms/Hamburger';
 import Menu from '../atoms/Menu';
 import Logo from '../../assets/icons/logo.svg';
+import SmoothScrollAnchor from '../atoms/SmoothScrollAnchor';
 
 const StyledLogo = styled(Logo)`
   width: 30px;
+  cursor: pointer;
 
   @media ${({ theme: { media } }) => media.tablet} {
     width: 35px;
@@ -81,7 +83,9 @@ const Navbar = () => {
 
   return (
     <Nav visible={visible}>
-      <StyledLogo />
+      <SmoothScrollAnchor targetId="header">
+        <StyledLogo />
+      </SmoothScrollAnchor>
       <Menu expanded={expanded} />
       <HamburgerMenu setExpanded={setExpanded} expanded={expanded} />
     </Nav>

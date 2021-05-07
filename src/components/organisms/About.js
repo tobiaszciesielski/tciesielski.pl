@@ -45,7 +45,7 @@ const TechHeading = styled(SectionHeader)`
 `;
 
 const About = () => (
-  <StyledSection odd>
+  <StyledSection odd id="about">
     <AboutHeading text="O MNIE" />
     <CodeWindow />
     <TechHeading text="TECHNOLOGIE" light />
