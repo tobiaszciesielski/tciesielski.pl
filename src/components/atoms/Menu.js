@@ -64,24 +64,37 @@ const StyledMenu = styled.ul`
   }
 `;
 
-const Menu = ({ expanded }) => (
-  <StyledMenu expanded={expanded}>
-    <li>
-      <SmoothScrollAnchor targetId="about">O MNIE</SmoothScrollAnchor>
-    </li>
-    <li>
-      <Link to="/">BLOG</Link>
-    </li>
-    <li>
-      <Link to="/">PORTFOLIO</Link>
-    </li>
-    <li>
-      <SmoothScrollAnchor targetId="contact">KONTAKT</SmoothScrollAnchor>
-    </li>
-  </StyledMenu>
-);
+const Menu = ({ setExpanded, expanded }) => {
+  const collapseMenu = () => setExpanded(false);
+
+  return (
+    <StyledMenu expanded={expanded}>
+      <li>
+        <SmoothScrollAnchor onClick={collapseMenu} targetId="about">
+          O MNIE
+        </SmoothScrollAnchor>
+      </li>
+      <li>
+        <Link onClick={collapseMenu} to="/">
+          BLOG
+        </Link>
+      </li>
+      <li>
+        <Link onClick={collapseMenu} to="/">
+          PORTFOLIO
+        </Link>
+      </li>
+      <li>
+        <SmoothScrollAnchor onClick={collapseMenu} targetId="contact">
+          KONTAKT
+        </SmoothScrollAnchor>
+      </li>
+    </StyledMenu>
+  );
+};
 
 Menu.propTypes = {
+  setExpanded: PropTypes.func.isRequired,
   expanded: PropTypes.bool.isRequired,
 };
 

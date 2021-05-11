@@ -2,12 +2,13 @@ import React from 'react';
 import scrollTo from 'gatsby-plugin-smoothscroll';
 import propTypes from 'prop-types';
 
-const SmoothScrollAnchor = ({ targetId, children }) => (
+const SmoothScrollAnchor = ({ targetId, onClick, children }) => (
   <a
     href={`#${targetId}`}
     onClick={(event) => {
       event.preventDefault();
       scrollTo(`#${targetId}`);
+      onClick();
     }}
   >
     {children}
@@ -20,6 +21,11 @@ SmoothScrollAnchor.propTypes = {
     propTypes.node,
     propTypes.arrayOf(propTypes.node),
   ]).isRequired,
+  onClick: propTypes.func,
+};
+
+SmoothScrollAnchor.defaultProps = {
+  onClick: () => null,
 };
 
 export default SmoothScrollAnchor;

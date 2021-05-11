@@ -86,7 +86,7 @@ const Navbar = () => {
       <SmoothScrollAnchor targetId="header">
         <StyledLogo />
       </SmoothScrollAnchor>
-      <Menu expanded={expanded} />
+      <Menu setExpanded={setExpanded} expanded={expanded} />
       <HamburgerMenu setExpanded={setExpanded} expanded={expanded} />
     </Nav>
   );
