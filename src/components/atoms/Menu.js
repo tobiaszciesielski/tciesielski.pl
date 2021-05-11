@@ -26,13 +26,18 @@ const StyledMenu = styled.ul`
     color: ${({ theme }) => theme.colors.primary};
     list-style: none;
     margin-bottom: 100px;
-    :last-child {
-      margin-bottom: 0;
-    }
   }
 
   a {
     text-decoration: none;
+  }
+
+  @media ${({ theme: { media } }) => media.tablet} {
+    li {
+      :last-child {
+        margin-bottom: 0;
+      }
+    }
   }
 
   @media ${({ theme: { media } }) => media.laptop} {
