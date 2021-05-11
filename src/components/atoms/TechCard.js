@@ -12,7 +12,6 @@ const StyledCard = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-
   filter: drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.25));
 
   @media ${({ theme: { media } }) => media.mobile} {
@@ -37,7 +36,7 @@ const Stack = styled.div`
   flex-direction: column;
   height: 100%;
   & > p {
-    font-size: 1.11em;
+    font-size: 18px;
     letter-spacing: 0.1em;
   }
 `;
@@ -63,8 +62,8 @@ const TechCard = ({ className, icon, title, techStack }) => (
     <Title>{title}</Title>
     <Decoration>{icon}</Decoration>
     <Stack>
-      {techStack.map((item) => (
-        <p key={item}>{item}</p>
+      {techStack.map((technology) => (
+        <p key={technology}>{technology}</p>
       ))}
     </Stack>
   </StyledCard>

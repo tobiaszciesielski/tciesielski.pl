@@ -37,7 +37,7 @@ const Title = styled.h4`
 `;
 
 const ProjectAbstract = styled.p`
-  font-size: 0.78em;
+  font-size: 14px;
   line-height: 140%;
   letter-spacing: 0.05em;
   padding: 0 8px;
@@ -49,6 +49,7 @@ const CardButton = styled(ProjectSpecButton)`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 100;
 `;
 
 const Links = styled.div`
