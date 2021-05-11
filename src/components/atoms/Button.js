@@ -24,8 +24,8 @@ const StyledButton = styled.button`
         `}
 `;
 
-const Button = ({ className, text, dark }) => (
-  <StyledButton className={className} dark={dark}>
+const Button = ({ className, text, dark, type }) => (
+  <StyledButton className={className} dark={dark} type={type}>
     {text}
   </StyledButton>
 );
@@ -34,11 +34,13 @@ Button.propTypes = {
   className: propTypes.string,
   text: propTypes.string.isRequired,
   dark: propTypes.bool,
+  type: propTypes.string,
 };
 
 Button.defaultProps = {
   className: '',
   dark: false,
+  type: 'button',
 };
 
 export default Button;

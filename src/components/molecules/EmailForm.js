@@ -51,7 +51,7 @@ const EmailForm = ({ className }) => {
     handleSubmit,
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => data;
 
   return (
     <StyledForm onSubmit={handleSubmit(onSubmit)} className={className}>
@@ -70,7 +70,7 @@ const EmailForm = ({ className }) => {
         {errors.message && 'Za krótka wiadomość! '}
       </ErrorMessage>
 
-      <StyledButton text="WYŚLIJ" />
+      <StyledButton type="submit" text="WYŚLIJ" />
     </StyledForm>
   );
 };

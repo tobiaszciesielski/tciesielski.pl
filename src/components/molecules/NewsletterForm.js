@@ -46,7 +46,7 @@ const NewsletterForm = ({ className }) => {
     handleSubmit,
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => data;
 
   return (
     <StyledForm onSubmit={handleSubmit(onSubmit)} className={className}>
@@ -68,7 +68,7 @@ const NewsletterForm = ({ className }) => {
         {errors.email && 'Podaj poprawny adres! '}
       </ErrorMessage>
 
-      <StyledButton text="ZAPISZ" />
+      <StyledButton type="submit" text="ZAPISZ" />
     </StyledForm>
   );
 };
