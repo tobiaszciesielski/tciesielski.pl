@@ -15,17 +15,21 @@ const StyledCard = styled(Card)`
   }
 `;
 
-const imageStyles = {
-  borderTopLeftRadius: '20px',
-  borderTopRightRadius: '20px',
-};
+const ImageWrapper = styled.div`
+  height: 50%;
+  margin-bottom: 24px;
+  position: relative;
 
-const imageWrapperStyles = {
-  height: '50%',
-  borderTopLeftRadius: '20px',
-  borderTopRightRadius: '20px',
-  marginBottom: '24px',
-};
+  &,
+  .projet-image {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+
+  .projet-image {
+    height: 100%;
+  }
+`;
 
 const Description = styled.div`
   padding: 15px;
@@ -46,9 +50,9 @@ const ProjectAbstract = styled.p`
 
 const CardButton = styled(ProjectSpecButton)`
   position: absolute;
-  top: 50%;
+  bottom: 0%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 50%);
   z-index: 100;
 `;
 
@@ -70,13 +74,15 @@ const ProjectCard = ({ project }) => {
 
   return (
     <StyledCard>
-      <GatsbyImage
-        image={getImage(image)}
-        imgStyle={imageStyles}
-        style={imageWrapperStyles}
-        alt="Gatsby Project"
-      />
-      <CardButton technologies={technologies} />
+      <ImageWrapper>
+        <CardButton technologies={technologies} />
+        <GatsbyImage
+          imgClassName="projet-image"
+          image={getImage(image)}
+          style={{ height: '100%' }}
+          alt="Gatsby Project"
+        />
+      </ImageWrapper>
       <Description>
         <Title>{name}</Title>
         <ProjectAbstract>{description}</ProjectAbstract>
