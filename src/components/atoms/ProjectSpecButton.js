@@ -26,6 +26,7 @@ const Root = styled(Node)`
   width: 100%;
   height: 100%;
   font-size: 34px;
+  z-index: 100;
 
   ${({ expanded }) =>
     expanded &&
@@ -52,7 +53,7 @@ const Child = styled(Node)`
   top: 0;
   left: 0;
   background-color: ${({ theme }) => theme.colors.primary};
-  z-index: -1;
+  z-index: 99;
   width: 100%;
   height: 100%;
 
