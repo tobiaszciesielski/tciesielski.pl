@@ -53,9 +53,9 @@ const CardButton = styled(ProjectSpecButton)`
   position: absolute;
   bottom: 0%;
   left: 50%;
-  transform: translate(-50%, 50%);
   z-index: 100;
-  -webkit-transform: translate3d(0,0,0);
+  transform: translate(-50%, 50%);
+  -webkit-transform: translate3d(-50%,50%,0);
 `;
 
 const Links = styled.div`
