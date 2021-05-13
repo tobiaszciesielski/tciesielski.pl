@@ -80,14 +80,14 @@ const Menu = ({ setExpanded, expanded }) => {
         </SmoothScrollAnchor>
       </li>
       <li>
-        <Link onClick={collapseMenu} to="/">
+        <SmoothScrollAnchor onClick={collapseMenu} targetId="blog">
           BLOG
-        </Link>
+        </SmoothScrollAnchor>
       </li>
       <li>
-        <Link onClick={collapseMenu} to="/">
+        <SmoothScrollAnchor onClick={collapseMenu} targetId="portfolio">
           PORTFOLIO
-        </Link>
+        </SmoothScrollAnchor>
       </li>
       <li>
         <SmoothScrollAnchor onClick={collapseMenu} targetId="contact">

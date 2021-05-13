@@ -87,7 +87,7 @@ const Blog = () => {
   const BlogPostCardWithSlider = withSlider(BlogPostCard);
 
   return (
-    <StyledSection>
+    <StyledSection id="blog">
       <StyledHeader text="BLOG" />
       <StyledCardsSlider pagination>
         {CardsData.map((data) => (

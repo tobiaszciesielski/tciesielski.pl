@@ -45,7 +45,7 @@ const Portfolio = () => {
   const ProjectCardWithSlider = withSlider(ProjectCard);
 
   return (
-    <StyledSection odd>
+    <StyledSection odd id="portfolio">
       <StyledHeader text="PORTFOLIO" />
       <CardsSlider navigation>
         {projects.map((project) => (
