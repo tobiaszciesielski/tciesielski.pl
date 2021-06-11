@@ -2,7 +2,7 @@
 slug: 'my-first-post'
 date: '2021-06-11'
 title: 'My first blog post'
-tags: 'react, nodejs, styled-components'
+tags: ['react', 'nodejs', 'styled-components']
 ---
 
 ## Fuzzy Beginnings

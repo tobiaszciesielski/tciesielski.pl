@@ -17,7 +17,7 @@ const IndexPage = ({ data: { markdownRemark } }) => {
     frontmatter: { slug, title, tags },
   } = markdownRemark;
 
-  console.log(html);
+  console.log(tags);
   return (
     <>
       <SEO />
@@ -52,7 +52,7 @@ IndexPage.propTypes = {
     markdownRemark: propTypes.shape({
       frontmatter: propTypes.shape({
         title: propTypes.string,
-        tags: propTypes.string,
+        tags: propTypes.arrayOf(propTypes.string),
         slug: propTypes.string,
         date: propTypes.string,
       }).isRequired,
