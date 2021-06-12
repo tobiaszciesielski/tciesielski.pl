@@ -10,13 +10,22 @@ import Section from '../organisms/Section';
 
 const StyledSection = styled(Section)`
   margin-top: 150px;
+  display: flex;
+  justify-content: center;
+`;
+
+const StyledArticle = styled.article`
+  max-width: 800px;
+
+  img {
+    max-width: 600px;
+  }
 `;
 
 const IndexPage = ({ data }) => {
   const {
     title,
     summary,
-    slug,
     heroImage: { gatsbyImageData },
     articleNode: { childMarkdownRemark },
     tags,
@@ -27,16 +36,20 @@ const IndexPage = ({ data }) => {
       <SEO />
       <Layout>
         <StyledSection>
-          <h1>{title}</h1>
-          <p>{summary}</p>
-          <GatsbyImage
-            backgroundColor="rgba(0, 0, 0, 0)"
-            image={getImage(gatsbyImageData)}
-          />
-          <div dangerouslySetInnerHTML={{ __html: childMarkdownRemark.html }} />
-          {tags.map(({ tag }) => (
-            <h3 key={tag}>{tag}</h3>
-          ))}
+          <StyledArticle>
+            <h1>{title}</h1>
+            <p>{summary}</p>
+            <GatsbyImage
+              backgroundColor="rgba(0, 0, 0, 0)"
+              image={getImage(gatsbyImageData)}
+            />
+            <div
+              dangerouslySetInnerHTML={{ __html: childMarkdownRemark.html }}
+            />
+            {tags.map(({ tag }) => (
+              <h3 key={tag}>{tag}</h3>
+            ))}
+          </StyledArticle>
         </StyledSection>
         <Footer />
       </Layout>
@@ -64,18 +77,21 @@ export const query = graphql`
     }
   }
 `;
-// IndexPage.propTypes = {
-//   data: propTypes.shape({
-//     markdownRemark: propTypes.shape({
-//       frontmatter: propTypes.shape({
-//         title: propTypes.string,
-//         tags: propTypes.arrayOf(propTypes.string),
-//         slug: propTypes.string,
-//         date: propTypes.string,
-//       }).isRequired,
-//       html: propTypes.string,
-//     }).isRequired,
-//   }).isRequired,
-// };
+
+IndexPage.propTypes = {
+  data: propTypes.shape({
+    datoCmsPost: propTypes.shape({
+      title: propTypes.string,
+      summary: propTypes.string,
+      heroImage: propTypes.shape({ gatsbyImageData: propTypes.shape({}) }),
+      tags: propTypes.arrayOf(propTypes.string),
+      articleNode: propTypes.shape({
+        childMarkdownRemark: propTypes.shape({
+          html: propTypes.string,
+        }).isRequired,
+      }).isRequired,
+    }).isRequired,
+  }).isRequired,
+};
 
 export default IndexPage;
