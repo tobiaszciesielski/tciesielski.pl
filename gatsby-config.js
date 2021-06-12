@@ -53,6 +53,13 @@ module.exports = {
         disableLiveReload: false,
       },
     },
+    {
+      resolve: 'gatsby-remark-images',
+      options: {
+        maxWidth: 1920,
+        withWebp: true,
+      },
+    },
     'gatsby-plugin-styled-components',
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
@@ -60,6 +67,36 @@ module.exports = {
     `gatsby-plugin-netlify`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-smoothscroll`,
-    `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              classPrefix: 'language-',
+              inlineCodeMarker: null,
+              aliases: {},
+              showLineNumbers: true,
+              noInlineHighlight: false,
+              languageExtensions: [
+                {
+                  language: 'superscript',
+                  extend: 'javascript',
+                  definition: {
+                    superscript_types: /(SuperType)/,
+                  },
+                  insertBefore: {
+                    function: {
+                      superscript_keywords: /(superif|superelse)/,
+                    },
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
   ],
 };

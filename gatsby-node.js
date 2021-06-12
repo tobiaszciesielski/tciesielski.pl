@@ -11,22 +11,17 @@ exports.createPages = async ({ graphql, actions }) => {
   });
 
   const { data } = await graphql(`
-    query Posts {
-      allMarkdownRemark {
-        edges {
-          node {
-            frontmatter {
-              slug
-            }
-          }
-        }
-      }
+query MyQuery {
+  allDatoCmsPost {
+    nodes {
+      slug
     }
+  }
+}
   `);
 
   const blogPostTemplate = path.resolve(`./src/components/templates/Post.js`);
-  data.allMarkdownRemark.edges.forEach(({ node }) => {
-    const { slug } = node.frontmatter;
+  data.allDatoCmsPost.nodes.forEach(({ slug }) => {
     createPage({
       path: `/blog/${slug}`,
       component: blogPostTemplate,
