@@ -78,6 +78,7 @@ module.exports = {
               inlineCodeMarker: null,
               aliases: {},
               showLineNumbers: true,
+              numberLines: true,
               noInlineHighlight: false,
               languageExtensions: [
                 {

@@ -17,8 +17,34 @@ const StyledSection = styled(Section)`
 const StyledArticle = styled.article`
   max-width: 800px;
 
-  img {
-    max-width: 600px;
+  & p > img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+  }
+
+  .gatsby-highlight pre[class*='language-'].line-numbers {
+    font-size: 18px;
+    line-height: 30px;
+    padding: 0;
+    padding-left: 2.8em;
+    overflow: initial;
+  }
+
+  .gatsby-highlight {
+    background-color: #222;
+    border-radius: 0.3em;
+    margin: 0.5em 0;
+    padding: 0 1em;
+    overflow: auto;
+    margin-bottom: 20px;
+  }
+
+  .line-numbers-rows {
+    border-right: none;
+    & > span::before {
+      color: #555;
+    }
   }
 `;
 
