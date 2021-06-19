@@ -1,11 +1,10 @@
 import { css } from 'styled-components';
 
 export default css`
-
   /* Prism Line Numbers */
 
   .gatsby-highlight pre[class*='language-'].line-numbers {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 30px;
     padding: 0;
     padding-left: 2.8em;
@@ -19,6 +18,8 @@ export default css`
     padding: 0 1em;
     overflow: auto;
     margin-bottom: 20px;
+    margin-left: -60px;
+    margin-right: -60px;
   }
 
   .line-numbers-rows {

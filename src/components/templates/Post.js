@@ -5,7 +5,6 @@ import { graphql } from 'gatsby';
 import styled from 'styled-components';
 
 import SEO from './SEO';
-import Footer from '../molecules/Footer';
 import Layout from './Layout';
 import Section from '../organisms/Section';
 import customPrismTheme from '../../styles/custom-prism-theme';
@@ -55,7 +54,6 @@ const IndexPage = ({ data }) => {
             ))}
           </StyledArticle>
         </StyledSection>
-        <Footer />
       </Layout>
     </>
   );
