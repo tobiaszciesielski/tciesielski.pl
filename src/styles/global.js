@@ -18,25 +18,25 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h1, h2, h3, h4, h5, h6, a {
-    font-family: ${typo.ralewayBold}, 'Arial Narrow';
+    font-family: ${typo.ralewayBold}, 'Arial';
     color: ${({ theme: { colors } }) => colors.primary}
   }
 
   p, .Typewriter {
-    font-family: ${typo.robotoRegular}, 'Arial Narrow';
+    font-family: ${typo.robotoRegular}, 'Arial';
     color: ${({ theme: { colors } }) => colors.secondary}
   }
 
   button {
-    font-family: ${typo.robotoBold}, 'Arial Narrow';
+    font-family: ${typo.robotoBold}, 'Arial';
   }
 
   form > p, input, textarea {
-    font-family: ${typo.ralewayRegular}, 'Arial Narrow';
+    font-family: ${typo.ralewayRegular}, 'Arial';
   }
 
   footer > p {
-    font-family: ${typo.ralewayMedium}, 'Arial Narrow';
+    font-family: ${typo.ralewayMedium}, 'Arial';
     font-size: 0.78em;
   }
 
@@ -84,7 +84,7 @@ const GlobalStyle = createGlobalStyle`
 
   @media ${({ theme: { media } }) => media.laptop} {
     nav > ul > li > a {
-      font-family: ${typo.ralewayRegular}, 'Arial Narrow';
+      font-family: ${typo.ralewayRegular}, 'Arial';
       font-size: 18px;
     }
   }

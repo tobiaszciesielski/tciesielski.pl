@@ -6,7 +6,6 @@ import About from '../components/organisms/About';
 import Blog from '../components/organisms/Blog';
 import Portfolio from '../components/organisms/Portfolio';
 import Contact from '../components/organisms/Contact';
-import Footer from '../components/molecules/Footer';
 import SEO from '../components/templates/SEO';
 
 const Beta = styled.div`
@@ -37,7 +36,6 @@ const IndexPage = () => (
       <Blog />
       <Portfolio />
       <Contact />
-      <Footer />
     </Layout>
   </>
 );

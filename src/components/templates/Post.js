@@ -3,48 +3,26 @@ import propTypes from 'prop-types';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
+
+import SEO from './SEO';
 import Footer from '../molecules/Footer';
 import Layout from './Layout';
-import SEO from './SEO';
 import Section from '../organisms/Section';
+import customPrismTheme from '../../styles/custom-prism-theme';
 
 const StyledSection = styled(Section)`
-  margin-top: 150px;
   display: flex;
   justify-content: center;
 `;
 
 const StyledArticle = styled.article`
+  ${customPrismTheme};
   max-width: 800px;
 
   & p > img {
     width: 100%;
     max-height: 400px;
     object-fit: contain;
-  }
-
-  .gatsby-highlight pre[class*='language-'].line-numbers {
-    font-size: 18px;
-    line-height: 30px;
-    padding: 0;
-    padding-left: 2.8em;
-    overflow: initial;
-  }
-
-  .gatsby-highlight {
-    background-color: #222;
-    border-radius: 0.3em;
-    margin: 0.5em 0;
-    padding: 0 1em;
-    overflow: auto;
-    margin-bottom: 20px;
-  }
-
-  .line-numbers-rows {
-    border-right: none;
-    & > span::before {
-      color: #555;
-    }
   }
 `;
 
@@ -121,3 +99,7 @@ IndexPage.propTypes = {
 };
 
 export default IndexPage;
+
+/*
+
+*/
