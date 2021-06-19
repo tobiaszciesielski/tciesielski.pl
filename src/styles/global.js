@@ -18,28 +18,28 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h1, h2, h3, h4, h5, h6, a {
-    font-family: ${typo.ralewayBold}, 'Arial';
+    font-family: ${typo.ralewayBold}, 'Arial Narrow';
     color: ${({ theme: { colors } }) => colors.primary}
   }
 
-  p, .Typewriter {
-    font-family: ${typo.robotoRegular}, 'Arial';
+  p, .Typewriter, li, ul, ol {
+    font-family: ${typo.robotoRegular}, 'Arial Narrow';
     color: ${({ theme: { colors } }) => colors.secondary}
   }
 
   button {
-    font-family: ${typo.robotoBold}, 'Arial';
+    font-family: ${typo.robotoBold}, 'Arial Narrow';
   }
 
   form > p, input, textarea {
-    font-family: ${typo.ralewayRegular}, 'Arial';
+    font-family: ${typo.ralewayRegular}, 'Arial Narrow';
   }
 
   footer > p {
-    font-family: ${typo.ralewayMedium}, 'Arial';
+    font-family: ${typo.ralewayMedium}, 'Arial Narrow';
     font-size: 0.78em;
   }
-
+  
   h1 {
     font-size: 2.7em;
   }
@@ -66,8 +66,8 @@ const GlobalStyle = createGlobalStyle`
 
   *, *:before, *:after {
     box-sizing: border-box;
-    padding: 0;
     margin: 0;
+    padding: 0;
   }
 
   @media ${({ theme: { media } }) => media.mobile} {
@@ -84,7 +84,7 @@ const GlobalStyle = createGlobalStyle`
 
   @media ${({ theme: { media } }) => media.laptop} {
     nav > ul > li > a {
-      font-family: ${typo.ralewayRegular}, 'Arial';
+      font-family: ${typo.ralewayRegular}, 'Arial Narrow';
       font-size: 18px;
     }
   }

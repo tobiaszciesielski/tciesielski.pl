@@ -2,7 +2,7 @@ const theme = {
   colors: {
     touch: '#00FFA3',
     primary: '#FFF',
-    secondary: '#AAA',
+    secondary: '#d1d1d1',
     dark: '#333',
     darker: '#222',
     darkest: '#111',

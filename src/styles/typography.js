@@ -5,6 +5,7 @@ import './fonts/fonts.css';
 export default  { // const fonts = {
   robotoRegular: 'Roboto Regular',
   robotoBold: 'Roboto Bold',
+  robotoLight: 'Roboto Light',
   ralewayLight: 'Raleway Light',
   ralewayRegular: 'Raleway Regular',
   ralewayMedium: 'Raleway Medium',

@@ -17,7 +17,7 @@ export default css`
     margin: 0.5em 0;
     padding: 0 1em;
     overflow: auto;
-    margin-bottom: 20px;
+    margin: 20px 0;
     margin-left: -60px;
     margin-right: -60px;
   }

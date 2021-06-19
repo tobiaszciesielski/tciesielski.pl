@@ -8,21 +8,76 @@ import SEO from './SEO';
 import Layout from './Layout';
 import Section from '../organisms/Section';
 import customPrismTheme from '../../styles/custom-prism-theme';
+import typo from '../../styles/typography';
 
 const StyledSection = styled(Section)`
   display: flex;
   justify-content: center;
+  margin-top: 62px;
+  @media ${({ theme: { media } }) => media.laptop} {
+    margin-top: 0px;
+    padding-top: 113px;
+  }
 `;
 
 const StyledArticle = styled.article`
+  .gatsby-image-wrapper {
+    margin-bottom: 20px;
+    background-color: #000;
+    margin-left: -50px;
+    margin-right: -50px;
+  }
+
   ${customPrismTheme};
+  width: 100%;
   max-width: 800px;
+  font-size: 18px;
 
   & p > img {
     width: 100%;
     max-height: 400px;
     object-fit: contain;
   }
+
+  ul,
+  ol {
+    margin-left: 20px;
+    font-weight: 400;
+  }
+
+  ul ul,
+  ul ol,
+  ol ol,
+  ol ul {
+    margin-bottom: 0;
+  }
+
+  hr {
+    margin: 60px 80px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    margin: 30px 0;
+  }
+
+  ul,
+  ol,
+  p {
+    margin-bottom: 15px;
+  }
+
+  li,
+  p {
+    font-family: ${typo.robotoLight};
+  }
+`;
+
+const Title = styled.h1`
+  text-align: center;
 `;
 
 const IndexPage = ({ data }) => {
@@ -40,12 +95,10 @@ const IndexPage = ({ data }) => {
       <Layout>
         <StyledSection>
           <StyledArticle>
-            <h1>{title}</h1>
+            <Title>{title}</Title>
+            <GatsbyImage image={getImage(gatsbyImageData)} />
             <p>{summary}</p>
-            <GatsbyImage
-              backgroundColor="rgba(0, 0, 0, 0)"
-              image={getImage(gatsbyImageData)}
-            />
+            <hr />
             <div
               dangerouslySetInnerHTML={{ __html: childMarkdownRemark.html }}
             />
