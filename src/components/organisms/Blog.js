@@ -9,7 +9,7 @@ import BlogPostCard from '../molecules/BlogPostCard';
 import Section from './Section';
 
 import 'swiper/css';
-import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 const StyledSection = styled(Section)`
   display: flex;
@@ -22,7 +22,7 @@ const StyledSection = styled(Section)`
     width: 100vw;
     padding: 50px 0;
 
-    @media ${({ theme: { media } }) => media.tablet} {
+    @media ${({ theme: { media } }) => media.laptop} {
       display: none;
     }
   }
@@ -42,8 +42,12 @@ const StyledHeader = styled(SectionHeader)`
 
 const StaticPosts = styled.div`
   display: none;
-  @media ${({ theme: { media } }) => media.tablet} {
-    display: block;
+
+  @media ${({ theme: { media } }) => media.laptop} {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
   }
 `;
 
@@ -92,6 +96,7 @@ const Blog = () => {
         slidesPerView={1}
         centeredSlides
         pagination={{ clickable: true }}
+        breakpoints={{ 700: { slidesPerView: 2 } }}
       >
         {slides}
       </Swiper>
