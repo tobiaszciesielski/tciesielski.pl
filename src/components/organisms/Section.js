@@ -10,7 +10,7 @@ const StyledSection = styled.section`
       ${odd ? colors.darker : colors.dark} 100%
     `}
   );
-  padding: 18px;
+  /* padding: 18px; */
 
   @media ${({ theme: { media } }) => media.laptop} {
     padding-top: 100px;

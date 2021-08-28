@@ -2,6 +2,7 @@ import React from 'react';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import propTypes from 'prop-types';
 import styled from 'styled-components';
+import { Link } from 'gatsby';
 import Button from '../atoms/Button';
 import Card from './Card';
 
@@ -44,23 +45,33 @@ const CardButton = styled(Button)`
 `;
 
 const BlogPostCard = ({ data }) => {
-  const { title, description, image, link } = data;
+  const {
+    title,
+    summary,
+    heroImage: { gatsbyImageData },
+    slug,
+  } = data;
+
+  const truncate = (text, length) =>
+    text.length > length ? `${text.slice(0, length)}...` : text;
+
+  const truncatedSummary = truncate(summary, 120);
 
   return (
     <Card>
       <GatsbyImage
-        image={getImage(image)}
+        image={getImage(gatsbyImageData)}
         imgStyle={imageStyles}
         style={imageStyles}
-        alt="Blog Post Image"
+        alt={`${title} image`}
       />
       <Description>
         <Title>{title}</Title>
-        <PostAbstract>{description}</PostAbstract>
+        <PostAbstract title={summary}>{truncatedSummary}</PostAbstract>
       </Description>
-      <a href={link} target="_blank" rel="noopener noreferrer">
+      <Link to={`/blog/${slug}`}>
         <CardButton text="CZYTAJ" />
-      </a>
+      </Link>
     </Card>
   );
 };
@@ -68,9 +79,10 @@ const BlogPostCard = ({ data }) => {
 BlogPostCard.propTypes = {
   data: propTypes.shape({
     title: propTypes.string,
-    description: propTypes.string,
-    image: propTypes.shape({ childImageSharp: propTypes.shape({}) }),
-    link: propTypes.string,
+    summary: propTypes.string,
+    heroImage: propTypes.shape({ gatsbyImageData: propTypes.shape({}) }),
+    slug: propTypes.string,
+    publishedDate: propTypes.string,
   }).isRequired,
 };
 

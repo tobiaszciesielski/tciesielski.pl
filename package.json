@@ -42,7 +42,7 @@
     "react-helmet": "^6.1.0",
     "react-hook-form": "^7.0.4",
     "styled-components": "^5.2.1",
-    "swiper": "6.5.4",
+    "swiper": "^7.0.1",
     "typewriter-effect": "^2.17.0"
   },
   "devDependencies": {

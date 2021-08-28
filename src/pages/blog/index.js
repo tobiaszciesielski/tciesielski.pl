@@ -46,6 +46,7 @@ const Blog = ({ data }) => {
     </>
   );
 };
+
 export const query = graphql`
   {
     allDatoCmsPost {

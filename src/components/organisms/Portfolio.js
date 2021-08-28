@@ -5,7 +5,7 @@ import Section from './Section';
 import ProjectCard from '../molecules/ProjectCard';
 import SectionHeader from '../atoms/SectionHeader';
 import CardsSlider from './CardsSlider';
-import withSlider from '../../hoc/withSlider';
+// import withSlider from '../../hoc/withSlider';
 
 const StyledSection = styled(Section)`
   display: flex;
@@ -24,7 +24,7 @@ const Portfolio = () => {
     allDatoCmsProject: { projects },
   } = useStaticQuery(graphql`
     {
-      allDatoCmsProject(sort: {fields: position}) {
+      allDatoCmsProject(sort: { fields: position }) {
         projects: nodes {
           id
           name
