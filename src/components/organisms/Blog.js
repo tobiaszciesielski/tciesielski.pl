@@ -1,37 +1,16 @@
 import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper';
+import { graphql, Link, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 import Button from '../atoms/Button';
 import SectionHeader from '../atoms/SectionHeader';
-import BlogPostCard from '../molecules/BlogPostCard';
 import Section from './Section';
-
-import 'swiper/css';
-import 'swiper/css/pagination';
+import Posts from '../molecules/Posts';
 
 const StyledSection = styled(Section)`
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
-
-  .swiper {
-    display: block;
-    width: 100vw;
-    padding: 50px 0;
-
-    @media ${({ theme: { media } }) => media.laptop} {
-      display: none;
-    }
-  }
-
-  .swiper-slide {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
 `;
 
 const StyledHeader = styled(SectionHeader)`
@@ -40,23 +19,12 @@ const StyledHeader = styled(SectionHeader)`
   }
 `;
 
-const StaticPosts = styled.div`
-  display: none;
-
-  @media ${({ theme: { media } }) => media.laptop} {
-    display: flex;
-    width: 100%;
-    flex-direction: row;
-    justify-content: center;
-  }
-`;
-
 const Blog = () => {
   const {
     allDatoCmsPost: { edges: posts },
   } = useStaticQuery(graphql`
     {
-      allDatoCmsPost(sort: { order: DESC, fields: publishedDate }, limit: 3) {
+      allDatoCmsPost(sort: { order: DESC, fields: publishedDate }, limit: 4) {
         edges {
           node {
             title
@@ -71,37 +39,16 @@ const Blog = () => {
       }
     }
   `);
-  const slides = [];
-
-  for (let i = 0; i < posts.length; i += 1) {
-    slides.push(
-      <SwiperSlide style={{ margin: '0 auto' }} key={`Slide-${i}`}>
-        <BlogPostCard data={posts[i].node} />
-      </SwiperSlide>
-    );
-  }
 
   return (
     <StyledSection id="blog">
       <StyledHeader text="BLOG" />
 
-      <StaticPosts>
-        {posts.map(({ node: post }) => (
-          <BlogPostCard data={post} key={post.title} />
-        ))}
-      </StaticPosts>
+      <Posts posts={posts} />
 
-      <Swiper
-        modules={[Pagination]}
-        slidesPerView={1}
-        centeredSlides
-        pagination={{ clickable: true }}
-        breakpoints={{ 700: { slidesPerView: 2 } }}
-      >
-        {slides}
-      </Swiper>
-
-      <Button dark text="ZOBACZ WSZYSTKIE WPISY" />
+      <Link to="/blog">
+        <Button dark text="ZOBACZ WSZYSTKIE WPISY" />
+      </Link>
     </StyledSection>
   );
 };
