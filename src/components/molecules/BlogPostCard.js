@@ -26,7 +26,7 @@ const Tags = styled.div`
     content: '';
     width: 70%;
     left: 0;
-    bottom: -10px;
+    bottom: -12px;
     height: 1px;
     background: linear-gradient(90deg, #fff 0%, rgba(0, 0, 0, 0) 100%);
     opacity: 0.5;
@@ -48,12 +48,12 @@ const StyledDate = styled.span`
   display: block;
   font-family: ${typography.robotoRegular}, 'Arial Narrow';
   font-size: 12px;
-  margin: 5px 0;
+  margin: 10px 0;
   color: ${({ theme }) => theme.colors.codeComment};
 `;
 
 const Title = styled.h4`
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 `;
 
 const PostAbstract = styled.p`
@@ -82,7 +82,7 @@ const BlogPostCard = ({ data }) => {
   const truncate = (text, length) =>
     text.length > length ? `${text.slice(0, length)}...` : text;
 
-  const truncatedSummary = truncate(summary, 180);
+  const truncatedSummary = truncate(summary, 200);
 
   return (
     <Card>

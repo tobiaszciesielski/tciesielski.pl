@@ -4,7 +4,7 @@ import propTypes from 'prop-types';
 
 const StyledCard = styled.div`
   width: 280px;
-  height: 460px;
+  height: 500px;
   border-radius: 20px;
   background-color: ${({ theme }) => theme.colors.dark};
   filter: drop-shadow(0px 4px 18px rgba(0, 0, 0, 0.25));
@@ -12,7 +12,7 @@ const StyledCard = styled.div`
 
   @media ${({ theme }) => theme.media.mobile} {
     width: 300px;
-    height: 480px;
+    height: 520px;
   }
 `;
 

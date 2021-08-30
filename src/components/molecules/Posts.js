@@ -22,7 +22,7 @@ const StyledPosts = styled.div`
     width: 100vw;
     padding: 50px 0;
 
-    @media ${({ theme: { media } }) => media.laptop} {
+    @media ${({ theme: { media } }) => media.desktop} {
       display: none;
     }
   }
@@ -47,17 +47,12 @@ const StyledPosts = styled.div`
 const StaticPosts = styled.div`
   display: none;
 
-  @media ${({ theme: { media } }) => media.laptop} {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    row-gap: 40px;
-    column-gap: 10vw;
-    place-items: center;
-  }
-
   @media ${({ theme: { media } }) => media.desktop} {
+    display: grid;
     grid-template-columns: repeat(4, 1fr);
+    row-gap: 40px;
     column-gap: 80px;
+    place-items: center;
   }
 `;
 
@@ -85,7 +80,7 @@ const Posts = ({ posts }) => {
         slidesPerView={1}
         centeredSlides
         pagination={{ clickable: true }}
-        breakpoints={{ 700: { slidesPerView: 2 } }}
+        breakpoints={{ 700: { slidesPerView: 2 }, 1200: { slidesPerView: 3 } }}
       >
         {slides}
       </Swiper>
