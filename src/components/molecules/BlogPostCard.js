@@ -13,7 +13,16 @@ const imageStyles = {
 };
 
 const Description = styled.div`
-  padding: 15px;
+  padding: 0 18px;
+  padding-top: 5px;
+  position: relative;
+`;
+
+const StyledDate = styled.p`
+  font-size: 12px;
+  bottom: calc(100% + 3px);
+  margin-bottom: 5px;
+  color: ${({ theme }) => theme.colors.codeComment};
 `;
 
 const Title = styled.h4`
@@ -32,7 +41,7 @@ const Title = styled.h4`
 `;
 
 const PostAbstract = styled.p`
-  font-size: 0.78em;
+  font-size: 14px;
   line-height: 140%;
   letter-spacing: 0.05em;
 `;
@@ -50,12 +59,16 @@ const BlogPostCard = ({ data }) => {
     summary,
     heroImage: { gatsbyImageData },
     slug,
+    publishedDate,
   } = data;
 
   const truncate = (text, length) =>
     text.length > length ? `${text.slice(0, length)}...` : text;
 
-  const truncatedSummary = truncate(summary, 120);
+  const date = new Date();
+  console.log(date);
+
+  const truncatedSummary = truncate(summary, 180);
 
   return (
     <Card>
@@ -66,6 +79,7 @@ const BlogPostCard = ({ data }) => {
         alt={`${title} image`}
       />
       <Description>
+        <StyledDate>{publishedDate}</StyledDate>
         <Title>{title}</Title>
         <PostAbstract title={summary}>{truncatedSummary}</PostAbstract>
       </Description>

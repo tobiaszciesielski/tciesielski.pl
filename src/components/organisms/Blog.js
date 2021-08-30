@@ -33,7 +33,7 @@ const Blog = () => {
             heroImage {
               gatsbyImageData
             }
-            publishedDate
+            publishedDate(formatString: "DD-MM-YYYY")
           }
         }
       }
