@@ -104,6 +104,11 @@ Posts.propTypes = {
           gatsbyImageData: propTypes.shape({}),
         }),
         publishedDate: propTypes.string,
+        tags: propTypes.arrayOf(
+          propTypes.shape({
+            tag: propTypes.string,
+          })
+        ),
       }),
     })
   ).isRequired,

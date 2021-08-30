@@ -5,29 +5,22 @@ import styled from 'styled-components';
 import { Link } from 'gatsby';
 import Button from '../atoms/Button';
 import Card from './Card';
+import typography from '../../styles/typography';
 
 const imageStyles = {
-  height: '210px',
+  height: '180px',
   borderTopLeftRadius: '20px',
   borderTopRightRadius: '20px',
 };
 
 const Description = styled.div`
   padding: 0 18px;
-  padding-top: 5px;
   position: relative;
 `;
 
-const StyledDate = styled.p`
-  font-size: 12px;
-  bottom: calc(100% + 3px);
-  margin-bottom: 5px;
-  color: ${({ theme }) => theme.colors.codeComment};
-`;
-
-const Title = styled.h4`
+const Tags = styled.div`
+  position: relative;
   margin-bottom: 20px;
-  position: relative;
   ::after {
     position: absolute;
     content: '';
@@ -38,6 +31,29 @@ const Title = styled.h4`
     background: linear-gradient(90deg, #fff 0%, rgba(0, 0, 0, 0) 100%);
     opacity: 0.5;
   }
+`;
+
+const Tag = styled.span`
+  color: ${({ theme }) => theme.colors.dark};
+  font-size: 12px;
+  margin-right: 6px;
+  display: inline-block;
+  background-color: ${({ theme }) => theme.colors.touch};
+  padding: 1px 6px;
+  border-radius: 10px;
+  font-family: ${typography.robotoRegular}, 'Arial Narrow';
+`;
+
+const StyledDate = styled.span`
+  display: block;
+  font-family: ${typography.robotoRegular}, 'Arial Narrow';
+  font-size: 12px;
+  margin: 5px 0;
+  color: ${({ theme }) => theme.colors.codeComment};
+`;
+
+const Title = styled.h4`
+  margin-bottom: 5px;
 `;
 
 const PostAbstract = styled.p`
@@ -60,13 +76,11 @@ const BlogPostCard = ({ data }) => {
     heroImage: { gatsbyImageData },
     slug,
     publishedDate,
+    tags,
   } = data;
 
   const truncate = (text, length) =>
     text.length > length ? `${text.slice(0, length)}...` : text;
-
-  const date = new Date();
-  console.log(date);
 
   const truncatedSummary = truncate(summary, 180);
 
@@ -81,6 +95,11 @@ const BlogPostCard = ({ data }) => {
       <Description>
         <StyledDate>{publishedDate}</StyledDate>
         <Title>{title}</Title>
+        <Tags>
+          {tags.map(({ tag }, i) => (
+            <Tag key={`${tag}-${i}`}>{tag}</Tag>
+          ))}
+        </Tags>
         <PostAbstract title={summary}>{truncatedSummary}</PostAbstract>
       </Description>
       <Link to={`/blog/${slug}`}>
@@ -97,6 +116,11 @@ BlogPostCard.propTypes = {
     heroImage: propTypes.shape({ gatsbyImageData: propTypes.shape({}) }),
     slug: propTypes.string,
     publishedDate: propTypes.string,
+    tags: propTypes.arrayOf(
+      propTypes.shape({
+        tag: propTypes.string,
+      })
+    ),
   }).isRequired,
 };
 

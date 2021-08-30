@@ -34,6 +34,9 @@ const Blog = () => {
               gatsbyImageData
             }
             publishedDate(formatString: "DD-MM-YYYY")
+            tags {
+              tag
+            }
           }
         }
       }
