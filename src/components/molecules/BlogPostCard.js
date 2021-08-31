@@ -34,12 +34,12 @@ const Tags = styled.div`
 `;
 
 const Tag = styled.span`
-  color: ${({ theme }) => theme.colors.dark};
+  color: ${({ theme }) => theme.colors.darkest};
   font-size: 12px;
   margin-right: 6px;
   display: inline-block;
   background-color: ${({ theme }) => theme.colors.touch};
-  padding: 1px 6px;
+  padding: 2px 8px;
   border-radius: 10px;
   font-family: ${typography.robotoRegular}, 'Arial Narrow';
 `;
@@ -82,7 +82,7 @@ const BlogPostCard = ({ data }) => {
   const truncate = (text, length) =>
     text.length > length ? `${text.slice(0, length)}...` : text;
 
-  const truncatedSummary = truncate(summary, 200);
+  const truncatedSummary = truncate(summary, 220);
 
   return (
     <Card>

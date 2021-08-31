@@ -3,6 +3,14 @@ import { graphql, useStaticQuery } from 'gatsby';
 import styled, { css } from 'styled-components';
 import typo from '../../styles/typography';
 
+const TextWrapper = styled.div`
+  padding: 0 10px;
+
+  @media ${({ theme: { media } }) => media.tablet} {
+    padding: 0 20px;
+  }
+`;
+
 const Code = styled.p`
   margin-bottom: 28px;
   letter-spacing: 0.03em;
@@ -76,7 +84,7 @@ const CodeLikeText = () => {
   `);
 
   return (
-    <div>
+    <TextWrapper>
       <Hello>Cześć!</Hello>
       <Code>
         <Tag>p</Tag>
@@ -88,7 +96,7 @@ const CodeLikeText = () => {
       </Code>
       <Comment>{thirdSentence}</Comment>
       <Conclusion>{fourthSentence}</Conclusion>
-    </div>
+    </TextWrapper>
   );
 };
 
