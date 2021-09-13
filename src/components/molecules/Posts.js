@@ -11,6 +11,7 @@ import 'swiper/css/pagination';
 import BlogPostCard from './BlogPostCard';
 
 const StyledPosts = styled.div`
+  z-index: 1;
   margin-bottom: 30px;
 
   @media ${({ theme: { media } }) => media.laptop} {

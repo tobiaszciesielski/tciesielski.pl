@@ -12,6 +12,7 @@ const StyledHeader = styled.header`
   z-index: 0;
   height: 100vh;
   position: relative;
+  overflow: hidden;
   background: linear-gradient(
     180deg,
     ${({ theme }) => theme.colors.darker} 0%,
@@ -93,20 +94,22 @@ const Header = () => {
   `);
 
   return (
-    <StyledHeader id="header">
+    <>
       <Stripes />
-      <TextBox>
-        <Title />
-        <Writer />
-      </TextBox>
-      <GatsbyImage
-        backgroundColor="rgba(0, 0, 0, 0)"
-        className="image-header"
-        alt="header-image"
-        image={getImage(headerImg)}
-      />
-      <Gradient />
-    </StyledHeader>
+      <StyledHeader id="header">
+        <TextBox>
+          <Title />
+          <Writer />
+        </TextBox>
+        <GatsbyImage
+          backgroundColor="rgba(0, 0, 0, 0)"
+          className="image-header"
+          alt="header-image"
+          image={getImage(headerImg)}
+        />
+        <Gradient />
+      </StyledHeader>
+    </>
   );
 };
 export default Header;
