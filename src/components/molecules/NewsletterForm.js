@@ -9,6 +9,7 @@ import ErrorMessage from '../atoms/ErrorMessage.styled';
 import Input from '../atoms/Input.styled';
 
 const StyledForm = styled(FormWrapper)`
+  width: 100%;
   margin-bottom: 50px;
 
   @media ${({ theme: { media } }) => media.tablet} {

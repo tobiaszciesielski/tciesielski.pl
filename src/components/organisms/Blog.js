@@ -36,6 +36,7 @@ const Blog = () => {
             publishedDate(formatString: "DD-MM-YYYY")
             tags {
               tag
+              id
             }
           }
         }

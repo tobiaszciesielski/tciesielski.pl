@@ -58,7 +58,7 @@ const Projects = ({ projects }) => {
 
   for (let i = 0; i < projects.length; i += 1) {
     slides.push(
-      <SwiperSlide key={`Slide-${i}`}>
+      <SwiperSlide key={projects[i].id}>
         <ProjectCard project={projects[i]} />
       </SwiperSlide>
     );
@@ -86,7 +86,7 @@ const Projects = ({ projects }) => {
 Projects.propTypes = {
   projects: propTypes.arrayOf(
     propTypes.shape({
-      id: propTypes.number,
+      id: propTypes.string,
       name: propTypes.string,
       image: propTypes.shape({
         gatsbyImageData: propTypes.shape({}),

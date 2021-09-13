@@ -28,6 +28,7 @@ const Forms = styled.div`
   grid-template-columns: repeat(12, 1fr);
   gap: 10px;
   align-items: center;
+  padding: 0 20px;
 
   form {
     grid-column: 1/13;
@@ -36,7 +37,6 @@ const Forms = styled.div`
   @media ${({ theme: { media } }) => media.tablet} {
     form:nth-child(1) {
       grid-column: 8/12;
-      margin: 0;
     }
     form:nth-child(2) {
       grid-column: 2/7;
@@ -47,11 +47,9 @@ const Forms = styled.div`
   @media ${({ theme: { media } }) => media.laptop} {
     form:nth-child(1) {
       grid-column: 9/12;
-      margin: 0;
     }
     form:nth-child(2) {
       grid-column: 2/8;
-      margin: 0;
     }
   }
 `;

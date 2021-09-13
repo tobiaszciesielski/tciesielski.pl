@@ -96,8 +96,8 @@ const BlogPostCard = ({ data }) => {
         <StyledDate>{publishedDate}</StyledDate>
         <Title>{title}</Title>
         <Tags>
-          {tags.map(({ tag }, i) => (
-            <Tag key={`${tag}-${i}`}>{tag}</Tag>
+          {tags.map(({ tag, id }) => (
+            <Tag key={id}>{tag}</Tag>
           ))}
         </Tags>
         <PostAbstract title={summary}>{truncatedSummary}</PostAbstract>
@@ -111,6 +111,7 @@ const BlogPostCard = ({ data }) => {
 
 BlogPostCard.propTypes = {
   data: propTypes.shape({
+    id: propTypes.string,
     title: propTypes.string,
     summary: propTypes.string,
     heroImage: propTypes.shape({ gatsbyImageData: propTypes.shape({}) }),
@@ -119,6 +120,7 @@ BlogPostCard.propTypes = {
     tags: propTypes.arrayOf(
       propTypes.shape({
         tag: propTypes.string,
+        id: propTypes.string,
       })
     ),
   }).isRequired,

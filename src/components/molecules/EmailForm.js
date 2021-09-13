@@ -10,6 +10,8 @@ import ErrorMessage from '../atoms/ErrorMessage.styled';
 import {} from '@formspree/react';
 
 const StyledForm = styled(FormWrapper)`
+  width: 100%;
+
   @media ${({ theme: { media } }) => media.tablet} {
     max-width: 750px;
   }
@@ -20,16 +22,19 @@ const StyledFormHeader = styled(FormHeader)`
 `;
 
 const FormTextArea = styled.textarea`
-  color: ${({ theme }) => theme.colors.secondary};
+  width: 100%;
   border: none;
   border-radius: 10px;
   margin-bottom: 22px;
   padding: 10px;
   height: 350px;
   width: 100%;
-  max-width: 230px;
   outline-style: none;
   resize: none;
+  color: ${({ theme }) => theme.colors.dark};
+  &::placeholder {
+    color: ${({ theme }) => theme.colors.secondary};
+  }
 
   @media ${({ theme: { media } }) => media.tablet} {
     max-width: 600px;
@@ -58,7 +63,7 @@ const EmailForm = ({ className }) => {
       <StyledFormHeader text="NAPISZ DO MNIE" />
       <Input
         {...register('email', { required: true, pattern: emailPattern })}
-        placeholder="mail"
+        placeholder="email"
       />
       <FormTextArea
         {...register('message', { required: true, minLength: 3 })}

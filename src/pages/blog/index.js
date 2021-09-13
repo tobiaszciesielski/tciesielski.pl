@@ -24,15 +24,15 @@ const Beta = styled.div`
   letter-spacing: 2px;
 `;
 
-// const StyledSection = styled(Section)`
-//   display: flex;
-//   justify-content: center;
-//   margin-top: 62px;
-//   @media ${({ theme: { media } }) => media.laptop} {
-//     margin-top: 0px;
-//     padding-top: 113px;
-//   }
-// `;
+const StyledSection = styled(Section)`
+  display: flex;
+  justify-content: center;
+  margin-top: 65px;
+  @media ${({ theme: { media } }) => media.laptop} {
+    margin-top: 0px;
+    padding-top: 113px;
+  }
+`;
 
 const Blog = ({ data }) => {
   console.log(data);
@@ -41,7 +41,9 @@ const Blog = ({ data }) => {
       <SEO />
       <Beta>BETA</Beta>
       <Layout>
-        <h1>BLOG</h1>
+        <StyledSection>
+          <h1>BLOG</h1>
+        </StyledSection>
       </Layout>
     </>
   );
