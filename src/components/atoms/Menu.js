@@ -97,7 +97,7 @@ const Menu = ({ setExpanded, expanded }) => {
   const renderDefaultLinks = () =>
     menu.map(({ id, name }) => (
       <li key={id}>
-        <Link to={id !== 'blog' ? `/#${id}` : '/blog'}>{name}</Link>}
+        <Link to={id !== 'blog' ? `/#${id}` : '/blog'}>{name}</Link>
       </li>
     ));
 
