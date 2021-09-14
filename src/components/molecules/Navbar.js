@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { Link } from 'gatsby';
 import HamburgerMenu from '../atoms/Hamburger';
 import Menu from '../atoms/Menu';
 import Logo from '../../assets/icons/logo.svg';
-import SmoothScrollAnchor from '../atoms/SmoothScrollAnchor';
-import { Link } from 'gatsby';
 
 const StyledLogo = styled(Logo)`
   width: 30px;

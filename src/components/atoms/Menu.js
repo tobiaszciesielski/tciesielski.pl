@@ -84,16 +84,20 @@ const Menu = ({ setExpanded, expanded }) => {
   const renderSmoothScrollAnchors = () =>
     menu.map(({ id, name }) => (
       <li key={id}>
-        <SmoothScrollAnchor onClick={collapseMenu} targetId={id}>
-          {name}
-        </SmoothScrollAnchor>
+        {id === 'blog' ? (
+          <Link to="/blog">{name}</Link>
+        ) : (
+          <SmoothScrollAnchor onClick={collapseMenu} targetId={id}>
+            {name}
+          </SmoothScrollAnchor>
+        )}
       </li>
     ));
 
   const renderDefaultLinks = () =>
     menu.map(({ id, name }) => (
       <li key={id}>
-        <Link to={`/${id}`}>{name}</Link>
+        <Link to={id !== 'blog' ? `/#${id}` : '/blog'}>{name}</Link>}
       </li>
     ));
 
