@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { useLocation } from '@reach/router';
+import { Link } from 'gatsby';
 import SmoothScrollAnchor from './SmoothScrollAnchor';
 
 const StyledMenu = styled.ul`
@@ -70,29 +72,34 @@ const StyledMenu = styled.ul`
 
 const Menu = ({ setExpanded, expanded }) => {
   const collapseMenu = () => setExpanded(false);
+  const { pathname } = useLocation();
+
+  const menu = [
+    { id: 'about', name: 'O MNIE' },
+    { id: 'blog', name: 'BLOG' },
+    { id: 'portfolio', name: 'PORTFOLIO' },
+    { id: 'contact', name: 'KONTAKT' },
+  ];
+
+  const renderSmoothScrollAnchors = () =>
+    menu.map(({ id, name }) => (
+      <li key={id}>
+        <SmoothScrollAnchor onClick={collapseMenu} targetId={id}>
+          {name}
+        </SmoothScrollAnchor>
+      </li>
+    ));
+
+  const renderDefaultLinks = () =>
+    menu.map(({ id, name }) => (
+      <li key={id}>
+        <Link to={`/${id}`}>{name}</Link>
+      </li>
+    ));
 
   return (
     <StyledMenu expanded={expanded}>
-      <li>
-        <SmoothScrollAnchor onClick={collapseMenu} targetId="about">
-          O MNIE
-        </SmoothScrollAnchor>
-      </li>
-      <li>
-        <SmoothScrollAnchor onClick={collapseMenu} targetId="blog">
-          BLOG
-        </SmoothScrollAnchor>
-      </li>
-      <li>
-        <SmoothScrollAnchor onClick={collapseMenu} targetId="portfolio">
-          PORTFOLIO
-        </SmoothScrollAnchor>
-      </li>
-      <li>
-        <SmoothScrollAnchor onClick={collapseMenu} targetId="contact">
-          KONTAKT
-        </SmoothScrollAnchor>
-      </li>
+      {pathname === '/' ? renderSmoothScrollAnchors() : renderDefaultLinks()}
     </StyledMenu>
   );
 };

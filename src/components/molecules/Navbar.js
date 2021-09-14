@@ -4,6 +4,7 @@ import HamburgerMenu from '../atoms/Hamburger';
 import Menu from '../atoms/Menu';
 import Logo from '../../assets/icons/logo.svg';
 import SmoothScrollAnchor from '../atoms/SmoothScrollAnchor';
+import { Link } from 'gatsby';
 
 const StyledLogo = styled(Logo)`
   width: 30px;
@@ -83,9 +84,9 @@ const Navbar = () => {
 
   return (
     <Nav visible={visible}>
-      <SmoothScrollAnchor targetId="header">
+      <Link to="/">
         <StyledLogo />
-      </SmoothScrollAnchor>
+      </Link>
       <Menu setExpanded={setExpanded} expanded={expanded} />
       <HamburgerMenu setExpanded={setExpanded} expanded={expanded} />
     </Nav>

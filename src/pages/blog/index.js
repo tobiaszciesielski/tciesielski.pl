@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import Layout from '../../components/templates/Layout';
 import SEO from '../../components/templates/SEO';
+import Section from '../../components/organisms/Section';
 
 const Beta = styled.div`
   position: fixed;
@@ -23,15 +24,15 @@ const Beta = styled.div`
   letter-spacing: 2px;
 `;
 
-// const StyledSection = styled(Section)`
-//   display: flex;
-//   justify-content: center;
-//   margin-top: 65px;
-//   @media ${({ theme: { media } }) => media.laptop} {
-//     margin-top: 0px;
-//     padding-top: 113px;
-//   }
-// `;
+const StyledSection = styled(Section)`
+  display: flex;
+  justify-content: center;
+  margin-top: 65px;
+  @media ${({ theme: { media } }) => media.laptop} {
+    margin-top: 0px;
+    padding-top: 113px;
+  }
+`;
 
 const Blog = ({ data }) => {
   console.log(data);
@@ -40,9 +41,9 @@ const Blog = ({ data }) => {
       <SEO />
       <Beta>BETA</Beta>
       <Layout>
-        {/* <StyledSection> */}
+        <StyledSection>
           <h1>BLOG</h1>
-        {/* </StyledSection> */}
+        </StyledSection>
       </Layout>
     </>
   );
