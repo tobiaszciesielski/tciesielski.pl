@@ -10,6 +10,10 @@ module.exports = {
     image: 'images/meta-image.png',
   },
 
+  flags: {
+    DEV_SSR: false,
+  },
+
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
