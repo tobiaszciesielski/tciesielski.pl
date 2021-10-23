@@ -10,6 +10,7 @@ const StyledSection = styled(Section)`
   grid-template-columns: repeat(12, 1fr);
   width: 100%;
   @media ${({ theme: { media } }) => media.desktop} {
+    padding-top: 100px;
     row-gap: 150px;
   }
 `;

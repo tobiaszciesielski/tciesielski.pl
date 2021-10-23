@@ -15,7 +15,7 @@ const StyledFooter = styled.footer`
     180deg,
     ${({ theme: { colors } }) => css`
       ${colors.dark} 0%,
-      ${colors.darker} 35%
+      ${colors.darker} 50%
     `}
   );
 
