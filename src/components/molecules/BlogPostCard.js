@@ -59,7 +59,8 @@ const Title = styled.h4`
 const PostAbstract = styled.p`
   font-size: 14px;
   line-height: 140%;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.07em;
+  font-family: ${typography.robotoLight}, 'Arial Narrow';
 `;
 
 const CardButton = styled(Button)`
