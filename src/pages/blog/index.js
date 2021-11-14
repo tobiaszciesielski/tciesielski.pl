@@ -7,6 +7,7 @@ import Layout from '../../components/templates/Layout';
 import SEO from '../../components/templates/SEO';
 import Section from '../../components/organisms/Section';
 import Input from '../../components/atoms/Input.styled';
+import Tag from '../../components/atoms/Tag.styled';
 import BlogPostCard from '../../components/molecules/BlogPostCard';
 
 const StyledSection = styled(Section)`
@@ -34,6 +35,8 @@ const StyledHeading = styled.h1`
   }
 `;
 
+const StyledTags = styled.div``;
+
 const StyledInput = styled(Input)`
   max-width: 600px;
   margin-bottom: 100px;
@@ -50,6 +53,7 @@ const StyledPostsList = styled.div`
 `;
 
 let postsToSearchIn = [];
+let tags = [];
 
 const Blog = ({ data }) => {
   const [posts, setPosts] = useState([]);
@@ -77,8 +81,14 @@ const Blog = ({ data }) => {
       };
     });
 
+  const removeDuplicationsInTags = (duplicatedTags) => {
+    const arrayWithoutObjects = duplicatedTags.map(({ tag }) => tag);
+    return [...new Set(arrayWithoutObjects)];
+  };
+
   useEffect(() => {
     postsToSearchIn = makePostsCleanString(data.allDatoCmsPost.allPosts);
+    tags = removeDuplicationsInTags(data.allDatoCmsTag.allTags);
     setPosts(data.allDatoCmsPost.allPosts);
   }, []);
 
@@ -88,6 +98,14 @@ const Blog = ({ data }) => {
       <Layout>
         <StyledSection>
           <StyledHeading>WPISY</StyledHeading>
+          <StyledTags>
+            {tags.map((tag) => (
+              <Tag inactive key={tag}>
+                {' '}
+                {tag}
+              </Tag>
+            ))}
+          </StyledTags>
           <StyledInput onChange={handleChange} placeholder="Wyszukaj wpis" />
           <StyledPostsList>
             {posts.map((post) => (
@@ -119,6 +137,12 @@ export const query = graphql`
         }
       }
     }
+    allDatoCmsTag {
+      allTags: nodes {
+        id
+        tag
+      }
+    }
   }
 `;
 
@@ -136,11 +160,13 @@ Blog.propTypes = {
           tags: propTypes.arrayOf(
             propTypes.shape({
               tag: propTypes.string,
-              id: propTypes.string,
             })
           ),
         })
       ),
+    }),
+    allDatoCmsTag: propTypes.shape({
+      allTags: propTypes.arrayOf(propTypes.shape({ tag: propTypes.string })),
     }),
   }),
 };

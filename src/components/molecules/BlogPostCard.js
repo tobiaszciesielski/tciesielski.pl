@@ -6,6 +6,7 @@ import { Link } from 'gatsby';
 import Button from '../atoms/Button';
 import Card from './Card';
 import typography from '../../styles/typography';
+import Tag from '../atoms/Tag.styled';
 
 const imageStyles = {
   height: '180px',
@@ -33,15 +34,8 @@ const Tags = styled.div`
   }
 `;
 
-const Tag = styled.span`
-  color: ${({ theme }) => theme.colors.darkest};
-  font-size: 12px;
+const StyledTag = styled(Tag)`
   margin-right: 6px;
-  display: inline-block;
-  background-color: ${({ theme }) => theme.colors.touch};
-  padding: 2px 8px;
-  border-radius: 10px;
-  font-family: ${typography.robotoRegular}, 'Arial Narrow';
 `;
 
 const StyledDate = styled.span`
@@ -98,7 +92,7 @@ const BlogPostCard = ({ data }) => {
         <Title>{title}</Title>
         <Tags>
           {tags.map(({ tag, id }) => (
-            <Tag key={id}>{tag}</Tag>
+            <StyledTag key={id}>{tag}</StyledTag>
           ))}
         </Tags>
         <PostAbstract title={summary}>{truncatedSummary}</PostAbstract>
