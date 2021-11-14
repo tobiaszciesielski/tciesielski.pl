@@ -21,6 +21,7 @@ const StyledHeader = styled.header`
 
   .gatsby-image-wrapper {
     display: none !important;
+    max-width: 1200px;
 
     @media ${({ theme: { media } }) => media.laptop} {
       display: block !important;

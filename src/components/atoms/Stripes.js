@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Stripe = styled.span`
   position: absolute;
-  width: 4000px;
+  width: 5900px;
   height: 3px;
   background-color: ${({ theme }) => theme.colors.touch};
   top: 250px;
