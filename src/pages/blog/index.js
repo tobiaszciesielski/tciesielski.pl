@@ -35,7 +35,18 @@ const StyledHeading = styled.h1`
   }
 `;
 
-const StyledTags = styled.div``;
+const StyledTags = styled.div`
+  max-width: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 15px;
+  margin-bottom: 20px;
+  @media ${({ theme: { media } }) => media.laptop} {
+    margin-bottom: 40px;
+  }
+`;
 
 const StyledInput = styled(Input)`
   max-width: 600px;
@@ -53,9 +64,9 @@ const StyledPostsList = styled.div`
 `;
 
 let postsToSearchIn = [];
-let tags = [];
 
 const Blog = ({ data, location }) => {
+  const [tags, setTags] = useState([]);
   const [posts, setPosts] = useState([]);
 
   const handleChange = (event) => {
@@ -81,20 +92,32 @@ const Blog = ({ data, location }) => {
       };
     });
 
-  const removeDuplicationsInTags = (duplicatedTags) => {
+  const removeDuplicationsAndMarkActiveTags = (duplicatedTags) => {
     const arrayWithoutObjects = duplicatedTags.map(({ tag }) => tag);
     const pureTags = [...new Set(arrayWithoutObjects)];
     return pureTags.map((tag) => ({
-      tag,
+      name: tag,
       isActive: location.search.slice(1) === tag,
     }));
   };
 
   useEffect(() => {
     postsToSearchIn = makePostsCleanString(data.allDatoCmsPost.allPosts);
-    tags = removeDuplicationsInTags(data.allDatoCmsTag.allTags);
     setPosts(data.allDatoCmsPost.allPosts);
+
+    const preparedTags = removeDuplicationsAndMarkActiveTags(
+      data.allDatoCmsTag.allTags
+    );
+    setTags(preparedTags);
   }, []);
+
+  const handleTagClick = (tagName) => {
+    setTags(
+      tags.map((tag) =>
+        tag.name === tagName ? { ...tag, isActive: !tag.isActive } : tag
+      )
+    );
+  };
 
   return (
     <>
@@ -103,9 +126,13 @@ const Blog = ({ data, location }) => {
         <StyledSection>
           <StyledHeading>WPISY</StyledHeading>
           <StyledTags>
-            {tags.map(({ tag, isActive }) => (
-              <Tag active={isActive} key={tag}>
-                {tag}
+            {tags.map(({ name, isActive }) => (
+              <Tag
+                onClick={() => handleTagClick(name)}
+                active={isActive}
+                key={name}
+              >
+                {name}
               </Tag>
             ))}
           </StyledTags>

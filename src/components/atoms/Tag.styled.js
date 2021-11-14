@@ -9,6 +9,7 @@ const Tag = styled.a`
   border-radius: 10px;
   font-family: ${typography.robotoRegular}, 'Arial Narrow';
   cursor: pointer;
+  border: 1px solid transparent;
 
   ${({ theme: { colors }, active }) => {
     const activeStyles = css`
@@ -22,7 +23,7 @@ const Tag = styled.a`
       : css`
           background: ${colors.dark};
           color: ${colors.primary};
-          border: 1px solid ${colors.touch};
+          border-color: ${colors.touch};
           &:hover {
             ${activeStyles}
           }
