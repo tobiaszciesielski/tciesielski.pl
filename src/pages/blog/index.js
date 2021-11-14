@@ -68,10 +68,12 @@ const StyledPostsList = styled.div`
 
 let postsToSearchIn = [];
 let postsToSearchInWithMatchingTags = [];
+let activeTags = [];
 
 const Blog = ({ data, location }) => {
   const [availableTags, setAvailableTags] = useState([]);
   const [posts, setPosts] = useState([]);
+  const [searchingPhrase, setSearchingPhrase] = useState('');
 
   const makePostsCleanString = (postsToModify) =>
     postsToModify.map(({ article, ...post }) => {
@@ -83,8 +85,28 @@ const Blog = ({ data, location }) => {
       };
     });
 
+  const searchForPostsByPhrase = (phrase) => {
+    const rawSearchPhrase = phrase.toLowerCase();
+    console.log(rawSearchPhrase);
+
+    const postsToSearch =
+      activeTags.length > 0 ? postsToSearchInWithMatchingTags : postsToSearchIn;
+
+    const searchResult = postsToSearch.filter(
+      ({ title, summary, article, tags }) =>
+        title.toLowerCase().includes(rawSearchPhrase) ||
+        summary.toLowerCase().includes(rawSearchPhrase) ||
+        article.includes(rawSearchPhrase) ||
+        tags.filter(({ tag }) => tag.toLowerCase().includes(rawSearchPhrase))
+          .length > 0
+    );
+
+    setSearchingPhrase(rawSearchPhrase);
+    setPosts(searchResult);
+  };
+
   const filterPostsByTag = (newActiveTags) => {
-    const activeTags = newActiveTags.filter((tag) => tag.isActive);
+    activeTags = newActiveTags.filter((tag) => tag.isActive);
 
     const postsWithMatchingTags = postsToSearchIn.filter(({ tags }) => {
       const rawTags = tags.map(({ tag }) => tag);
@@ -131,26 +153,12 @@ const Blog = ({ data, location }) => {
     );
     setAvailableTags(newActiveTags);
     filterPostsByTag(newActiveTags);
+    searchForPostsByPhrase(searchingPhrase);
   };
 
   const handleChange = (event) => {
-    const rawSearchPhrase = event.target.value.toLowerCase();
-
-    const postsToSearch =
-      availableTags.filter((tag) => tag.isActive).length > 0
-        ? postsToSearchInWithMatchingTags
-        : postsToSearchIn;
-
-    const searchResult = postsToSearch.filter(
-      ({ title, summary, article, tags }) =>
-        title.toLowerCase().includes(rawSearchPhrase) ||
-        summary.toLowerCase().includes(rawSearchPhrase) ||
-        article.includes(rawSearchPhrase) ||
-        tags.filter(({ tag }) => tag.toLowerCase().includes(rawSearchPhrase))
-          .length > 0
-    );
-
-    setPosts(searchResult);
+    const searchPhrase = event.target.value;
+    searchForPostsByPhrase(searchPhrase);
   };
 
   return (
