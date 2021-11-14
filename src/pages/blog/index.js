@@ -18,6 +18,7 @@ const StyledSection = styled(Section)`
   align-items: center;
   margin-top: 65px;
   padding: 0 10px;
+
   @media ${({ theme: { media } }) => media.laptop} {
     padding: 0 20px;
     margin-top: 0px;
@@ -29,6 +30,7 @@ const StyledHeading = styled.h1`
   text-align: center;
   margin-bottom: 20px;
   font-size: 32px;
+
   @media ${({ theme: { media } }) => media.laptop} {
     font-size: 42px;
     margin-bottom: 40px;
@@ -43,6 +45,7 @@ const StyledTags = styled.div`
   flex-wrap: wrap;
   gap: 10px 15px;
   margin-bottom: 20px;
+
   @media ${({ theme: { media } }) => media.laptop} {
     margin-bottom: 40px;
   }
@@ -64,25 +67,11 @@ const StyledPostsList = styled.div`
 `;
 
 let postsToSearchIn = [];
+let postsToSearchInWithMatchingTags = [];
 
 const Blog = ({ data, location }) => {
   const [availableTags, setAvailableTags] = useState([]);
   const [posts, setPosts] = useState([]);
-
-  const handleChange = (event) => {
-    const rawSearchPhrase = event.target.value.toLowerCase();
-
-    const searchResult = postsToSearchIn.filter(
-      ({ title, summary, article, tags }) =>
-        title.toLowerCase().includes(rawSearchPhrase) ||
-        summary.toLowerCase().includes(rawSearchPhrase) ||
-        article.includes(rawSearchPhrase) ||
-        tags.filter(({ tag }) => tag.toLowerCase().includes(rawSearchPhrase))
-          .length > 0
-    );
-
-    setPosts(searchResult);
-  };
 
   const makePostsCleanString = (postsToModify) =>
     postsToModify.map(({ article, ...post }) => {
@@ -94,13 +83,36 @@ const Blog = ({ data, location }) => {
       };
     });
 
+  const filterPostsByTag = (newActiveTags) => {
+    const activeTags = newActiveTags.filter((tag) => tag.isActive);
+
+    const postsWithMatchingTags = postsToSearchIn.filter(({ tags }) => {
+      const rawTags = tags.map(({ tag }) => tag);
+      return activeTags.filter(({ name }) => rawTags.includes(name)).length > 0;
+    });
+
+    postsToSearchInWithMatchingTags = postsWithMatchingTags;
+
+    setPosts(
+      postsWithMatchingTags.length > 0 ? postsWithMatchingTags : postsToSearchIn
+    );
+  };
+
   const removeDuplicationsAndMarkActiveTags = (duplicatedTags) => {
-    const arrayWithoutObjects = duplicatedTags.map(({ tag }) => tag);
-    const pureTags = [...new Set(arrayWithoutObjects)];
-    return pureTags.map((tag) => ({
+    const arrayWithoutObjects = duplicatedTags.map(({ tag }) =>
+      tag.toLowerCase()
+    );
+
+    const tagInParams = location.search.slice(1);
+
+    const pureTags = [...new Set(arrayWithoutObjects)].map((tag) => ({
       name: tag,
-      isActive: location.search.slice(1) === tag,
+      isActive: tagInParams.toLowerCase() === tag,
     }));
+
+    filterPostsByTag(pureTags);
+
+    return pureTags;
   };
 
   useEffect(() => {
@@ -114,11 +126,31 @@ const Blog = ({ data, location }) => {
   }, []);
 
   const handleTagClick = (tagName) => {
-    setAvailableTags(
-      availableTags.map((tag) =>
-        tag.name === tagName ? { ...tag, isActive: !tag.isActive } : tag
-      )
+    const newActiveTags = availableTags.map((tag) =>
+      tag.name === tagName ? { ...tag, isActive: !tag.isActive } : tag
     );
+    setAvailableTags(newActiveTags);
+    filterPostsByTag(newActiveTags);
+  };
+
+  const handleChange = (event) => {
+    const rawSearchPhrase = event.target.value.toLowerCase();
+
+    const postsToSearch =
+      availableTags.filter((tag) => tag.isActive).length > 0
+        ? postsToSearchInWithMatchingTags
+        : postsToSearchIn;
+
+    const searchResult = postsToSearch.filter(
+      ({ title, summary, article, tags }) =>
+        title.toLowerCase().includes(rawSearchPhrase) ||
+        summary.toLowerCase().includes(rawSearchPhrase) ||
+        article.includes(rawSearchPhrase) ||
+        tags.filter(({ tag }) => tag.toLowerCase().includes(rawSearchPhrase))
+          .length > 0
+    );
+
+    setPosts(searchResult);
   };
 
   return (
