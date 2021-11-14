@@ -55,7 +55,7 @@ const StyledPostsList = styled.div`
 let postsToSearchIn = [];
 let tags = [];
 
-const Blog = ({ data }) => {
+const Blog = ({ data, location }) => {
   const [posts, setPosts] = useState([]);
 
   const handleChange = (event) => {
@@ -83,7 +83,11 @@ const Blog = ({ data }) => {
 
   const removeDuplicationsInTags = (duplicatedTags) => {
     const arrayWithoutObjects = duplicatedTags.map(({ tag }) => tag);
-    return [...new Set(arrayWithoutObjects)];
+    const pureTags = [...new Set(arrayWithoutObjects)];
+    return pureTags.map((tag) => ({
+      tag,
+      isActive: location.search.slice(1) === tag,
+    }));
   };
 
   useEffect(() => {
@@ -99,9 +103,8 @@ const Blog = ({ data }) => {
         <StyledSection>
           <StyledHeading>WPISY</StyledHeading>
           <StyledTags>
-            {tags.map((tag) => (
-              <Tag inactive key={tag}>
-                {' '}
+            {tags.map(({ tag, isActive }) => (
+              <Tag active={isActive} key={tag}>
                 {tag}
               </Tag>
             ))}

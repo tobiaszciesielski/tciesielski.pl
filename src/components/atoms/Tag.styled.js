@@ -10,28 +10,28 @@ const Tag = styled.a`
   font-family: ${typography.robotoRegular}, 'Arial Narrow';
   cursor: pointer;
 
-  ${({ theme: { colors }, inactive }) => {
+  ${({ theme: { colors }, active }) => {
     const activeStyles = css`
       color: ${colors.darkest};
       background-color: ${colors.touch};
       border-color: ${colors.touch};
     `;
 
-    return inactive
-      ? css`
+    return active
+      ? activeStyles
+      : css`
           background: ${colors.dark};
           color: ${colors.primary};
           border: 1px solid ${colors.touch};
           &:hover {
             ${activeStyles}
           }
-        `
-      : activeStyles;
+        `;
   }}
 `;
 
 Tag.defaultProps = {
-  inactive: false,
+  active: true,
 };
 
 export default Tag;
