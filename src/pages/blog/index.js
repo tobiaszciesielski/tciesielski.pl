@@ -66,17 +66,19 @@ const StyledPostsList = styled.div`
 let postsToSearchIn = [];
 
 const Blog = ({ data, location }) => {
-  const [tags, setTags] = useState([]);
+  const [availableTags, setAvailableTags] = useState([]);
   const [posts, setPosts] = useState([]);
 
   const handleChange = (event) => {
     const rawSearchPhrase = event.target.value.toLowerCase();
 
     const searchResult = postsToSearchIn.filter(
-      ({ title, summary, article }) =>
+      ({ title, summary, article, tags }) =>
         title.toLowerCase().includes(rawSearchPhrase) ||
         summary.toLowerCase().includes(rawSearchPhrase) ||
-        article.includes(rawSearchPhrase)
+        article.includes(rawSearchPhrase) ||
+        tags.filter(({ tag }) => tag.toLowerCase().includes(rawSearchPhrase))
+          .length > 0
     );
 
     setPosts(searchResult);
@@ -108,12 +110,12 @@ const Blog = ({ data, location }) => {
     const preparedTags = removeDuplicationsAndMarkActiveTags(
       data.allDatoCmsTag.allTags
     );
-    setTags(preparedTags);
+    setAvailableTags(preparedTags);
   }, []);
 
   const handleTagClick = (tagName) => {
-    setTags(
-      tags.map((tag) =>
+    setAvailableTags(
+      availableTags.map((tag) =>
         tag.name === tagName ? { ...tag, isActive: !tag.isActive } : tag
       )
     );
@@ -126,7 +128,7 @@ const Blog = ({ data, location }) => {
         <StyledSection>
           <StyledHeading>WPISY</StyledHeading>
           <StyledTags>
-            {tags.map(({ name, isActive }) => (
+            {availableTags.map(({ name, isActive }) => (
               <Tag
                 onClick={() => handleTagClick(name)}
                 active={isActive}
@@ -190,6 +192,7 @@ Blog.propTypes = {
           tags: propTypes.arrayOf(
             propTypes.shape({
               tag: propTypes.string,
+              id: propTypes.string,
             })
           ),
         })
