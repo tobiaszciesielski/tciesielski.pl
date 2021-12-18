@@ -1,5 +1,3 @@
-/* eslint import/no-unresolved: */ // swiper
-
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 

@@ -12,7 +12,7 @@ const StyledSection = styled.section`
   );
 
   @media ${({ theme: { media } }) => media.laptop} {
-    padding-top: 100px;
+    padding-bottom: 100px;
   }
 `;
 

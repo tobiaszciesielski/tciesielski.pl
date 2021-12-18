@@ -13,7 +13,7 @@ import ProjectCard from './ProjectCard';
 const StyledProjects = styled.div`
   .swiper {
     width: 100vw;
-    padding-top: 50px;
+    padding: 50px 0;
   }
 
   .swiper-slide {
