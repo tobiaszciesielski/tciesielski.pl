@@ -8,12 +8,7 @@ export interface LayoutProps {
 export default function Layout(props: LayoutProps) {
   return (
     <div className={styles.layout}>
-      <div className={styles.layout__content}>
-        dupawdoajwdij
-        <h1>aijdaw</h1>
-        <h3>ijdawid</h3>
-        {props.children}
-      </div>
+      <div className={styles.layout__content}>{props.children}</div>
     </div>
   );
 }

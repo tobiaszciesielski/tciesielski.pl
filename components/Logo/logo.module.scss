@@ -1,0 +1,21 @@
+.logo__animation {
+  animation: 8s linear color-change infinite;
+}
+
+@keyframes color-change {
+  0% {
+    fill: #ae20a1;
+  }
+  25% {
+    fill: #0c69d9;
+  }
+  50% {
+    fill: #00ffa3;
+  }
+  75% {
+    fill: #fe4545;
+  }
+  100% {
+    fill: #ae20a1;
+  }
+}
