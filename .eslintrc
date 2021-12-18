@@ -1,4 +1,40 @@
 {
-  "extends": "next/core-web-vitals",
-  "plugins": ["eslint-plugin-import"]
+  "extends": ["next/core-web-vitals"],
+  "rules": {
+    "import/order": [
+      "warn",
+      {
+        "groups": ["builtin", "external", "internal", "parent", "sibling"],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        },
+        "pathGroupsExcludedImportTypes": [],
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "next/**",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "components",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "*.scss",
+            "patternOptions": { "matchBase": true },
+            "group": "sibling",
+            "position": "before"
+          }
+        ]
+      }
+    ]
+  }
 }
