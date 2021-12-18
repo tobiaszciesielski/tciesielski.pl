@@ -11,13 +11,13 @@ exports.createPages = async ({ graphql, actions }) => {
   });
 
   const { data } = await graphql(`
-query MyQuery {
-  allDatoCmsPost {
-    nodes {
-      slug
+    query MyQuery {
+      allDatoCmsPost {
+        nodes {
+          slug
+        }
+      }
     }
-  }
-}
   `);
 
   const blogPostTemplate = path.resolve(`./src/components/templates/Post.js`);
