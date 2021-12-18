@@ -1,7 +1,6 @@
 import React from 'react';
 
-import styles from './styles.module.scss';
-
+import styles from './layout.module.scss';
 export interface LayoutProps {
   children: React.ReactNode;
 }

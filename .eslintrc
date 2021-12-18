@@ -10,20 +10,15 @@
           "order": "asc",
           "caseInsensitive": true
         },
-        "pathGroupsExcludedImportTypes": [],
+        "pathGroupsExcludedImportTypes": ["builtin"],
         "pathGroups": [
           {
             "pattern": "react",
-            "group": "external",
+            "group": "builtin",
             "position": "before"
           },
           {
-            "pattern": "next/**",
-            "group": "external",
-            "position": "before"
-          },
-          {
-            "pattern": "components",
+            "pattern": "next|next/**",
             "group": "internal",
             "position": "before"
           },
