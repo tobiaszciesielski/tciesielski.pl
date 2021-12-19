@@ -10,13 +10,13 @@ export default function PostList(props: PostListProps) {
   return (
     <ul className={styles['post-list']}>
       {props.posts.map(({ title, slug }) => (
-        <Link key={slug} href={`blog/${slug}`} passHref>
-          <li>
-            <a href="">
+        <li key={slug}>
+          <Link href={`blog/${slug}`} passHref>
+            <a>
               <h2 className={styles['post-list__post']}>{title}</h2>
             </a>
-          </li>
-        </Link>
+          </Link>
+        </li>
       ))}
     </ul>
   );

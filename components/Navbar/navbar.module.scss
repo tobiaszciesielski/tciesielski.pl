@@ -8,6 +8,10 @@
   padding: $size-4;
   margin-bottom: $size-7;
 
+  &__logo {
+    cursor: pointer;
+  }
+
   &__home {
     font-weight: bold;
     position: relative;
