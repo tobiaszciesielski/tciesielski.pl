@@ -1,0 +1,29 @@
+@import 'variables';
+
+.post-list {
+  list-style: none;
+  display: flex;
+
+  &__post {
+    position: relative;
+    color: $light-white-0;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 0;
+      height: 2px;
+      background-color: $light-white-0;
+      width: 0;
+      transition: width 0.4s ease;
+    }
+
+    &:hover {
+      &::after {
+        width: 100%;
+        transition: width 0.4s ease;
+      }
+    }
+  }
+}
