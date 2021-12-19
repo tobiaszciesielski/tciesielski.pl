@@ -1,21 +1,23 @@
+@import 'variables';
+
 .logo__animation {
   animation: 8s linear color-change infinite;
 }
 
 @keyframes color-change {
   0% {
-    fill: #ae20a1;
+    fill: $light-fuchsia-0;
   }
   25% {
-    fill: #0c69d9;
+    fill: $light-blue-0;
   }
   50% {
-    fill: #00ffa3;
+    fill: $light-lime-0;
   }
   75% {
-    fill: #fe4545;
+    fill: $light-red-0;
   }
   100% {
-    fill: #ae20a1;
+    fill: $light-fuchsia-0;
   }
 }

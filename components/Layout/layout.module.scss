@@ -1,7 +1,9 @@
+@import 'variables';
+
 .layout {
   width: 100%;
   max-width: 800px;
-  padding: 0 20px;
+  padding: 0 $size-5;
   margin: 0 auto;
 }
 
