@@ -5,9 +5,9 @@
   max-width: 800px;
   padding: 0 $size-5;
   margin: 0 auto;
-}
 
-.layout__content {
-  width: 100%;
-  max-width: 800px;
+  &__content {
+    width: 100%;
+    max-width: 800px;
+  }
 }

@@ -24,3 +24,14 @@ body {
   margin: 0;
   padding: 0;
 }
+
+a {
+  color: $light-blue-0;
+  text-decoration: none;
+}
+
+hr {
+  margin: $size-7 auto;
+  border-color: $light-white-2;
+  width: 10%;
+}
