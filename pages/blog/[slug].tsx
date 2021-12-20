@@ -4,6 +4,7 @@ import fs from 'fs';
 import { join } from 'path';
 
 import matter from 'gray-matter';
+import { micromark } from 'micromark';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 
 export interface Meta {
@@ -18,7 +19,7 @@ const Post: NextPage = ({ post: { d, c } }: any) => {
   return (
     <div>
       <h1>{d.title}</h1>
-      <p>{c}</p>
+      <div dangerouslySetInnerHTML={{ __html: c }}></div>
     </div>
   );
 };
@@ -51,7 +52,7 @@ export const getStaticProps: GetStaticProps = async (props) => {
       const fileContents = fs.readFileSync(fullPath, 'utf8');
       const { data, content } = matter(fileContents);
       const d = data as Meta;
-      const c = content as string;
+      const c = micromark(content);
       return { d, c };
     }
   });
