@@ -2,7 +2,7 @@ import fs from 'fs';
 import { join } from 'path';
 
 import matter from 'gray-matter';
-import type { NextPage } from 'next';
+import type { GetStaticProps, NextPage } from 'next';
 
 import { Header } from '../components/Header';
 import { PostList, PostListProps } from '../components/PostList';
@@ -17,7 +17,7 @@ const Home: NextPage<PostListProps> = ({ posts }) => {
   );
 };
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const postsDirectory = join(process.cwd(), 'posts');
   const files = fs.readdirSync(postsDirectory);
 
@@ -33,6 +33,6 @@ export async function getStaticProps() {
   return {
     props: { posts },
   };
-}
+};
 
 export default Home;
