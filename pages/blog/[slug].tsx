@@ -1,11 +1,9 @@
 import React from 'react';
 
-import fs from 'fs';
-import { join } from 'path';
-
-import matter from 'gray-matter';
-import { micromark } from 'micromark';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
+
+import { getAllSlugs, getPostData } from '../../lib/posts';
+import { PostData } from '../../types/post';
 
 export interface Meta {
   title: string;
@@ -15,11 +13,11 @@ export interface Meta {
   category: string;
 }
 
-const Post: NextPage = ({ post: { d, c } }: any) => {
+const Post: NextPage<PostData> = (props) => {
   return (
     <div>
-      <h1>{d.title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: c }}></div>
+      <h1>{props.title}</h1>
+      <div dangerouslySetInnerHTML={{ __html: props.content }}></div>
     </div>
   );
 };
@@ -27,37 +25,15 @@ const Post: NextPage = ({ post: { d, c } }: any) => {
 export default Post;
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const postsDirectory = join(process.cwd(), 'posts');
-  const files = fs.readdirSync(postsDirectory);
-
-  const slugs: { params: { slug: string } }[] = files.map((mdFile) => {
-    return { params: { slug: mdFile.replace(/\.md$/, '') } };
-  });
-
   return {
-    paths: slugs,
+    paths: getAllSlugs().map((slug) => ({ params: { slug: slug } })),
     fallback: false,
   };
 };
 
 export const getStaticProps: GetStaticProps = async (props) => {
-  const postsDirectory = join(process.cwd(), 'posts');
-  const files = fs.readdirSync(postsDirectory);
-
-  const posts: any = files.map((mdFile) => {
-    const slug = mdFile.replace(/\.md$/, '');
-
-    if (slug === props.params?.slug) {
-      const fullPath = join(postsDirectory, mdFile);
-      const fileContents = fs.readFileSync(fullPath, 'utf8');
-      const { data, content } = matter(fileContents);
-      const d = data as Meta;
-      const c = micromark(content);
-      return { d, c };
-    }
-  });
-
+  const slug = props.params?.slug as string;
   return {
-    props: { post: posts[0] },
+    props: { ...getPostData(slug) },
   };
 };

@@ -1,15 +1,17 @@
 import Link from 'next/link';
 
+import { PostMeta } from '../../types/post';
+
 import styles from './postList.module.scss';
 
 export interface PostListProps {
-  posts: { title: string; slug: string }[];
+  postsMeta: PostMeta[];
 }
 
 export default function PostList(props: PostListProps) {
   return (
     <ul className={styles['post-list']}>
-      {props.posts.map(({ title, slug }) => (
+      {props.postsMeta.map(({ title, slug }) => (
         <li key={slug}>
           <Link href={`blog/${slug}`} passHref>
             <a>
