@@ -13,7 +13,7 @@ export default function PostList(props: PostListProps) {
     <ul className={styles['post-list']}>
       {props.postsMeta.map(({ title, slug, excerpt, date }) => (
         <li key={slug}>
-          <Link href={`blog/${slug}`} passHref>
+          <Link href={`/blog/${slug}`} passHref>
             <a>
               <span>{date}</span>
               <h2 className={styles['post-list__post']}>{title}</h2>

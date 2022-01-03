@@ -1,8 +1,13 @@
+// @ts-nocheck
+// @ts-ignore
+
 import fs from 'fs';
 import { join } from 'path';
 
 import matter from 'gray-matter';
-import { micromark } from 'micromark';
+import remark from 'remark';
+import remarkHtml from 'remark-html';
+import remarkPrism from 'remark-prism';
 
 import { PostData, PostMeta } from '../types/post';
 
@@ -31,10 +36,19 @@ export function getAllSlugs(): string[] {
   return slugs;
 }
 
-export function getPostData(slug?: string): PostData {
+export async function getPostData(slug: string): PostData {
   const fullPath = join(POST_DIRECTORY, `${slug}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data: meta, content } = matter(fileContents);
 
-  return { ...meta, slug, content: micromark(content) } as PostData;
+  const result = await remark()
+    .use(remarkHtml)
+    .use(remarkPrism)
+    .process(content);
+
+  return {
+    ...meta,
+    slug,
+    content: result.toString(),
+  } as PostData;
 }

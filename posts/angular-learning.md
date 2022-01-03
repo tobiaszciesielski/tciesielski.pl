@@ -10,7 +10,7 @@ category: 'Angular'
 
 **Components** - Angular is component based framework. It uses @Component decorator statement to create one.
 
-```jsx
+```js
 @Component({
   selector: 'hello-world',
   template: `

@@ -14,7 +14,7 @@ const Home: NextPage<PostListProps> = (props) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps = () => {
   return {
     props: { postsMeta: getAllPostsMeta() },
   };
