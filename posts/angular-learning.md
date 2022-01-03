@@ -30,13 +30,13 @@ category: 'Angular'
 
 We can inject variables in this templates. To do that we just surround this variable with double curly braces:
 
-```jsx
+```tsx
 <p>{{ myVariable }}</p>
 ```
 
 **Property bindings** can set component properties from html level.
 
-```jsx
+```tsx
 <p [id]="sayHelloId" [style.color]="fontColor">Set my color</p>
 ```
 

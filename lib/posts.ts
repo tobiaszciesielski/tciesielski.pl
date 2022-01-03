@@ -1,6 +1,3 @@
-// @ts-nocheck
-// @ts-ignore
-
 import fs from 'fs';
 import { join } from 'path';
 
@@ -36,14 +33,16 @@ export function getAllSlugs(): string[] {
   return slugs;
 }
 
-export async function getPostData(slug: string): PostData {
+export async function getPostData(slug: string): Promise<PostData> {
   const fullPath = join(POST_DIRECTORY, `${slug}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data: meta, content } = matter(fileContents);
 
   const result = await remark()
     .use(remarkHtml)
-    .use(remarkPrism)
+    .use(remarkPrism, {
+      transformInlineCode: false,
+    })
     .process(content);
 
   return {

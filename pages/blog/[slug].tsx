@@ -14,7 +14,9 @@ export interface Meta {
 }
 
 const Post: NextPage<PostData> = (props) => {
-  return <div dangerouslySetInnerHTML={{ __html: props.content }}></div>;
+  return (
+    <div dangerouslySetInnerHTML={{ __html: props.content }}></div>
+  );
 };
 
 export default Post;
