@@ -1,9 +1,12 @@
 import React from 'react';
 
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
+import Head from 'next/head';
 
 import { getAllSlugs, getPostData } from '../../lib/posts';
 import { PostData } from '../../types/post';
+
+import styles from '../../styles/post.module.scss';
 
 export interface Meta {
   title: string;
@@ -15,7 +18,16 @@ export interface Meta {
 
 const Post: NextPage<PostData> = (props) => {
   return (
-    <div dangerouslySetInnerHTML={{ __html: props.content }}></div>
+    <>
+      <Head>
+        <link rel="stylesheet" href="/code.css" />
+      </Head>
+
+      <div
+        className={styles.post}
+        dangerouslySetInnerHTML={{ __html: props.content }}
+      ></div>
+    </>
   );
 };
 

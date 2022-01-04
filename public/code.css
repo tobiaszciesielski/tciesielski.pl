@@ -6,34 +6,6 @@
  * Added by Souvik Mandal [@SimpleIndian]
  */
 
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
-
-h1,
-h2,
-h3,
-h4,
-h5 {
-  margin-bottom: 25px;
-}
-
-p {
-  margin-bottom: 15px;
-  line-height: 1.5;
-}
-
-pre {
-  margin: 15px 0;
-}
-
-code {
-  font-family: 'Fira Code', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono';
-  font-size: 16px;
-}
-
-pre > code {
-  font-size: 16px;
-}
-
 code[class*='language-'],
 pre[class*='language-'] {
   color: #d6deeb;
@@ -92,8 +64,7 @@ pre[class*='language-'] {
 }
 
 :not(pre) > code {
-  color: #fe4545; // #c7b9f8;
-
+  color: #fe4545;
   background: #011627;
   padding: 3px 6px;
   border-radius: 0.3em;
