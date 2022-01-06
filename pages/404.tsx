@@ -8,7 +8,7 @@ export default function Custom404() {
       <p>Strona, której szukasz nie istnieje</p>
       <Link href={'/'} passHref>
         <a>
-          <h1>Powrót do strony głównej</h1>
+          <h1 className="underline-link-animation">Powrót do strony głównej</h1>
         </a>
       </Link>
     </div>

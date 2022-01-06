@@ -14,7 +14,9 @@ export default function Header() {
       </Link>
 
       <Link href={'/'} passHref>
-        <a className={styles.navbar__home}>Home</a>
+        <a className={styles.navbar__item + ' underline-link-animation'}>
+          Home
+        </a>
       </Link>
     </nav>
   );

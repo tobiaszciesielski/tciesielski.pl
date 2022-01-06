@@ -1,4 +1,5 @@
 @import 'variables';
+@import 'shared';
 
 *,
 *::after,
@@ -33,5 +34,5 @@ a {
 hr {
   margin: $size-7 auto;
   border-color: $light-white-2;
-  width: 10%;
+  width: 100px;
 }

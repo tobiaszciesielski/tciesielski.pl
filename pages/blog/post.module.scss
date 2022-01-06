@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+@import 'variables';
+@import 'shared';
 
 .post {
   p {
@@ -29,5 +31,9 @@
 
   pre > code {
     font-size: 16px;
+  }
+
+  a {
+    @extend %underline-link-animation !optional;
   }
 }

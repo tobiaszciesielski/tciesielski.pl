@@ -1,0 +1,25 @@
+%underline-link-animation {
+  position: relative;
+  width: fit-content;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    height: 2px;
+    background-color: $light-blue-0;
+    width: 0;
+    transition: width 0.4s ease;
+  }
+
+  &:hover {
+    &::after {
+      width: 100%;
+      transition: width 0.4s ease;
+    }
+  }
+}
+
+.underline-link-animation {
+  @extend %underline-link-animation;
+}
