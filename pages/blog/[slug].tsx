@@ -7,7 +7,7 @@ import Head from 'next/head';
 import { getAllSlugs, getPostData } from '../../lib/posts';
 import { PostData } from '../../types/post';
 
-import styles from '../../styles/post.module.scss';
+import styles from './styles/post.module.scss';
 
 export interface Meta {
   title: string;
