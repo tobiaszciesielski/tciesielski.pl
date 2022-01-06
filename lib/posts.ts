@@ -8,6 +8,8 @@ import remarkPrism from 'remark-prism';
 
 import { PostData, PostMeta } from '../types/post';
 
+import { dateStringToDateObject } from './utils';
+
 export const POST_DIRECTORY = join(process.cwd(), 'posts');
 
 const getAllFileNames = () => fs.readdirSync(POST_DIRECTORY);
@@ -20,6 +22,13 @@ export function getAllPostsMeta(): PostMeta[] {
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const { data: meta } = matter(fileContents);
     return { ...meta, slug: file.replace('.md', '') } as PostMeta;
+  });
+
+  postsMeta.sort(function (a, b) {
+    return (
+      dateStringToDateObject(b.date).getTime() -
+      dateStringToDateObject(a.date).getTime()
+    );
   });
 
   return postsMeta;

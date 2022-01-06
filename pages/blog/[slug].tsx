@@ -25,10 +25,11 @@ const Post: NextPage<PostData> = (props) => {
         <link rel="stylesheet" href="/code.css" />
       </Head>
 
-      <article className={styles.post}>
-        <h1>{props.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: props.content }}></div>
-      </article>
+      <h1 className={styles.title}>{props.title}</h1>
+      <article
+        className={styles.post}
+        dangerouslySetInnerHTML={{ __html: props.content }}
+      ></article>
     </>
   );
 };
