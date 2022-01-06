@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
 
+import { DefaultSeo } from 'next-seo';
 import { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 
 import { Layout } from '../components/Layout';
 import { pageView } from '../lib/ga';
-
+import { defaultSeo } from '../seo.config';
 import '../styles/index.scss';
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -24,9 +25,12 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [router.events]);
 
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <>
+      <DefaultSeo {...defaultSeo} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </>
   );
 }
 

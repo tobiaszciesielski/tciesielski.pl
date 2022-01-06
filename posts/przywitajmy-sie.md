@@ -6,7 +6,6 @@ author: 'Tobiasz Ciesielski'
 category: 'Inne'
 ---
 
-# Przywitajmy się!
 
 Krótka historia o tym jak powstał ten blog
 

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
+import { NextSeo } from 'next-seo';
 import Head from 'next/head';
 
 import { getAllSlugs, getPostData } from '../../lib/posts';
@@ -19,14 +20,15 @@ export interface Meta {
 const Post: NextPage<PostData> = (props) => {
   return (
     <>
+      <NextSeo title={props.title} description={props.excerpt}></NextSeo>
       <Head>
         <link rel="stylesheet" href="/code.css" />
       </Head>
 
-      <div
-        className={styles.post}
-        dangerouslySetInnerHTML={{ __html: props.content }}
-      ></div>
+      <article className={styles.post}>
+        <h1>{props.title}</h1>
+        <div dangerouslySetInnerHTML={{ __html: props.content }}></div>
+      </article>
     </>
   );
 };

@@ -6,7 +6,6 @@ author: 'Tobiasz Ciesielski'
 category: 'Angular'
 ---
 
-# Angular Learning
 
 **Components** - Angular is component based framework. It uses @Component decorator statement to create one.
 

@@ -6,7 +6,6 @@ author: 'Tobiasz Ciesielski'
 category: 'Angular'
 ---
 
-# Using Prism with Next.js
 
 [**Prism**](https://prismjs.com/) is a popular syntax highlighter commonly used with Markdown.
 This example shows how to use Prism with [**Next.js**](https://nextjs.org/). Use the theme dropdown
