@@ -12,6 +12,11 @@
     cursor: pointer;
   }
 
+  &__items {
+    display: flex;
+    gap: $size-6;
+  }
+
   &__item {
     font-weight: bold;
   }
