@@ -24,12 +24,11 @@ export function getAllPostsMeta(): PostMeta[] {
     return { ...meta, slug: file.replace('.md', '') } as PostMeta;
   });
 
-  postsMeta.sort(function (a, b) {
-    return (
+  postsMeta.sort(
+    (a, b) =>
       dateStringToDateObject(b.date).getTime() -
       dateStringToDateObject(a.date).getTime()
-    );
-  });
+  );
 
   return postsMeta;
 }

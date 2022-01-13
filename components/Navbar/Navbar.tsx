@@ -4,6 +4,8 @@ import { Logo } from '../Logo';
 
 import styles from './navbar.module.scss';
 
+import NavbarItem from './NavbarItem';
+
 export default function Navbar() {
   return (
     <nav className={styles.navbar}>
@@ -20,18 +22,3 @@ export default function Navbar() {
     </nav>
   );
 }
-
-interface NavbarItemProps {
-  path: string;
-  name: string;
-}
-
-const NavbarItem = ({ path, name }: NavbarItemProps) => {
-  return (
-    <Link href={path} passHref>
-      <a className={styles.navbar__item + ' underline-link-animation'}>
-        {name}
-      </a>
-    </Link>
-  );
-};
