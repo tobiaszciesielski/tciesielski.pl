@@ -23,3 +23,15 @@
 .underline-link-animation {
   @extend %underline-link-animation;
 }
+
+.iconLink {
+  display: block;
+  :hover {
+    fill-opacity: 0.75;
+  }
+}
+
+.icon {
+  width: 28px;
+  height: 28px;
+}

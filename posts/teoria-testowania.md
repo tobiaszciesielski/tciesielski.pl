@@ -39,7 +39,9 @@ Robimy dokładnie to co mógłby zrobić nasz użytkownik, działamy w prawdziwy
 
 Możemy sprawdzać, czy jakieś piksele się nie przesunęły na frontendzie. Czy nasz komponent wyrenderował się poprawnie oraz jakie są różnice pomiędzy poprzednim renderowaniem a aktualnym.
 
-# Dobre praktyki
+---
+
+## Dobre praktyki
 
 ## Don't test implementation details !
 
@@ -57,9 +59,9 @@ Nasze testy powinny odzwierciedlać to co użytkownik robi z naszym komponentem 
 
 Podczas testowania należy unikać zagnieżdżania testów. Nie powinno być tak, że jakaś zmienna zależy od jakiegoś testu, a w tym teście używana jest po teście kolejnym ponieważ to utrudnia bardzo czytanie testów i rozumienie co dana zmienna ma zrobić.
 
-# Statyczna analiza kodu
+## Statyczna analiza kodu
 
-#### Lintery
+## Lintery
 
 ESlint jest narzędziem do statycznej analizy kodu, która pozwala wyeliminować błędy na poziomie pisania kodu, jeszcze przed uruchomieniem. Analizuje kod pod względem podatności na błędy. ESlint należy odpowiednio skonfigurować oraz zainstalować rozszerzenie w naszym IDE. W moim przypadku jest to ESLint w VS Code.
 
@@ -91,7 +93,7 @@ I dodajemy rozszerzenia to pliku konfiguracyjnego `.eslintrc.js`
 "extends": ["airbnb", "airbnb/hooks"]
 ```
 
-#### Prettier
+## Prettier
 
 Prettier to formater kodu ale tak właściwie to jakie problemy on rozwiązuje?
 
@@ -145,7 +147,7 @@ Statyczne typowanie jest bardzo cenną cechą języków programowania. Dzięki n
 
 Konfigurację TS pokażę w dalszej części poradnika.
 
-# Testy w praktyce
+## Testy w praktyce
 
 Poniższa aplikacja została napisana w ts-node, czyli środowisku uruchomieniowym JavaScriptu z transkompilatorem TypeScript. Poniżej przedstawiam potrzebne narzędzia oraz komendy, które pozwolą nam utworzyć projekt.
 

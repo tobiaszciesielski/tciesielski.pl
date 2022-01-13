@@ -1,0 +1,15 @@
+@import 'variables';
+
+.footer {
+  color: $light-white-1;
+  margin-top: 40px;
+  padding: 40px;
+  display: flex;
+  gap: $size-3;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon_heart {
+  fill: #d41010;
+}

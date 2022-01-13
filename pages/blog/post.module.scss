@@ -4,7 +4,7 @@
 
 .title {
   text-align: center;
-  margin: 35px 0;
+  margin-bottom: 50px;
   color: $light-red-0;
 }
 
@@ -18,11 +18,20 @@
     margin: 20px 0;
   }
 
-  h2,
-  h3,
-  h4,
+  h2 {
+    margin: 50px 0px 30px 0px;
+  }
+
+  h3 {
+    margin: 40px 0px 20px 0px;
+  }
+
+  h4 {
+    margin: 30px 0px 15px 0px;
+  }
+
   h5 {
-    margin: 35px 0px 25px 0px;
+    margin: 20px 0px 10px 0px;
   }
 
   pre {
@@ -56,6 +65,7 @@
     margin: $size-6 0;
     padding: 16px 40px;
     background-color: $dark-blue-1;
+    border-radius: 3px;
 
     p {
       margin: 0;
@@ -69,6 +79,8 @@
       background-color: $light-white-1;
       left: 0px;
       top: 0;
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px;
     }
   }
 

@@ -15,7 +15,7 @@ export const POST_DIRECTORY = join(process.cwd(), 'posts');
 const getAllFileNames = () => fs.readdirSync(POST_DIRECTORY);
 
 export function getAllPostsMeta(): PostMeta[] {
-  const files = getAllFileNames();
+  const files = getAllFileNames().filter((f) => f.includes('.md'));
 
   const postsMeta: PostMeta[] = files.map((file) => {
     const fullPath = join(POST_DIRECTORY, file);
