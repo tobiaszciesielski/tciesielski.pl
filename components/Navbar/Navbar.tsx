@@ -11,7 +11,7 @@ export default function Navbar() {
     <nav className={styles.navbar}>
       <Link href={'/'} passHref>
         <a>
-          <Logo width={45} height={45} />
+          <Logo />
         </a>
       </Link>
 

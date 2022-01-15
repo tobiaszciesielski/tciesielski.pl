@@ -1,6 +1,6 @@
 import React from 'react';
 
-import HeartIcon from '../../assets/icons/heart.svg';
+import { HeartIcon } from '../../assets/icons';
 
 import styles from './footer.module.scss';
 

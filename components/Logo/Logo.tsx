@@ -1,15 +1,15 @@
 import styles from './logo.module.scss';
 
 export interface LogoProps {
-  width: number;
-  height: number;
+  width?: number;
+  height?: number;
 }
 
-export default function Logo(props: LogoProps) {
+export default function Logo({ width = 45, height = 45 }: LogoProps) {
   return (
     <svg
-      width={props.width}
-      height={props.height}
+      width={width}
+      height={height}
       viewBox="0 0 56 54"
       xmlns="http://www.w3.org/2000/svg"
     >

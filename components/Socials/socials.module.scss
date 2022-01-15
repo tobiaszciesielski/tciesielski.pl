@@ -1,0 +1,11 @@
+@import 'variables';
+
+.socials {
+  width: fit-content;
+  display: flex;
+  gap: $size-5;
+
+  &__icon {
+    fill: #fff;
+  }
+}
