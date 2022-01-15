@@ -7,8 +7,7 @@ import { getAllPostsMeta } from '../lib/posts';
 const Home: NextPage<PostListProps> = (props) => {
   return (
     <>
-      <Header />
-      <hr />
+      <Header title="Blog" />
       <PostList postsMeta={props.postsMeta} />
     </>
   );

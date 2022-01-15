@@ -2,12 +2,13 @@
 
 .footer {
   color: $light-white-1;
-  margin-top: 40px;
-  padding: 40px;
+  margin-top: $size-7;
+  padding: $size-7 0;
   display: flex;
   gap: $size-3;
   align-items: center;
   justify-content: center;
+  font-style: italic;
 }
 
 .icon_heart {

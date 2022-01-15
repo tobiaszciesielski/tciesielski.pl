@@ -4,6 +4,7 @@ import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { NextSeo } from 'next-seo';
 import Head from 'next/head';
 
+import { Header } from '../../components/Header';
 import { getAllSlugs, getPostData } from '../../lib/posts';
 import { PostData } from '../../types/post';
 
@@ -25,7 +26,8 @@ const Post: NextPage<PostData> = (props) => {
         <link rel="stylesheet" href="/code.css" />
       </Head>
 
-      <h1 className={styles.title}>{props.title}</h1>
+      <Header title={props.title} />
+
       <article
         className={styles.post}
         dangerouslySetInnerHTML={{ __html: props.content }}

@@ -2,15 +2,7 @@
 
 .header {
   width: 100%;
+  margin-bottom: $size-8;
   text-align: center;
-
-  &__greetings {
-    color: $light-red-0;
-    margin-bottom: $size-4;
-  }
-
-  &__description {
-    color: $light-white-2;
-    margin-bottom: $size-3;
-  }
+  color: $light-red-0;
 }
