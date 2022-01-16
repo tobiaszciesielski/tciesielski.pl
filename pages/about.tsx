@@ -16,7 +16,7 @@ const About: NextPage = () => {
             <h2>Cześć!</h2>
             <p>
               Mam na imię Tobiasz i jestem programistą front-end. Czerpię
-              mnóstwo frajdy z tego co robię i ciągle szukam nowych wyzwań i
+              mnóstwo frajdy z tego, co robię i ciągle szukam nowych wyzwań i
               możliwości, żeby poszerzać swoją wiedzę.
             </p>
             <p>
@@ -27,21 +27,22 @@ const About: NextPage = () => {
             <p>Sprawdź moje social media.</p>
             <Socials />
           </div>
-          <Image
-            className={styles.about__image}
-            width={380}
-            height={500}
-            src="/images/me.jpeg"
-            alt="Tobiasz Ciesielski"
-          />
+          <div className={styles.about__image}>
+            <Image
+              width={380}
+              height={500}
+              src="/images/me.jpeg"
+              alt="Tobiasz Ciesielski"
+            />
+          </div>
         </div>
         <div className={styles.about__questions}>
           <div>
             <h3>Technologie</h3>
             <p>
-              Moim pierwszym wyborem był React, który tworzyszy mi do tej pory.
-              Kolejnym narzędziem jest Angular, którego używam na codzień w
-              pracy. Nie zapominam o fundamentach i cały czas dostkonalę świętą
+              Moim pierwszym wyborem był React, który towarzyszy mi do tej pory.
+              Kolejnym narzędziem jest Angular, którego używam na co dzień w
+              pracy. Nie zapominam o fundamentach i cały czas dostkonale świętą
               trójcę front-endowca - HTML, CSS, JS.
             </p>
           </div>
@@ -61,7 +62,7 @@ const About: NextPage = () => {
             <h3>Praca</h3>
             <p>
               Aktualnie pracuję w Prowly. Jest to moja pierwsza praca w branży,
-              która podniosła poprzeczkę bardzo wysoko. Cenię sobię możliwość
+              która podniosła poprzeczkę bardzo wysoko. Cenię sobie możliwość
               rozwoju, elastyczność pracy oraz świetnych, ambitnych i
               profesjonalnych ludzi.
             </p>
@@ -69,8 +70,39 @@ const About: NextPage = () => {
           <div>
             <h3>Nauka</h3>
             <p>
-              Jestem inżynierem Automatyki i Robotyki. Aktualnie studiuję Informatykę na II stopniu. Oba kierunki na Politechnice Poznańskiej.
-              Aktywnie działam w kole naukowym AKAI, gdzie poznałem wielu przyjaciół. Uwielbiam dzielić się wiedzą i wymieniać doświadczeniem z innymi.
+              Jestem inżynierem Automatyki i Robotyki. Aktualnie studiuję
+              Informatykę na II stopniu. Oba kierunki na Politechnice
+              Poznańskiej. Aktywnie działam w kole naukowym{' '}
+              <a
+                href="https://akai.org.pl/"
+                rel="noreferrer"
+                target="_blank"
+                className="underline-link-animation"
+              >
+                AKAI
+              </a>
+              , gdzie poznałem wielu przyjaciół. Uwielbiam dzielić się wiedzą i
+              wymieniać doświadczeniem z innymi.
+            </p>
+          </div>
+          <div>
+            <h3>Setup</h3>
+            <p>
+              Jestem gadżeciarzem, więc tej pozycji nie mogło zabraknąć.
+              Posiadam dwie klawiatury Keychrone K6 i Logitech MX Keys Mini.
+              Myszki też są w parze z Logitech - MX Master 3 i G Pro. Od
+              niedawna pracuję na C49RG90, który wciąż robi na mnie wrażenie.
+              Całość zasila Macbook Pro M1 13".
+            </p>
+          </div>
+          <div>
+            <h3>Zainteresowania</h3>
+            <p>
+              Sport to nieodłączna część mojego życia - regularnie trenuję na
+              siłowni, a w sezonie pokonuję długie trasy na kolarzówce. Lubię
+              resetować głowę, grając w gry i oglądając dobre filmy. Interesuję
+              się gotowaniem, kawą, szachami, dietetyką, technologiami i
+              inwestowaniem. Pewnie coś jeszcze by się znalazło.
             </p>
           </div>
         </div>

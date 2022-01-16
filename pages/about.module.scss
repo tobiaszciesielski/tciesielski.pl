@@ -15,7 +15,11 @@
   }
 
   &__image {
-    border-radius: 5px;
+    text-align: center;
+    
+    img {
+      border-radius: 5px;
+    }
   }
 
   &__questions {
@@ -23,5 +27,12 @@
     grid-template-columns: 1fr 1fr;
     gap: $size-8;
     row-gap: $size-5;
+  }
+
+  @media (max-width: 767px) {
+    &__me,
+    &__questions {
+      grid-template-columns: 1fr;
+    }
   }
 }

@@ -1,6 +1,7 @@
 @import 'variables';
 
 .logo__animation {
+  fill: $light-red-0;
   animation: 8s linear color-change infinite;
 }
 
