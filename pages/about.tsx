@@ -92,7 +92,7 @@ const About: NextPage = () => {
               Posiadam dwie klawiatury Keychrone K6 i Logitech MX Keys Mini.
               Myszki też są w parze z Logitech - MX Master 3 i G Pro. Od
               niedawna pracuję na C49RG90, który wciąż robi na mnie wrażenie.
-              Całość zasila Macbook Pro M1 13".
+              Całość zasila Macbook Pro M1 13&quot;.
             </p>
           </div>
           <div>
