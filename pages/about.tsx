@@ -12,9 +12,7 @@ const About: NextPage = () => {
     <>
       <NextSeo
         title="O mnie"
-        description="Jestem programistą front-end. Czerpię
-              mnóstwo frajdy z tego, co robię i ciągle szukam nowych wyzwań i
-              możliwości, żeby poszerzać swoją wiedzę."
+        description="Znajdziesz tutaj informacje o mnie, o tym kim jestem, co robię i dlaczego to robię."
       />
       <Header title="Poznajmy się bliżej" />
       <div className={styles.about}>
@@ -30,6 +28,17 @@ const About: NextPage = () => {
               Najważniejsze dla mnie jest bycie świadomym oraz pragmatycznym
               programistą, dlatego też uwielbiam rozbijać wszystko na czynniki
               pierwsze.
+            </p>
+            <p>
+              Jeżeli masz jakieś pytania związane z branżą lub po prostu chcesz
+              ze mną porozmawiać, to napisz do mnie{' '}
+              <a
+                className="underline-link-animation"
+                href="mailto:tobiasz.ciesielski98@gmail.com"
+              >
+                maila
+              </a>
+              , na pewno odpowiem!
             </p>
             <p>Sprawdź moje social media.</p>
             <Socials />
