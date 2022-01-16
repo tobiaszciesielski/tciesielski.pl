@@ -7,7 +7,7 @@ const twitterProfile = '@tobi_lan_kenobi';
 
 export const defaultSeo: DefaultSeoProps = {
   description: defaultDescription,
-  titleTemplate: '%s | Tobiasz Ciesielski',
+  titleTemplate: '%s | tciesielski.pl',
   defaultTitle: defaultTitle,
   canonical: defaultUrl,
   openGraph: {

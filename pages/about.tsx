@@ -1,4 +1,5 @@
 import type { NextPage } from 'next';
+import { NextSeo } from 'next-seo';
 import Image from 'next/image';
 
 import { Header } from '../components/Header';
@@ -9,6 +10,12 @@ import styles from './about.module.scss';
 const About: NextPage = () => {
   return (
     <>
+      <NextSeo
+        title="O mnie"
+        description="Jestem programistą front-end. Czerpię
+              mnóstwo frajdy z tego, co robię i ciągle szukam nowych wyzwań i
+              możliwości, żeby poszerzać swoją wiedzę."
+      />
       <Header title="Poznajmy się bliżej" />
       <div className={styles.about}>
         <div className={styles.about__me}>
