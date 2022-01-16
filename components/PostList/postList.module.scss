@@ -1,6 +1,6 @@
 @import 'variables';
 
-.post-list {
+.postList {
   list-style: none;
   padding-left: 0;
   margin-top: 0;
@@ -12,6 +12,9 @@
     display: flex;
     flex-direction: column;
     gap: $size-3;
+    padding: $size-6;
+    background-color: $dark-blue-1;
+    border-radius: $size-4;
   }
 
   & span {
@@ -21,5 +24,6 @@
 
   & p {
     color: $light-white-1;
+    line-height: 1.6;
   }
 }

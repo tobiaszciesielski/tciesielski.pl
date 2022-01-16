@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://tciesielski.pl
+
+# Sitemaps
+Sitemap: https://tciesielski.pl/sitemap.xml

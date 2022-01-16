@@ -14,7 +14,6 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   useEffect(() => {
     const handleRouteChange = (url: string) => {
-      console.log('Route changed');
       pageView(url);
     };
     router.events.on('routeChangeComplete', handleRouteChange);
