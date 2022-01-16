@@ -1,17 +1,27 @@
 @import 'variables';
 
 .about {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: $size-5;
-
   p {
     line-height: 1.6;
     margin: 20px 0;
   }
-}
 
-.about__image {
-  border-radius: 5px;
+  &__me {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $size-8;
+    margin-bottom: $size-8;
+  }
+
+  &__image {
+    border-radius: 5px;
+  }
+
+  &__questions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $size-8;
+    row-gap: $size-5;
+  }
 }
