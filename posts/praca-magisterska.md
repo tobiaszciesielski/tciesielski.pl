@@ -6,8 +6,6 @@ author: 'Tobiasz Ciesielski'
 category: 'Inne'
 ---
 
-# Praca magisterska
-
 - architektura
 - podejścia jakie są stosowane przez takie narzędzia, żeby polepszyć UX użytkowników appek
 - jeśli udałoby Ci się coś takiego ogarnąć to chętnie posłużę jako proofreader
@@ -30,5 +28,3 @@ Porównanie architektury oraz wydajności aplikacji webowych stworzonych z wykor
 Front-end devopment is full of different web development tools that can be difficult to choose. They differ from each other in how they solve common technical problems which have impact on user experience. The aim of this thesis was to compare modern front-end frameworks focusing on their architecture and techniques for creating user interfaces. Making developers decision easier by knowing which tool covers software needs the best. In conclusion. The conclusion presents the results of the survey on users who used the same application developed in different frameworks.
 
 adwad
-
-![Screenshot 2022-01-09 at 20.26.04.png](/images/Screenshot_2022-01-09_at_20.26.04.png)
