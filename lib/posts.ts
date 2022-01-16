@@ -3,6 +3,7 @@ import { join } from 'path';
 
 import matter from 'gray-matter';
 import remark from 'remark';
+import remarkExternalLinks from 'remark-external-links';
 import remarkHtml from 'remark-html';
 import remarkPrism from 'remark-prism';
 
@@ -48,6 +49,8 @@ export async function getPostData(slug: string): Promise<PostData> {
 
   const result = await remark()
     .use(remarkHtml)
+    // @ts-ignore
+    .use(remarkExternalLinks)
     .use(remarkPrism, {
       transformInlineCode: false,
     })
