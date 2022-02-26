@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Footer } from '../Footer';
 import { Navbar } from '../Navbar';
+import { Newsletter } from '../Newsletter';
 
 import styles from './layout.module.scss';
 export interface LayoutProps {
@@ -14,6 +15,7 @@ export default function Layout(props: LayoutProps) {
       <div className={styles.layout__content}>
         <Navbar />
         {props.children}
+        <Newsletter />
         <Footer />
       </div>
     </div>
