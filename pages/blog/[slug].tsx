@@ -2,13 +2,11 @@ import React from 'react';
 
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { NextSeo } from 'next-seo';
-import Head from 'next/head';
 
 import { Header } from '../../components/Header';
+import { PostContent } from '../../components/PostContent';
 import { getAllSlugs, getPostData } from '../../lib/posts';
 import { PostData } from '../../types/post';
-
-import styles from './post.module.scss';
 
 export interface Meta {
   title: string;
@@ -22,16 +20,10 @@ const Post: NextPage<PostData> = (props) => {
   return (
     <>
       <NextSeo title={props.title} description={props.excerpt}></NextSeo>
-      <Head>
-        <link rel="stylesheet" href="/code.css" />
-      </Head>
 
       <Header title={props.title} />
 
-      <article
-        className={styles.post}
-        dangerouslySetInnerHTML={{ __html: props.content }}
-      ></article>
+      <PostContent content={props.content} />
     </>
   );
 };

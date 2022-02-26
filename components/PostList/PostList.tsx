@@ -14,8 +14,8 @@ export default function PostList(props: PostListProps) {
       {props.postsMeta.map(({ title, slug, excerpt, date, category }) => (
         <li key={slug} className={styles.postList__post}>
           <Link href={`/blog/${slug}`} passHref>
-            <a>
-              <h2 className="underline-link-animation">{title}</h2>
+            <a className="underline-link-animation">
+              <h2>{title}</h2>
             </a>
           </Link>
           <p>{excerpt}</p>
