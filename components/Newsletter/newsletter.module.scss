@@ -9,7 +9,8 @@
   text-align: center;
 
   &__title {
-    margin-bottom: $size-4;
+    font-size: 32px;
+    margin-bottom: $size-5;
   }
 
   &__description {
@@ -24,6 +25,23 @@
     align-items: center;
   }
 
+  &__label {
+    position: relative;
+    width: 100%;
+    max-width: 350px;
+  }
+
+  &__error {
+    position: absolute;
+    text-align: left;
+    margin-left: $size-2;
+    top: calc(100% + $size-2);
+    left: 0;
+    width: 100%;
+    font-size: 14px;
+    color: $light-red-0;
+  }
+
   &__button {
     border-radius: $size-4;
     padding: $size-4 $size-6;
@@ -33,15 +51,25 @@
     cursor: pointer;
     background-color: $light-blue-1;
     color: $light-white-0;
+
+    &_disabled {
+      pointer-events: none;
+      opacity: 0.7;
+    }
   }
 
   &__input {
     padding: $size-3 $size-4;
     font-size: 18px;
     width: 100%;
-    max-width: 350px;
     outline: none;
     border-radius: $size-4;
     border: none;
+  }
+
+  &__success {
+    margin-bottom: $size-4;
+    color: $light-lime-0;
+    font-size: 28px;
   }
 }
