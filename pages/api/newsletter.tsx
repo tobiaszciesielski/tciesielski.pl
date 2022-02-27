@@ -18,6 +18,8 @@ export default async function handler(
   try {
     const { url, data, headers } = getRequestParams(email);
 
+    console.log({ url, data, headers });
+
     await fetch(url, {
       method: 'post',
       body: JSON.stringify(data),
