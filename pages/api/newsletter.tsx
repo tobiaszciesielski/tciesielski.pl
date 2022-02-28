@@ -11,7 +11,7 @@ export default async function handler(
 
   if (!email || !email.length) {
     return res.status(400).json({
-      error: 'Nie zapisano do newslettera. Wprowadź email.',
+      error: 'Wprowadź adres email.',
     });
   }
 
@@ -29,7 +29,7 @@ export default async function handler(
     return res.status(201).json({ error: null });
   } catch (error) {
     return res.status(500).json({
-      error: `Nie zapisano do newslettera. Spróbuj ponownie.`,
+      error: `Coś poszło nie tak. Spróbuj ponownie.`,
     });
   }
 }
