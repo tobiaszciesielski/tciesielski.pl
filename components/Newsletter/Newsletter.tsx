@@ -14,7 +14,7 @@ export default function Newsletter() {
   const handleSubmit = (event: React.SyntheticEvent<HTMLFormElement>): void => {
     event.preventDefault();
 
-    setState({ ...state, isLoading: true });
+    setState({ ...state, isLoading: true, error: '' });
 
     fetch('/api/newsletter', {
       method: 'POST',
@@ -39,7 +39,7 @@ export default function Newsletter() {
 
   const handleChange = (event: React.FormEvent<HTMLInputElement>): void => {
     const input = event.target as HTMLInputElement;
-    setState({ ...state, email: input.value, error: '' });
+    setState({ ...state, email: input.value });
   };
 
   return (
